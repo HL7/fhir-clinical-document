@@ -4,6 +4,10 @@ Id: clinical-document-bundle
 Title: "Clinical Document Bundle Profile"
 Description: "Starting point for a specification for a composition of a Structured Document."
 * type = #document
+
+* identifier ^mapping[0].identity = "cda"
+* identifier ^mapping[=].map = "AN EXAMPLE MAPPING"
+
 * entry 1..* MS
 * entry.resource 1..1 MS // each entry must have a resource
 * entry ^slicing.discriminator.type = #type
