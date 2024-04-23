@@ -14,15 +14,15 @@ fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2024+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
-# jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
+jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
     valueCode: sd
 
 publisher:
-  name: HL7
-  url: http://example.org/example-publisher
+  name: HL7 International / Structured Documents
+  url: http://www.hl7.org/Special/committees/structure
   # email: test@example.org
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
