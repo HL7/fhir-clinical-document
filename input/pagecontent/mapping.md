@@ -12,12 +12,8 @@ Scope for this version of the IG is limited to FHIR artifacts reflecting the CDA
 5. CDA section attributes; 
 6. CDA section participants, excluding profiles corresponding to RIM entities; 
 7. CDA section relationships, excluding profiles corresponding to RIM Acts. 
-<img src="CDA_RMIM.png" height="290" width="715"/>
+<img src="CDA_RMIM.png" height="290" width="715" border=1/>
 
 
-
-# CDA mapping
+# CDA mapping (detailed)
 (see mapping spreadsheet)
-* id vs. identifier
-* map to bundle AND/OR composition
-* other...
