@@ -8,15 +8,4 @@ Today there are more than 257 existing profiles on Bundle, and more than more th
 
 At a high level, a FHIR Clinical Document is a document Bundle containing a Composition and artifacts referred to by the Composition sections. The Composition is similar to an index, but also contains key header information. It is important to remember that the entire document Bundle is the FHIR Clinical Document, not just the Composition. 
 
-# FHIR Clinical Documents - Special Topics
-
-## Clinical document succession management
-Versioning is an important feature of Clinical Documentation
-
-## Immutable vs. parseable clinical documents
-Clinical documents serve as a legal record (Immutable) but decomposing the document can be useful, e.g. searching for components  (Parseable).
-
-## CDA procedure and imaging reports
-blah blah blah ...
-
 # How to Read this guide
