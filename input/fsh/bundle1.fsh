@@ -1,8 +1,8 @@
 Profile: ClinicalDocumentBundle
 Parent: Bundle
 Id: clinical-document-bundle
-Title: "Clinical Document Bundle Profile"
-Description: "Starting point for a specification for a composition of a Structured Document."
+Title: "FHIR Clinical Document Bundle Profile"
+Description: "Universal starting point for specifying a FHIR Clinical Document."
 * type = #document
 
 * identifier ^mapping[0].identity = "cda"
@@ -74,6 +74,7 @@ Description: "Starting point for a specification for a composition of a Structur
 * section.text MS
 * section.title 1..1 MS
 //seems consistent that where there is a slice in a profile that the Title is required and MS
+
 
 
 

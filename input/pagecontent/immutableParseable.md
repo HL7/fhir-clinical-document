@@ -1,0 +1,4 @@
+## Immutable vs. parseable clinical documents
+FHIR allows for clinical documents to be parseable. The Bundle can be iterated through to pull the content from each section. A base algorithm would rely upon the composition to ensure linkages between local copies of artifacts. Be sure to include proper provenance if creating local copies of FHIR artifacts found in the Bundle. 
+
+The resulting parsed copies are no longer part of the original Immutable document which was received. If reassembled then the original document will be noted as the parent document using the relates-to relationship in Composition, and include a relationship type (Note, in FHIR R5 this has been updated to point to a RelatedArtifact instance. The path to elements, like type and the reference to the original clinical document, are slightly different but all the data elements remain).

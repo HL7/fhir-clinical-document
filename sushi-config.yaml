@@ -82,14 +82,30 @@ publisher:
 menu:
   Home: index.html
   Artifacts: artifacts.html
-  Appendix: mapping.html
-
+  CDA Mapping: mapping.html
+  RIM: rimCDApic.html
+  Immutable and Parseable: immutableParseable.html
+  Succession Management: versioning.html
+  Appendix: 
+    Security: security.html
+    Downloads: downloads.html
+    IP Statement: ip_statement.html
+    Testing IGs: testing.html
+   
 pages:
   index.md:
     title: Home
   mapping.md:
     title: CDA Mapping
-    
+  rimCDApic.md:
+    title: RIM
+  immutableParseable.md:
+  versioning.md:
+  security.md:
+  downloads.md:
+  ip_statement.md:
+  testing.md:
+  
 parameters:
   apply-wg: true    
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
