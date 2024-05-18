@@ -91,6 +91,7 @@ menu:
     Downloads: downloads.html
     IP Statement: ip_statement.html
     Testing IGs: testing.html
+    Dependencies, Globals and CrossVersionAnalysis: dependencies_globals_CrossVersionAnalysis.html
    
 pages:
   index.md:
@@ -105,6 +106,7 @@ pages:
   downloads.md:
   ip_statement.md:
   testing.md:
+  dependencies_globals_CrossVersionAnalysis.md:
   
 parameters:
   apply-wg: true    

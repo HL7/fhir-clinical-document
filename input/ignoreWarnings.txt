@@ -1,5 +1,13 @@
 == Suppressed Messages ==
 
-# Add warning and/or information messages here after you've confirmed that they aren't really a problem
-# (And include comments like this justifying why)
-# See https://github.com/FHIR/sample-ig/blob/master/input/ignoreWarnings.txt for examples
+# temporary 
+The Implementation Guide contains no examples for this extension
+
+# intended reference to draft codesystem
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0
+
+# intended reference. The deprecation is due to later FHIR core versions adopting a new backbone element. If we keep this element we will revise with a backport
+The extension http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber|5.1.0 is deprecated
+
+# these slices are additional demonstration slices and not meant to match the declared slice
+This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/clinical-document-bundle|0.1.0
