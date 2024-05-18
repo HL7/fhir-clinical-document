@@ -83,7 +83,6 @@ menu:
   Home: index.html
   Artifacts: artifacts.html
   CDA Mapping: mapping.html
-  RIM: rimCDApic.html
   Immutable and Parseable: immutableParseable.html
   Succession Management: versioning.html
   Appendix: 
@@ -98,8 +97,6 @@ pages:
     title: Home
   mapping.md:
     title: CDA Mapping
-  rimCDApic.md:
-    title: RIM
   immutableParseable.md:
   versioning.md:
   security.md:
