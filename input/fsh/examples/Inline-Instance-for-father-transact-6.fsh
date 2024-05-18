@@ -9,10 +9,6 @@ Usage: #inline
 * subject = Reference(http://fhir.healthintersections.com.au/open/Patient/d1) "Peter Patient"
 * requester = Reference(http://fhir.healthintersections.com.au/open/Practitioner/examplet) "Peter Practitioner"
 * reasonCode.text = "Management of Asthma"
+
+* dosageInstruction.text = "1 tablets twice daily, orally"
 * dosageInstruction.additionalInstruction.text = "Take with Food"
-* dosageInstruction.timing.repeat.frequency = 2
-* dosageInstruction.timing.repeat.period = 1
-* dosageInstruction.timing.repeat.periodUnit = #d
-* dosageInstruction.route = $sct#394899003 "oral administration of treatment"
-* dosageInstruction.doseAndRate.type = $dose-rate-type#ordered "Ordered"
-* dosageInstruction.doseAndRate.doseQuantity = 1 http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm#'TAB' "TAB"
