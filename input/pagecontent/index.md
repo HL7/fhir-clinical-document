@@ -8,4 +8,9 @@ Today there are more than 257 existing profiles on Bundle, and more than more th
 
 At a high level, a FHIR Clinical Document is a document Bundle containing a Composition and artifacts referred to by the Composition sections. The Composition is similar to an index, but also contains key header information. It is important to remember that the entire document Bundle is the FHIR Clinical Document, not just the Composition. 
 
-# How to Read this guide
+# Where to find mappings
+The mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) mappings.
+
+# Note
+We have borrowed from FHIR Core, the [International Patient Summary IG](http://hl7.org/fhir/uv/ips/) and the [C-CDA on FHIR IG]( http://hl7.org/fhir/us/ccda/). This includes several extensions from the C-CDA on FHIR IG.
+
