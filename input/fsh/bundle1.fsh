@@ -6,7 +6,8 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 * type = #document
 
 * identifier ^mapping[0].identity = "cda"
-* identifier ^mapping[=].map = "This is the Document identifier"
+//* identifier ^mapping[=].map = "This is the Document identifier"
+* identifier ^mapping[=].comment =  "This is the Document identifier"
 * total 0..0
 
 * entry 1..* MS
