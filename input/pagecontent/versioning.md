@@ -1,18 +1,15 @@
 ## Clinical document succession management
-FHIR Clinical Document succession management enables unambiguous document management as clinical documents are revised and/or appended over time.  
+A FHIR Clinical Document can be replaced by a new document and/or appended with an addendum document.
 
-While within a FHIR server, the resource.id and resource.meta fields enable resource succession management, it can also be necessary to communicate revisions to external recipients. Resource.id and resource.meta are generally not useful for such communication because they are server-specific. Instead, **Bundle.identifier**, **Bundle.timestamp**, **Composition.identifier**, **Composition.version**, **Composition.date**, and **Composition.relatesTo** are used.
+A replacement document is a new version of a document. The replaced document is considered superseded, but a system may retain it for historical or auditing purposes. The replacement document references the replaced document via the replacement document's Composition.relatesTo, where relatesTo.code is 'replaces' and the target of relatesTo.targetIdentifier is the replaced document's Bundle.identifier. 
 
-The single globally unique shareable identifier for a FHIR Clinical Document is Bundle.identifer, where Bundle.timestamp indicates the bundle assembly time. Composition.identifier can optionally be used to identify a family of FHIR compositions (e.g. an original clinical document and a replacement of that clinical document share the same Composition.identifier), using the Composition.version to chronologically order the compositions. 
+An addendum is a separate document that references another document, and may extend or alter the observations in the referenced document. The referenced document remains active, and the addendum and its related document are both read by report recipients. The addendum document references the document being appended via the addendum document's Composition.relatesTo, where relatesTo.code is 'appends' and the target of relatesTo.targetIdentifier is the appended document's Bundle.identifier. 
 
-Where a FHIR Clinical Document is replaced by a new FHIR Clinical Document, the replacement document receives a new Bundle.identifier and Bundle.timestamp, optionally the new bundle's composition retains the same Composition.identifier and increments Composition.version. Composition.relatesTo points to a specific prior version of the document. This is illustrated in the following figure. It should be noted that Composition.identifier and Composition.version are optional, and that Composition.relatesTo provides sufficient semantics to link a replacement document to an original document. 
+Additional notes:
+* Bundle.identifier is a required element, representing the globally unique FHIR Clinical Document identifier. Composition.identifier and Composition.version are optional fields than can redundantly be used to track document succession. Composition.identifier can be used to identify a family of FHIR compositions (e.g. an original clinical document and a replacement of that clinical document share the same Composition.identifier), using the Composition.version to chronologically order the compositions. 
+* In retrieving replaced versions of a FHIR Clinical Document, one can search for Bundles that contain a Composition with a specific identifier. While Composition.identifier is optional, if populated, such a search returns all the versions resident on a server. The version history can then be reconstructed using the mentioned fields of Composition.relatesTo and the composition creation time and/or version number. Typically, however, one will expect to have the latest (or most current) version returned.
+* Resource.id and resource.meta fields enable resource succession management within a single server. Values may be auto-assigned by a server, and values for a given instance are not guaranteed to be the same across servers, making these fields not suitable for succession exchange semantics. It is important to remember that the Composition.identifier and Bundle.identifier are not equivalent to the Resource.id. The identifiers are business identifiers and include the system where the business identifier was created. 
 
-As an example outside of the purely document context, with Observation Resource the identifier, status and timestamp are useful for tracking changes to the Observation. The Observation.identifier field holds a business identifier, and this can be repeated in multiple instances. Thus, the history of the Observation can be determined. 
-
-Additionally, in retrieving the history of a Clinical Document the current paradigm requires a search for Bundles that contain a Composition with a specific identifier. Such a search returns all the versions resident on a server. The version history can then be reconstructed using the mentioned fields of Composition.reltateTo and the composition creation time. Typically, however, one will expect to have the latest (or most current) version returned.
-
-It is important to remember that the Composition.identifier and Bundle.identifier are not equivalent to the Resource.id. The identifiers are business identifiers and include the system where the business identifier was created. The Resource.id is not guaranteed to stay the same between servers.
-
-<img src="documentReplacement.png"/>
-
-
+<p>FHIR Clinical Document <b>replaces</b> and <b>appends</b> are illustrated in the following figures.</p>
+<img src="documentReplacement.png" width="766" height="264"/>
+<img src="documentAppend.png"  width="800" height="279"/>

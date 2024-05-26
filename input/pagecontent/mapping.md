@@ -1,8 +1,7 @@
 # CDA mapping background
 The FHIR Clinical Document IG was originally derived from the HL7 Clinical Document Architecture, and was developed in part to resolve CDA to FHIR mapping discrepancies found across a number of FHIR-based artifacts. Landscape analysis leading up to the development of this IG revealed HUNDREDS of existing Bundle and Composition profiles, many of which are designed for clinical documents, with no clear canonical pattern upon which future FHIR-based clinical documents work should be based. Existing profiles and IGs take many different approaches to representing various CDA constructs. 
 
-The mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) mappings.
-
+ 
 # CDA mapping scope
 The FHIR Clinical Document IG is aligned with CDA, but not a mirror image of CDA. While this IG is based on CDA and will enable a straightforward mapping from CDA to FHIR, it will not necessarily provide a reverse mapping. Future IG updates will assess the need for additional profiles, and may add features that go beyond what is capable with today's CDA. 
 
@@ -14,8 +13,11 @@ Scope for this version of the IG is limited to FHIR artifacts reflecting the CDA
 5. CDA section attributes; 
 6. CDA section participants, excluding profiles corresponding to RIM entities; 
 7. CDA section relationships, excluding profiles corresponding to RIM Acts. 
-<img src="CDA_RMIM.png" height="290" width="715" border=1/>
+<img src="CDA_RMIM.png" height="471" width="715" border=1/>
 
+# CDA mapping
+Detailed mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) mappings.
 
-# CDA mapping (detailed)
-(see mapping spreadsheet)
+<p>A high level mapping from CDA to FHIR Clinical Document is shown here. Composition attributes in <b>bold</b> have a minimal cardinality of 1 in the code resource. Composition attributes in green represent extensions. </p>
+<img src="CDA_mapping.png" width="659" height="530" border=1/>
+  

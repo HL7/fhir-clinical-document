@@ -8,8 +8,8 @@ Description: "Original discharge summary"
 * language = urn:ietf:bcp:47#en "English"
 
 * extension[$composition-clinicaldocument-versionNumber].valueString = "original1"
-* extension[document-id].valueIdentifier.system = "https://example.com/SenderSystem/docIdentifier"
-* extension[document-id].valueIdentifier.value = "w0101" 
+//* extension[document-id].valueIdentifier.system = "https://example.com/SenderSystem/docIdentifier"
+//* extension[document-id].valueIdentifier.value = "w0101" 
 
 * identifier.system = "https://example.com/SenderSystem/setIdentifier"
 * identifier.value = "bcdef"
