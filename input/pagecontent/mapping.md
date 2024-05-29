@@ -18,5 +18,7 @@ Scope for this version of the IG is limited to FHIR artifacts reflecting the CDA
 Detailed mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) mappings.
 
 <p>A high level mapping from CDA to FHIR Clinical Document is shown here. Composition attributes in <b>bold</b> have a minimal cardinality of 1 in the code resource. Composition attributes in green represent extensions. </p>
-<img src="CDA_mapping.png" width="659" height="530" border=1/>
+<!--img src="CDA_mapping.png" width="659" height="530" border=1/-->
+
+<table><tr><td><img width="95%" height="95%" src="HL7 CDA-FHIR Alignment - Image-Mapping.svg" /></td></tr></table>
   

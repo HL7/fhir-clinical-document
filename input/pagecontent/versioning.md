@@ -11,5 +11,7 @@ Additional notes:
 * Resource.id and resource.meta fields enable resource succession management within a single server. Values may be auto-assigned by a server, and values for a given instance are not guaranteed to be the same across servers, making these fields not suitable for succession exchange semantics. It is important to remember that the Composition.identifier and Bundle.identifier are not equivalent to the Resource.id. The identifiers are business identifiers and include the system where the business identifier was created. 
 
 <p>FHIR Clinical Document <b>replaces</b> and <b>appends</b> are illustrated in the following figures.</p>
-<img src="documentReplacement.png" width="766" height="264"/>
-<img src="documentAppend.png"  width="800" height="279"/>
+<!--img src="documentReplacement.png" width="766" height="264"/>
+<img src="documentAppend.png"  width="800" height="279"/-->
+
+<img width="95%" height="95%" src="HL7 CDA-FHIR Alignment - ImagesAppendReplace.svg" />
