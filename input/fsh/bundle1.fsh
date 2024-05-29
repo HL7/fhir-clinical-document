@@ -5,12 +5,14 @@ Description: "All first degree targets of entry[0].Composition.references shall 
 Expression: 
 "TBD"
 //entry.first()
+Severity:       #error
 
 //bundle.timestamp >= composition.date
 Invariant: clindoc-timestamp-ge-compoDate
 Description: "bundle.timestamp >= composition.date"
 Expression: 
 "TBD"
+Severity:       #error
 
 
 Profile: ClinicalDocumentBundle
@@ -71,12 +73,14 @@ Invariant: clincomp-1
 Description: "Cannot have additional composition.section if have a nonFHIR_body"
 Expression: 
 "TBD"
+Severity:       #error
 
 // constraint: nonFHIR_body or at least one composition.section
 Invariant: clincomp-2
 Description: "Must have at least one composition.section"
 Expression: 
 "TBD"
+Severity:       #error
 
 
 Profile: ClinicalDocumentComposition
