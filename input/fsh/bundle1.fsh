@@ -1,14 +1,35 @@
+
+//all first degree composition.references shall be included in the bundle.
+Invariant: clindoc-first-degree
+Description: "All first degree targets of entry[0].Composition.references shall be included in the bundle"
+Expression: 
+"TBD"
+//entry.first()
+
+//bundle.timestamp >= composition.date
+Invariant: clindoc-timestamp-ge-compoDate
+Description: "bundle.timestamp >= composition.date"
+Expression: 
+"TBD"
+
+
 Profile: ClinicalDocumentBundle
 Parent: Bundle
 Id: clinical-document-bundle
 Title: "FHIR Clinical Document Bundle Profile"
 Description: "Universal starting point for specifying a FHIR Clinical Document."
+
+* obeys clindoc-first-degree
+
 * type = #document
 * identifier 1..1
 * identifier ^mapping[0].identity = "cda"
 //* identifier ^mapping[=].map = "This is the Document identifier"
 * identifier ^mapping[=].comment =  "This is the Document identifier"
 * total 0..0
+
+* timestamp obeys clindoc-timestamp-ge-compoDate
+
 * timestamp 1..1
 // Remove default mapping to ClinicalDocument.effectiveTime and state that this timestamp is >= ClinicalDocument.effectiveTime.
 // constraint: bundle.timestamp >= composition.date
@@ -19,7 +40,8 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 * entry.response 0..0
 * entry.resource 1..1 MS // each entry must have a resource
 * entry ^slicing.discriminator.type = #type
-* entry ^slicing.discriminator.path = "resource"
+* entry ^slicing.discriminator.path = "$this.resource"
+//"$this.information.resolve()"
 * entry ^slicing.rules = #open
 * entry ^slicing.description = "Slicing based on the resource type"
 * entry contains 
@@ -29,8 +51,8 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 
 * entry[clinical-document-composition] ^short = "First entry is a composition"
 * entry[clinical-document-composition].resource only ClinicalDocumentComposition
-* entry[subject].resource only Patient
-* entry[participant].resource only Device or Organization or Patient or Person or Practitioner or PractitionerRole or RelatedPerson
+//* entry[subject].resource only Patient
+//* entry[participant].resource only Device or Organization or Patient or Person or Practitioner or PractitionerRole or RelatedPerson
 // constraint: all first degree composition.references shall be included in the bundle.
 
 
@@ -42,11 +64,29 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 //* ^context.expression = "Bundle"
 //* value[x] only Annotation
 
+
+
+// constraint: cannot have composition.section and nonFHIR_body
+Invariant: clincomp-1
+Description: "Cannot have additional composition.section if have a nonFHIR_body"
+Expression: 
+"TBD"
+
+// constraint: nonFHIR_body or at least one composition.section
+Invariant: clincomp-2
+Description: "Must have at least one composition.section"
+Expression: 
+"TBD"
+
+
 Profile: ClinicalDocumentComposition
 Parent: Composition
 Id: clinical-document-composition
 Title: "Clinical Document Composition Profile"
 Description: "Starting point for a specification for a composition of a FHIR Clinical Document."
+
+* obeys clincomp-1
+* obeys clincomp-2
 
 * extension contains 
 	$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS and
@@ -115,7 +155,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * identifier 0..1 MS
 * type MS
 * subject 1..1 MS
-* subject only Reference(Patient)
+* subject only Reference(Patient or Group)
 //* subject ^short = "Support Planner"
 //* subject ^definition = "The  person (e.g., Case Manager, Care Coordinator, Plan Coordinator) who helped develop the plan."
 //* subject ^comment = "Support Planner Name + Phone."
@@ -177,26 +217,42 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * relatesTo ^slicing.description = "Slicing based on the resource type"
 * relatesTo contains 
     replaced_document 0..* MS
-	and nonFHIR_body 0..1 MS
+	and appended_document 0..* MS
 * relatesTo[replaced_document] ^short = "The document(s) being superceded"
 * relatesTo[replaced_document].code = #replaces
 * relatesTo[replaced_document].targetIdentifier 1..1
 * relatesTo[replaced_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being replaced, or to some other identifier of a non FHIR document"
 * relatesTo[replaced_document] ^mapping[0].identity = "cda"
 * relatesTo[replaced_document] ^mapping[=].map = "parentDocument.relatedDocument"
-* relatesTo[nonFHIR_body] ^short = "A non-FHIR clinical document being wrapped by the FHIR Clinical Document Composition. This can be used where it is necessary to wrap a non-FHIR document in a standard header so as to enable consistent document management."
-* relatesTo[nonFHIR_body].code = #signs
-* relatesTo[nonFHIR_body].targetIdentifier 1..1
-* relatesTo[nonFHIR_body] ^mapping[0].identity = "cda"
-* relatesTo[nonFHIR_body] ^mapping[=].map = "bodyChoice.component.NonXMLBody"
-// constraint: cannot have composition.section and relatesTo.nonFHIR_body
-// constraint: relatesTo.nonFHIR_body or at least one composition.section
+
+* relatesTo[appended_document] ^short = "The document(s) being appended too"
+* relatesTo[appended_document].code = #appends
+* relatesTo[appended_document].targetIdentifier 1..1
+* relatesTo[appended_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being appended, or to some other identifier of a non FHIR document"
+//* relatesTo[appended_document] ^mapping[0].identity = "cda"
+//* relatesTo[appended_document] ^mapping[=].map = "parentDocument.relatedDocument"
+
+
+// constraint: cannot have composition.section and nonFHIR_body
+// constraint: nonFHIR_body or at least one composition.section
 
 * section.code MS
 * section.text MS
 * section.title 1..1 MS
 //seems consistent that where there is a slice in a profile that the Title is required and MS
 
+* section ^slicing.discriminator.type = #type
+* section ^slicing.discriminator.path = section.entry
+* section ^slicing.rules = #open
+* section ^slicing.description = "Slicing based on the resource type"
+* section contains 
+	nonFHIR_body 0..*
+* section[nonFHIR_body].entry 1..1
+* section[nonFHIR_body] ^short = "A non-FHIR clinical document being wrapped by the FHIR Clinical Document Composition. This can be used where it is necessary to wrap a non-FHIR document in a standard header so as to enable consistent document management."
+* section[nonFHIR_body].entry only Reference(DocumentReference)
+* section[nonFHIR_body] ^mapping[0].identity = "cda"
+* section[nonFHIR_body] ^mapping[=].map = "bodyChoice.component.NonXMLBody"
+//might want a specific code for this slice in the future
 
 
 
