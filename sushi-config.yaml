@@ -82,9 +82,10 @@ publisher:
 menu:
   Home: index.html
   Artifacts: artifacts.html
-  CDA Mapping: mapping.html
-  Immutable and Parseable: immutableParseable.html
-  Succession Management: versioning.html
+  Special Topics:
+    CDA Mapping: mapping.html
+    Immutable and Parseable Clinical Documents: immutableParseable.html
+    Clinical Document Succession Management: versioning.html
   Appendix: 
     Security: security.html
     Downloads: downloads.html

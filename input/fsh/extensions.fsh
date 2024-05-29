@@ -10,21 +10,21 @@ Description: "Canceled status indicates the document has been revoked or otherwi
 
 
 
-Extension: DocumentID
-Id: document-id
-Title: "Document Identifier"
-Description: "Document Identifier provides the sender-specific identifier. The system provides the namespace where the identifier is unique. Value provides the identifier. Note that both are needed to positively identify the specific instance (version) of the document. The Composition.identifier element in the ClinicalDocument Profile provides the higher-level set identifier - which indicates to what sequence of clinical documents the specific document belongs. The use of two identifiers may be deprecated in the future given the ability to track changes with relatesTo, effectiveTime, and the Composition.identifier."
-* ^context.type = #element
-* ^context.expression = "Composition"
-* url MS
-* valueIdentifier 1.. MS
+//Extension: DocumentID
+//Id: document-id
+//Title: "Document Identifier"
+//Description: "Document Identifier provides the sender-specific identifier. The system provides the namespace where the identifier is unique. Value provides the identifier. Note that both are needed to positively identify the specific instance (version) of the document. The Composition.identifier element in the ClinicalDocument Profile provides the higher-level set identifier - which indicates to what sequence of clinical documents the specific document belongs. The use of two identifiers may be deprecated in the future given the ability to track changes with relatesTo, effectiveTime, and the Composition.identifier."
+//* ^context.type = #element
+//* ^context.expression = "Composition"
+//* url MS
+//* valueIdentifier 1.. MS
 
 
 
-Extension: AuthorizationExtension
-Id: authorization-extension
-Title: "Authorization Extension"
-Description: "Authorization Extension refers to a FHIR Consent instance that indicates a patient's consent"
+Extension: ConsentExtension
+Id: consent-extension
+Title: "Consent Extension"
+Description: "Consent Extension refers to a FHIR Consent instance that indicates a patient's consent"
 * ^context.type = #element
 * ^context.expression = "Composition"
 * url MS
@@ -82,12 +82,12 @@ Description: "Participant Extension identifies supporting entities, including pa
 * valueReference only Reference(Practitioner or PractitionerRole or Patient or RelatedPerson)
 * valueReference ^sliceName = "valueReference"
 
-Extension: PerformerExtension
-Id: PerformerExtension
-Title: "Performer Extension"
-Description: "The Performer Extension represents clinicians who actually and principally carry out the clinical services being documented. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patients key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
-* ^context.type = #element
-* ^context.expression = "Composition"
-* valueReference 1.. MS
-* valueReference only Reference(Practitioner or PractitionerRole)
-* valueReference ^sliceName = "valueReference"
+// Extension: PerformerExtension
+// Id: PerformerExtension
+// Title: "Performer Extension"
+// Description: "The Performer Extension represents clinicians who actually and principally carry out the clinical services being documented. In a transfer of care this represents the healthcare providers involved in the current or pertinent historical care of the patient. Preferably, the patients key healthcare care team members would be listed, particularly their primary physician and any active consulting physicians, therapists, and counselors."
+// * ^context.type = #element
+// * ^context.expression = "Composition"
+// * valueReference 1.. MS
+// * valueReference only Reference(Practitioner or PractitionerRole)
+// * valueReference ^sliceName = "valueReference"

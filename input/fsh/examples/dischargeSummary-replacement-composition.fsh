@@ -8,8 +8,8 @@ Description: "Replacement discharge summary"
 * language = urn:ietf:bcp:47#en "English"
 
 * extension[$composition-clinicaldocument-versionNumber].valueString = "replacement1"
-* extension[document-id].valueIdentifier.system = "https://example.com/SenderSystem/docIdentifier"
-* extension[document-id].valueIdentifier.value = "r123aw"
+//* extension[document-id].valueIdentifier.system = "https://example.com/SenderSystem/docIdentifier"
+//* extension[document-id].valueIdentifier.value = "r123aw"
 
 * identifier.system = "https://example.com/SenderSystem/setIdentifier"
 * identifier.value = "bcdef"
