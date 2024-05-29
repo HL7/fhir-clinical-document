@@ -2,16 +2,14 @@
 //all first degree composition.references shall be included in the bundle.
 Invariant: clindoc-first-degree
 Description: "All first degree targets of entry[0].Composition.references shall be included in the bundle"
-Expression: 
-"TBD"
+Expression: "TBD"
 //entry.first()
 Severity:       #error
 
 //bundle.timestamp >= composition.date
 Invariant: clindoc-timestamp-ge-compoDate
 Description: "bundle.timestamp >= composition.date"
-Expression: 
-"TBD"
+Expression: "TBD"
 Severity:       #error
 
 
@@ -48,8 +46,8 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 * entry ^slicing.description = "Slicing based on the resource type"
 * entry contains 
     clinical-document-composition 1..1 MS
-	and subject 1..* MS
-	and participant 1..* MS
+//	and subject 1..* MS
+//	and participant 1..* MS
 
 * entry[clinical-document-composition] ^short = "First entry is a composition"
 * entry[clinical-document-composition].resource only ClinicalDocumentComposition
