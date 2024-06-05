@@ -89,7 +89,7 @@ Severity:       #error
 Profile: ClinicalDocumentComposition
 Parent: Composition
 Id: clinical-document-composition
-Title: "Clinical Document Composition Profile"
+Title: "FHIR Clinical Document Composition Profile"
 Description: "Starting point for a specification for a composition of a FHIR Clinical Document."
 
 //* obeys clincomp-2
