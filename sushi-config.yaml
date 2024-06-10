@@ -86,6 +86,7 @@ menu:
     CDA Mapping: mapping.html
     Immutable and Parseable Clinical Documents: immutableParseable.html
     Clinical Document Succession Management: versioning.html
+  Operations: operations.html
   Appendix: 
     Security: security.html
     Downloads: downloads.html
@@ -99,12 +100,14 @@ pages:
   mapping.md:
     title: CDA Mapping
   immutableParseable.md:
+    title: Immutable vs. parseable clinical documents
   versioning.md:
   security.md:
   downloads.md:
   ip_statement.md:
   testing.md:
   dependencies_globals_CrossVersionAnalysis.md:
+  operations.md:
   
 parameters:
   apply-wg: true    

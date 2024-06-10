@@ -21,11 +21,13 @@ The requirement for human readability guarantees that a receiver of a FHIR Clini
 2. Human readability shall not require a sender to transmit a special style sheet along with a FHIR Clinical Document. It must be possible to render all FHIR Clinical Documents with a single style sheet and general-market display tools.
 3. Human readability applies to the authenticated content. There may be additional information conveyed in the document that is there primarily for machine processing that is not authenticated and need not be rendered.
 
-These principles and requirements have led to the required approach described in this IG, where the material to be rendered is placed into the composition's text and section.text field.
- <blockquote class="stu-note">
-    <p>Needs review</p>
-  </blockquote>
+These principles and requirements have led to the required approach described in this IG, where the material to be rendered is placed into the composition's text and section.text field, and where receivers are responsible for rendering Composition.title, Composition.text, Section.title, and Section.text.
+
   
-# Note
-We have borrowed from FHIR Core, the [International Patient Summary IG](http://hl7.org/fhir/uv/ips/) and the [C-CDA on FHIR IG]( http://hl7.org/fhir/us/ccda/). This includes several extensions from the C-CDA on FHIR IG.
-The CDA requirement for human readability guarantees that a receiver of a CDA document can algorithmically display the clinical content of the note on a standard Web browser. CDA, Release Two, with its blend of narrative and CDA entries, presents new challenges to this requirement.
+# Relationship to other FHIR document specifications
+As noted above, a primary motivation for this IG is to present a canonical starting point for those creating their own FHIR clinical document specifications or for those CDA users who wish to migrate to a FHIR-based representation of clinical documents. That said, for the existing Bundle- and Composition-derive artifacts designed to support clinical documents, it is important to have a long-range reconciliation plan. 
+
+The reconciliation plan suggested by this IG is:
+* Detailed analysis of existing artifacts. For instance, we derive from FHIR Core and have borrowed from the [International Patient Summary IG](http://hl7.org/fhir/uv/ips/) and the [C-CDA on FHIR IG]( http://hl7.org/fhir/us/ccda/). This includes several extensions from the C-CDA on FHIR IG.
+* Let this IG mature and gain implementation experience.
+* Plan for artifacts to derive from this IG by FHIR R6. Preparation includes: (1) backport key FHIR R6 capabilities now so as to minimize impact on implementers; (2) propose deprecating the FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) profile in FHIR R6; (3) work with artifact developers that derive from FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) to ensure their requirements have been met.
