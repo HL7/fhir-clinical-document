@@ -23,8 +23,8 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 
 * type = #document
 * identifier 1..1
-* identifier.use 1..1
-* identifier.use = #official
+//* identifier.use 1..1
+//* identifier.use = #official
 * identifier.system 1..1
 * identifier.value 1..1
 * identifier.value ^short = "Identifier system+value must be globally unique"
@@ -228,8 +228,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * relatesTo[replaced_document] ^short = "The document(s) being superceded"
 * relatesTo[replaced_document].code = #replaces
 * relatesTo[replaced_document].targetIdentifier 1..1
-* relatesTo[replaced_document].targetIdentifier.use 1..1
-* relatesTo[replaced_document].targetIdentifier.use = #official
+//* relatesTo[replaced_document].targetIdentifier.use 1..1
+//* relatesTo[replaced_document].targetIdentifier.use = #official
 * relatesTo[replaced_document].targetIdentifier.system 1..1
 * relatesTo[replaced_document].targetIdentifier.value 1..1
 * relatesTo[replaced_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being replaced, or to some other identifier of a non FHIR document"
@@ -239,8 +239,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * relatesTo[appended_document] ^short = "The document(s) being appended too"
 * relatesTo[appended_document].code = #appends
 * relatesTo[appended_document].targetIdentifier 1..1
-* relatesTo[appended_document].targetIdentifier.use 1..1
-* relatesTo[appended_document].targetIdentifier.use = #official
+//* relatesTo[appended_document].targetIdentifier.use 1..1
+//* relatesTo[appended_document].targetIdentifier.use = #official
 * relatesTo[appended_document].targetIdentifier.system 1..1
 * relatesTo[appended_document].targetIdentifier.value 1..1
 * relatesTo[appended_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being appended, or to some other identifier of a non FHIR document"
