@@ -100,6 +100,7 @@ pages:
   mapping.md:
     title: CDA Mapping
   immutableParseable.md:
+    title: Immutable vs. parseable clinical documents
   versioning.md:
   security.md:
   downloads.md:
