@@ -5,4 +5,12 @@
 	<p> 
 	As described in Special Topic <a href="immutableParseable.html">Immutable and parseable clinical documents</a>, FHIR Clinical Documents are used in a number of different ways, where users may need to store a received document as an immutable object and/or parse a received document to extract observations and other entries. Parsing a received clinical document can entail not only processing all of the resources that it contains as individual resources, but may also entail assessing each object's revision status such that a server correctly supersedes previously obtained objects with newly received amended objects. </p>
 	<p>This IG further expands on the <a href="https://hl7.org/fhir/R4/documents.html#bundle">Document End-Points discussion</a> in FHIR Documents by providing a FHIR Operation that encapsulates the complexity of parsing a received clinical document.	</p>
+	<p>Implementation considerations:
+	<ul>
+	<li>A relatively simple implementation may choose to ignore revision management, and directly parse and store all bundled objects. This may be achieved by processing the document bundle to: (1) Revise Bundle.type to “transaction”; (2) Ensure references within the bundle are not pointing to resource.id, but instead are pointing to a resource instance’s full URL or other unique identifier; (3) Set Bundle.entry.request.method to “POST”.	</li>
+	<li>A more complex implementation can process FHIR Clinical Document replacement semantics as described in Special Topic <a href="versioning.html">Clinical document succession management</a>.</li>
+	<li>An even more complex implementation can process replacement semantics of other bundled resources such as observations. It would be reasonable in such an implementation for a server to specify requirements for how such replacement semantics are to be represented (e.g. where Observation.status is 'amended', the Observation is replacing Observations with a similar Observation.identifier and an earlier Observation.effectiveDateTime).</li>
+	</ul>
+	
+	</p>
 </div>
