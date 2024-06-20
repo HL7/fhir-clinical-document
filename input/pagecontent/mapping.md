@@ -19,7 +19,7 @@ Detailed mappings of this IG can be found on the Profile Structure Definitions. 
 
 <p>A high level mapping from CDA to FHIR Clinical Document is shown here. Composition attributes in <b>bold</b> have a minimal cardinality of 1 in the core resource. Composition attributes in green represent extensions. </p>
 
-<table><tr><td><img width="80%" height="80%" src="CDA_mapping.PNG" /></td></tr></table>
+<table><tr><td><img width="80%" height="80%" src="HL7 CDA-FHIR Alignment - Image-Mapping.svg" /></td></tr></table>
   
 ## CDA mapping caveats
  - **Limitations on certain CDA document types**: The [FHIR DiagnosticReport Resource](https://hl7.org/fhir/R4/diagnosticreport.html) provides guidance around use of DiagnosticReport vs. Composition, stating that "if you have a highly structured report, then use DiagnosticReport" and "for more narrative driven reports ... the Composition resource would be more appropriate". As a result, highly structured CDA documents (e.g. a detailed operative report or a detailed imaging report) may be more appropriately mapped to the FHIR DiagnosticReport. 

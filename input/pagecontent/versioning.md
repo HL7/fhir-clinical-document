@@ -15,4 +15,4 @@ Additional notes:
 <p>FHIR Clinical Document <b>replaces</b> and <b>appends</b> scenarios are illustrated in the following figures.</p>
 
 
-<img width="95%" height="95%" src="succession_management.png" />
+<img width="95%" height="95%" src="HL7 CDA-FHIR Alignment - ImagesAppendReplace.svg" />
