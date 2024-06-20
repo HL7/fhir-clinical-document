@@ -15,13 +15,25 @@ A FHIR Clinical Document is a clinical document that conforms to this implementa
 From a technical perspective, a FHIR Clinical Document is a document Bundle containing a Composition and artifacts referred to by the Composition sections. The Composition is similar to an index, but also contains key header information. The FHIR Clinical Document IG derives from [core FHIR Documents guidance](https://hl7.org/fhir/R4/documents.html), adding further guidance and constraints. It is important to remember that the entire document Bundle is the FHIR Clinical Document, not just the Composition. 
   
 ### Human readability and rendering FHIR Clinical Documents
-The requirement for human readability guarantees that a receiver of a FHIR Clinical Document can algorithmically display the clinical content of the note on a standard Web browser. Specific requirements include: 
+The requirement for human readability guarantees that a receiver of an arbitrary FHIR Clinical Document can algorithmically display the attested narrative content of the note on a standard Web browser. Specific requirements include: 
 
 1. There must be a deterministic way for a recipient of an arbitrary FHIR Clinical Document to render the attested content. 
 2. Human readability shall not require a sender to transmit a special style sheet along with a FHIR Clinical Document. It must be possible to render all FHIR Clinical Documents with a single style sheet and general-market display tools.
 3. Human readability applies to the authenticated content. There may be additional information conveyed in the document that is there primarily for machine processing that is not authenticated and need not be rendered.
 
-These principles and requirements have led to the required approach described in this IG, where the material to be rendered is placed into the composition's text and section.text field, and where receivers are responsible for rendering Composition.title, Composition.text, Section.title, and Section.text.
+The approach taken in this IG derives from [FHIR core narrative guidance](https://hl7.org/fhir/R4/narrative.html) and stipulates:
+* The FHIR Clinical Document creator
+  * **SHALL** place attested narrative into Composition.title, Composition.text, Section.title, or Section.text. 
+  * **SHOULD NOT** redundantly place attested narrative in both Composition.text and Section.text. 
+  * **MAY** include narrative that is not derived from any structured data.
+  * **MAY** include document metadata (e.g. patient) in Composition.text or Section.text.
+* The FHIR Clinical Document recipient
+  * **SHALL** include, at a minimum, Composition.title, Composition.text, Section.title, and Section.text in any rendition of the document. 
+  * **MAY** render additional information, such as document metadata (e.g. patient).
+
+In many cases, a recipient will render a document within the context of their EHR, where the EHR's banner bar will display information such as patient name and date of birth. Therefore this IG makes no recommendations for rendering outside of attested narrative. It is up to the document creator to determine which additional pieces of information to include in Composition.text or Section.text. For instance, this IG **DOES NOT** require that there be a patient name displayed with each contained observation, although a document creator may opt to include the patient name in Composition.text. Likewise, this IG **DOES** require the document recipient to render Composition.text and Section.text, but **DOES NOT** preclude the recipient from also rendering additional pieces of information. 
+
+Possible security concerns and mitigations related to malicious narrative, particularly narrative that contains active content, are discussed [here](https://hl7.org/fhir/R4/security.html#narrative).
 
   
 ### Relationship to other FHIR document specifications

@@ -70,20 +70,18 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 //* value[x] only Annotation
 
 
-
-// constraint: cannot have composition.section and nonFHIR_body
-//Invariant: clincomp-2
-//Description: "Cannot have additional composition.section if have a nonFHIR_body"
-//Expression: 
-//"TBD"
-//Severity:       #error
-
-// constraint: nonFHIR_body or at least one composition.section
 Invariant: clincomp-1
 Description: "Must have at least one composition.section"
 Expression: 
 "TBD"
 Severity:       #error
+
+
+Invariant: clincomp-2
+Description: "Should not have redundant narrative in composition.text and section.text"
+Expression: 
+"TBD"
+Severity:       #warning
 
 
 Profile: ClinicalDocumentComposition
@@ -94,6 +92,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 
 //* obeys clincomp-2
 * obeys clincomp-1
+* obeys clincomp-2
 
 * extension contains 
 	$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS and

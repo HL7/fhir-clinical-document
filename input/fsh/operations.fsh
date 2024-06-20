@@ -13,16 +13,10 @@ Description: "Parse and store a received FHIR Clinical Document."
 * instance = false
 * code = #match
 * parameter[+]
-  * name = #subject
+  * name = #FHIRClinicalDocumentReference
   * use = #in
   * min = 1
-  * max = "1"
-  * documentation = "The composition subject."
+  * max = "*"
+  * documentation = "Resource.id(s) for the FHIR Clinical Document(s) to be parsed."
   * type = #string
   * searchType = #reference
-* parameter[+]
-  * name = #abc
-  * use = #out
-  * min = 1
-  * max = "*"
-  * documentation = "(abc)"
