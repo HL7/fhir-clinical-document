@@ -1,4 +1,4 @@
-## Clinical document succession management
+### Clinical document succession management
 A FHIR Clinical Document can be replaced by a new document and/or appended with an addendum document.
 
 A replacement document is a new version of a document. The replaced document is considered superseded, but a system may retain it for historical or auditing purposes. The replacement document references the replaced document via the replacement document's Composition.relatesTo, where relatesTo.code is 'replaces' and the target of relatesTo.targetIdentifier is the replaced document's Bundle.identifier. The replacement document's status is set to 'amended' while the original document's status remains 'final'. 
