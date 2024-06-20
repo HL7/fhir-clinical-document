@@ -1,9 +1,9 @@
-# Background
+### Background
 Today there are more than 257 existing profiles on Bundle, and more than more than 180 existing profiles on Composition, many of which represent clinical documents, which take different approaches to representing the information and structures needed in a clinical document. The [HL7 Clinical Document Architecture (CDA) standard](https://hl7.org/cda/stds/online-navigation/2024May/index.html) has been widely implemented. CDA was created in 2005 with industry stakeholders to represent interoperable Clinical Documents. Universally, consistently represented, interoperable FHIR Clinical Documents are needed as the industry moves towards FHIR. FHIR stakeholders interested in exchanging Clinical Documents in FHIR intend to leverage the learnings and principles of CDA. 
 
 This implementation guide defines a canonical representation of a clinical document in FHIR. It serves as a common universal starting point for those creating their own FHIR clinical document specifications, and supports CDA users who wish to migrate to a FHIR-based representation of clinical documents. This is a universal realm guide for use worldwide to facilitate consistency. 
   
-# What is a FHIR Clinical Document?
+### What is a FHIR Clinical Document?
 A FHIR Clinical Document is a clinical document that conforms to this implementation guide. A clinical document is a documentation of clinical observations and services, with the following characteristics:
 * **Persistence**– A clinical document continues to exist in an unaltered state, for a time period defined by local and regulatory requirements. Note: documents outlive the servers (and often the syntax) on which they are created.
 * **Stewardship** – A clinical document is maintained by an organization entrusted with its care.
@@ -14,7 +14,7 @@ A FHIR Clinical Document is a clinical document that conforms to this implementa
 
 From a technical perspective, a FHIR Clinical Document is a document Bundle containing a Composition and artifacts referred to by the Composition sections. The Composition is similar to an index, but also contains key header information. The FHIR Clinical Document IG derives from [core FHIR Documents guidance](https://hl7.org/fhir/R4/documents.html), adding further guidance and constraints. It is important to remember that the entire document Bundle is the FHIR Clinical Document, not just the Composition. 
   
-# Human readability and rendering FHIR Clinical Documents
+### Human readability and rendering FHIR Clinical Documents
 The requirement for human readability guarantees that a receiver of an arbitrary FHIR Clinical Document can algorithmically display the attested narrative content of the note on a standard Web browser. Specific requirements include: 
 
 1. There must be a deterministic way for a recipient of an arbitrary FHIR Clinical Document to render the attested content. 
@@ -36,7 +36,7 @@ In many cases, a recipient will render a document within the context of their EH
 Possible security concerns and mitigations related to malicious narrative, particularly narrative that contains active content, are discussed [here](https://hl7.org/fhir/R4/security.html#narrative).
 
   
-# Relationship to other FHIR document specifications
+### Relationship to other FHIR document specifications
 As noted above, a primary motivation for this IG is to present a canonical starting point for those creating their own FHIR clinical document specifications or for those CDA users who wish to migrate to a FHIR-based representation of clinical documents. That said, for the existing Bundle- and Composition-derive artifacts designed to support clinical documents, it is important to have a long-range reconciliation plan. 
 
 The reconciliation plan suggested by this IG is:

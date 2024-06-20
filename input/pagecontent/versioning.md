@@ -1,4 +1,5 @@
-## Clinical document succession management
+
+### Clinical document succession management
 A FHIR Clinical Document can be replaced by a new document and/or appended with an addendum document. (Clinical documents that provide a summary snapshop of a patient's record generally do not version. Rather, each document is a valid document with the specific date/time it was generated. For example, if one were to generate a summary document for a patient every day for 5 days in a row, that patient would have 5 active FHIR Clinical Documents. However even in the summary document scenario, it is possible to use document succession management where needed to fix an error in a generated snapshot). 
 
 A replacement document is a new version of a document. The replaced document is considered superseded, but a system may retain it for historical or auditing purposes. The replacement document references the replaced document via the replacement document's Composition.relatesTo, where relatesTo.code is 'replaces' and the target of relatesTo.targetIdentifier is the replaced document's Bundle.identifier. The replacement document's status is set to 'amended' while the original document's status remains 'final'. 
@@ -23,4 +24,4 @@ Additional notes:
 <p>FHIR Clinical Document <b>replaces</b> and <b>appends</b> scenarios are illustrated in the following figures.</p>
 
 
-<img width="95%" height="95%" src="succession_management.png" />
+<img width="95%" height="95%" src="HL7 CDA-FHIR Alignment - ImagesAppendReplace.svg" />
