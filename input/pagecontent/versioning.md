@@ -7,7 +7,7 @@ A replacement document is a new version of a document. The replaced document is 
 An addendum is a separate document that references another document, and may extend or alter the observations in the referenced document. The referenced document remains active, and the addendum and its related document are both read by report recipients. The addendum document references the document being appended via the addendum document's Composition.relatesTo, where relatesTo.code is 'appends' and the target of relatesTo.targetIdentifier is the appended document's Bundle.identifier. Both The addendum and original document statuses are 'final'. 
 
 <blockquote class="stu-note">
-We are seeking input on the need to persist the 'addendum' use case. Our understanding is that while the 'replacement' use case has seen some industry traction, the 'addendum' use case has not. Rather than issuing addenda, implementations are issuing full replacements. 
+We are seeking input on the need to persist the 'addendum' use case. Our understanding is that while the 'replacement' use case has seen some industry traction, the 'addendum' use case has not. Rather than issuing addenda, implementations are issuing full replacements. This is in part because a document sender may not know whether or not the recipient has access to the document being appended.
 </blockquote>
 
 Where a document has been issued in error (e.g. wrong patient), the original document can be replaced with an empty document that has a status of 'entered-in-error'.    

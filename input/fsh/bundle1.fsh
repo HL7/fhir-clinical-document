@@ -77,22 +77,13 @@ Expression:
 Severity:       #error
 
 
-Invariant: clincomp-2
-Description: "Should not have redundant narrative in composition.text and section.text"
-Expression: 
-"TBD"
-Severity:       #warning
-
-
 Profile: ClinicalDocumentComposition
 Parent: Composition
 Id: clinical-document-composition
 Title: "FHIR Clinical Document Composition Profile"
 Description: "Starting point for a specification for a composition of a FHIR Clinical Document."
 
-//* obeys clincomp-2
 * obeys clincomp-1
-* obeys clincomp-2
 
 * extension contains 
 	$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS and
