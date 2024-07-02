@@ -1,10 +1,10 @@
-Instance: parse-clinical-document
+Instance: convert-to-transaction-bundle
 InstanceOf: OperationDefinition
-Title: "Parse Clinical Document"
+Title: "Convert to transaction bundle"
 Usage: #definition
-Description: "Parse and store a received FHIR Clinical Document."
-* name = "ParseClinicalDocument"
-* title = "Parse Clinical Document"
+Description: "Convert a FHIR Clinical Document into a FHIR transaction bundle."
+* name = "ConvertToTransactionBundle"
+* title = "Convert to Transaction Bundle"
 * status = #active
 * kind = #operation
 * publisher = "HL7 International Clinical Genomics Work Group"
@@ -13,10 +13,16 @@ Description: "Parse and store a received FHIR Clinical Document."
 * instance = false
 * code = #match
 * parameter[+]
-  * name = #FHIRClinicalDocumentReference
+  * name = #FHIRClinicalDocument
   * use = #in
   * min = 1
-  * max = "*"
-  * documentation = "Resource.id(s) for the FHIR Clinical Document(s) to be parsed."
-  * type = #string
-  * searchType = #reference
+  * max = "1"
+  * documentation = "Post a FHIR Clinical Document"
+  * type = #Bundle
+* parameter[+]
+  * name = #FHIRTransactionBundle
+  * use = #out
+  * min = 1
+  * max = "1"
+  * documentation = "Operation returns a FHIR Transaction Bundle"
+  * type = #Bundle

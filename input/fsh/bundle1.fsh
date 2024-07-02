@@ -238,9 +238,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 //* relatesTo[appended_document] ^mapping[=].map = "parentDocument.relatedDocument"
 
 
-// constraint: cannot have composition.section and nonFHIR_body
-// constraint: nonFHIR_body or at least one composition.section
-
+* section 1..* MS
 * section.code MS
 * section.text MS
 * section.title 1..1 MS

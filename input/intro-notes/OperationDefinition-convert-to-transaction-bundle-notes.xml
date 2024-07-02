@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td>400</td>
-				<td>ERROR: Invalid query parameters</td>
+				<td>ERROR: Invalid FHIR Clinical Document</td>
 			</tr>
 			</tbody>
 	</table>
