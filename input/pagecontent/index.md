@@ -15,23 +15,28 @@ A FHIR Clinical Document is a clinical document that conforms to this implementa
 From a technical perspective, a FHIR Clinical Document is a document Bundle containing a Composition and artifacts referred to by the Composition sections. The Composition is similar to an index, but also contains key header information. The FHIR Clinical Document IG derives from [core FHIR Documents guidance](https://hl7.org/fhir/R4/documents.html), adding further guidance and constraints. It is important to remember that the entire document Bundle is the FHIR Clinical Document, not just the Composition. 
   
 ### Human readability and rendering FHIR Clinical Documents
-The requirement for human readability guarantees that a receiver of an arbitrary FHIR Clinical Document can algorithmically display the attested narrative content of the note on a standard Web browser. Specific requirements include: 
+[FHIR core narrative guidance](https://hl7.org/fhir/R4/narrative.html) stipulates that a resource's narrative "SHALL reflect all content needed for a human to understand the essential clinical and business information for the resource". In addition, to ensure the unambiguous communication of a clinical document's attested narrative, this IG requires that:
 
-1. There must be a deterministic way for a recipient of an arbitrary FHIR Clinical Document to render the attested content. 
+1. There must be a deterministic method by which a recipient of an arbitrary FHIR Clinical Document can display the narrative content of the note on a standard Web browser. 
 2. Human readability shall not require a sender to transmit a special style sheet along with a FHIR Clinical Document. It must be possible to render all FHIR Clinical Documents with a single style sheet and general-market display tools.
 3. Human readability applies to the authenticated content. There may be additional information conveyed in the document that is there primarily for machine processing that is not authenticated and need not be rendered.
 
-The approach taken in this IG derives from [FHIR core narrative guidance](https://hl7.org/fhir/R4/narrative.html) and stipulates:
-* The FHIR Clinical Document creator
-  * **SHALL** place attested narrative into Composition.title, Composition.text, Section.title, or Section.text. 
-  * **SHOULD NOT** redundantly place attested narrative in both Composition.text and Section.text. 
-  * **MAY** include narrative that is not derived from any structured data.
-  * **MAY** include document metadata (e.g. patient) in Composition.text or Section.text.
-* The FHIR Clinical Document recipient
-  * **SHALL** include, at a minimum, Composition.title, Composition.text, Section.title, and Section.text in any rendition of the document. 
-  * **MAY** render additional information, such as document metadata (e.g. patient).
+Clinical document metadata (e.g. patient name and date of birth, participating providers) may also need to be rendered, with the caveat as stated in the [Consolidated CDA Templates for Clinical Notes](https://www.hl7.org/ccdasearch/pdfs/CCDA_Volume_One.pdf) standard, "Metadata carried in the header may already be available for rendering from EHRs or other sources external to the document. An example of this would be a doctor using an EHR that already contains the patient’s name, date of birth, current address, and phone number. When a CDA document is rendered within that EHR, those pieces of information may not need to be displayed since they are already known and displayed within the EHR’s user interface".
 
-In many cases, a recipient will render a document within the context of their EHR, where the EHR's banner bar will display information such as patient name and date of birth. Therefore this IG makes no recommendations for rendering outside of attested narrative. It is up to the document creator to determine which additional pieces of information to include in Composition.text or Section.text. For instance, this IG **DOES NOT** require that there be a patient name displayed with each contained observation, although a document creator may opt to include the patient name in Composition.text. Likewise, this IG **DOES** require the document recipient to render Composition.text and Section.text, but **DOES NOT** preclude the recipient from also rendering additional pieces of information. 
+The Composition resource is special in that it can convey narrative in both Composition.text and Composition.section.text. This IG recommends that document metadata be conveyed in Composition.text whereas attested narrative be conveyed in Composition.section.text. Furthermore, while the document recipient must be able to render the contents of Composition.section.text, they can optionally render Composition.text or choose to ignore Composition.text particularly where they are capable of parsing the structured Composition fields. To summarize: 
+
+* The FHIR Clinical Document creator
+  * **SHALL** place attested narrative into Composition.section.text.
+  * **SHOULD NOT** redundantly place attested narrative in both Composition.text and Composition.section.text. 
+  * **MAY** include narrative that is not derived from any structured data.
+  * **SHOULD** include document metadata (e.g. patient) in Composition.text.
+  * **MAY** include a list of document sections in Composition.text
+* The FHIR Clinical Document recipient
+  * **SHALL** include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document. 
+  * **MAY** include Composition.text in a rendition of the document.
+  * **MAY** render additional document information (such as patient name and date of birth) derived from structured Composition fields.
+
+Good practice recommends that the following be present whenever the document is viewed: Document title and document dates; Service and encounter types, and date ranges as appropriate; Names of all persons along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Names of selected organizations along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Date of birth for subject(s); Patient identifying information.
 
 Possible security concerns and mitigations related to malicious narrative, particularly narrative that contains active content, are discussed [here](https://hl7.org/fhir/R4/security.html#narrative).
 
