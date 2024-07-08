@@ -70,11 +70,11 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 //* value[x] only Annotation
 
 
-Invariant: clincomp-1
-Description: "Must have at least one composition.section"
-Expression: 
-"TBD"
-Severity:       #error
+//Invariant: clincomp-1
+//Description: "Must have at least one composition.section"
+//Expression: 
+//"TBD"
+//Severity:       #error
 
 
 Profile: ClinicalDocumentComposition
@@ -83,7 +83,7 @@ Id: clinical-document-composition
 Title: "FHIR Clinical Document Composition Profile"
 Description: "Starting point for a specification for a composition of a FHIR Clinical Document."
 
-* obeys clincomp-1
+//* obeys clincomp-1
 
 * extension contains 
 	$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS and
