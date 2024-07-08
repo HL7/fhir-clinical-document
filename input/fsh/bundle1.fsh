@@ -88,9 +88,9 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension contains 
 	$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS and
 	// DocumentID named document-id 0..1 MS and
-    DataEntererExtension named data-enterer 0..1 MS and
-    InformantExtension named informant 0..* MS and
-    InformationRecipientExtension named information-recipient 0..* MS and
+    //DataEntererExtension named data-enterer 0..1 MS and
+    //InformantExtension named informant 0..* MS and
+    //InformationRecipientExtension named information-recipient 0..* MS and
     ParticipantExtension named participant 0..* MS and
     // PerformerExtension named performer 0..* MS and
     ConsentExtension named consent 0..* MS and
@@ -106,25 +106,32 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 // * extension[document-id] ^mapping[0].identity = "cda"
 // * extension[document-id] ^mapping[=].map = "id - document id is experimental"
 
-* extension[data-enterer] ^label = "date enterer"
-* extension[data-enterer] ^short = "data enterer"
-* extension[data-enterer] ^mapping[0].identity = "cda"
-* extension[data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer "
+//* extension[data-enterer] ^label = "date enterer"
+//* extension[data-enterer] ^short = "data enterer"
+//* extension[data-enterer] ^mapping[0].identity = "cda"
+//* extension[data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer "
 
-* extension[informant] ^label = "informant"
-* extension[informant] ^short = "informant"
-* extension[informant] ^mapping[0].identity = "cda"
-* extension[informant] ^mapping[=].map = "informantChoice.informant"
+//* extension[informant] ^label = "informant"
+//* extension[informant] ^short = "informant"
+//* extension[informant] ^mapping[0].identity = "cda"
+//* extension[informant] ^mapping[=].map = "informantChoice.informant"
 
-* extension[information-recipient] ^label = "information recipient"
-* extension[information-recipient] ^short = "information recipient"
-* extension[information-recipient] ^mapping[0].identity = "cda"
-* extension[information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
+//* extension[information-recipient] ^label = "information recipient"
+//* extension[information-recipient] ^short = "information recipient"
+//* extension[information-recipient] ^mapping[0].identity = "cda"
+//* extension[information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
 
 * extension[participant] ^label = "participant"
 * extension[participant] ^short = "participant"
 * extension[participant] ^mapping[0].identity = "cda"
 * extension[participant] ^mapping[=].map = "associatedEntity.participant"
+* extension[participant] ^mapping[=].map = "assignedEntity.dataEnterer"
+* extension[participant] ^mapping[=].map = "informantChoice.informant"
+* extension[participant] ^mapping[=].map = "intendedRecipient.informationRecipient"
+
+
+
+
 
 // * extension[performer] ^label = "performer"
 // * extension[performer] ^short = "performer"

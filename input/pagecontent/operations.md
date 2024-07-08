@@ -3,3 +3,4 @@
 
 **FHIR Clinical Document Operations**:
 * [convert-to-transaction-bundle](OperationDefinition-convert-to-transaction-bundle.html): Convert a FHIR Clinical Document into a FHIR transaction bundle.
+* [cda-FHIR-transformation](OperationDefinition-cda-FHIR-transformation.html): A utility operation for FHIR servers to support conversion of CDA XML into FHIR Clinical Documents."
