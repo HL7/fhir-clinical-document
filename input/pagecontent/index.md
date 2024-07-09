@@ -42,7 +42,7 @@ Possible security concerns and mitigations related to malicious narrative, parti
 
   
 ### Relationship to other FHIR document specifications
-As noted above, a primary motivation for this IG is to present a canonical starting point for those creating their own FHIR clinical document specifications or for those CDA users who wish to migrate to a FHIR-based representation of clinical documents. That said, for the existing Bundle- and Composition-derive artifacts designed to support clinical documents, it is important to have a long-range reconciliation plan. 
+As noted above, a primary motivation for this IG is to present a canonical starting point for those creating their own FHIR clinical document specifications or for those CDA users who wish to migrate to a FHIR-based representation of clinical documents. That said, for the existing Bundle- and Composition-derived artifacts designed to support clinical documents, it is important to have a long-range reconciliation plan. 
 
 The reconciliation plan suggested by this IG is:
 * Detailed analysis of existing artifacts. For instance, we derive from FHIR Core and have borrowed from the [International Patient Summary IG](http://hl7.org/fhir/uv/ips/) and the [C-CDA on FHIR IG]( http://hl7.org/fhir/us/ccda/). This includes several extensions from the C-CDA on FHIR IG.
