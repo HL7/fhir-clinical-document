@@ -1,8 +1,8 @@
 
-Extension: CanceledExtension
-Id: canceled-extension
-Title: "Canceled"
-Description: "Canceled status indicates the document has been revoked or otherwise made void after having been valid for sometime. This extension is deprecated with FHIR R5 and above as the value set for status includes status codes that replace the need for the extension."
+Extension: CancelledExtension
+Id: cancelled-extension
+Title: "Cancelled"
+Description: "Cancelled status indicates the document has been revoked or otherwise made void after having been valid for sometime. This extension is deprecated with FHIR R5 and above as the value set for status includes status codes that replace the need for the extension."
 * ^context.type = #element
 * ^context.expression = "Composition"
 * url MS
