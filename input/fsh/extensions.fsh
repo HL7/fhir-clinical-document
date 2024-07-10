@@ -1,8 +1,8 @@
 
-Extension: canceled
-Id: canceled
+Extension: CanceledExtension
+Id: canceled-extension
 Title: "Canceled"
-Description: "Canceled status indicates the document has been revoked or otherwise made void after having been valid for sometime."
+Description: "Canceled status indicates the document has been revoked or otherwise made void after having been valid for sometime. This extension is deprecated with FHIR R5 and above as the value set for status includes status codes that replace the need for the extension."
 * ^context.type = #element
 * ^context.expression = "Composition"
 * url MS
@@ -70,8 +70,7 @@ Description: "Consent Extension refers to a FHIR Consent instance that indicates
 Extension: ParticipantExtension
 Id: ParticipantExtension
 Title: "Participant Extension"
-Description: "
-This extension is a mapping into FHIR of the CDA data-enterer, informant, information-recipient and participant types.
+Description: "This extension is a mapping into FHIR of the CDA data-enterer, informant, information-recipient and participant types.
 
 The Participant Extension identifies both participants, the type, or function, of the participation, and the timing. Several types of participants are expected based on CDA classes.
 
