@@ -1,0 +1,25 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../src-generated/schemas/fhir-single.xsd">
+  <p>
+     A FHIR Clinical Document is a FHIR bundle of type=document where the first entry is a composition conforming to this profile. 
+  </p>
+
+<p>As noted in the introduction: </p>
+<ul>
+<li>The FHIR Clinical Document creator</li>
+<ul>
+<li><b>SHALL</b> place attested narrative into Composition.section.text.</li>
+<li><b>SHOULD NOT</b> redundantly place attested narrative in both Composition.text and Composition.section.text.</li>
+<li><b>MAY</b> include narrative that is not derived from any structured data.</li>
+<li><b>SHOULD</b> include document metadata (e.g. patient) in Composition.text.</li>
+<li><b>MAY</b> include a list of document sections in Composition.text</li>
+</ul>
+
+<li>The FHIR Clinical Document recipient</li>
+<ul>
+<li><b>SHALL</b> include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document.</li>
+<li><b>MAY</b> include Composition.text in a rendition of the document.</li>
+<li><b>MAY</b> render additional document information (such as patient name and date of birth) derived from structured Composition fields.</li>
+</ul>
+</ul>
+
+</div>

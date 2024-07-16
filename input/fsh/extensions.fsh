@@ -70,21 +70,19 @@ Description: "Consent Extension refers to a FHIR Consent instance that indicates
 Extension: ParticipantExtension
 Id: ParticipantExtension
 Title: "Participant Extension"
-Description: "This extension is a mapping into FHIR of the CDA data-enterer, informant, information-recipient and participant types.
-
-The Participant Extension identifies both participants, the type, or function, of the participation, and the timing. Several types of participants are expected based on CDA classes.
-
-**Data Enterer**
-A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system.
-
-**Informant**
-An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient.
-
-**Information Recipient**
-An Information Recipient is the intended recipient of the information at the time the document was created.
-
-**Participant**
-A Participant identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin).
+Description: "The Participant Extension is used to show how other entities, besides those explicitly modeled as Composition participants (e.g. author, custodian), participate in the documentation act. Such participants, as defined by CDA, include the data enterer, the informant, and information recipients. 
+//
+//**Data Enterer**
+//A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system.
+//
+//**Informant**
+//An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient.
+//
+//**Information Recipient**
+//An Information Recipient is the intended recipient of the information at the time the document was created.
+//
+//**Participant**
+//A Participant identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin).
 "
 * ^context.type = #element
 * ^context.expression = "Composition"
