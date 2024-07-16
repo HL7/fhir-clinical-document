@@ -94,7 +94,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
     ParticipantExtension named participant 0..* MS and
     // PerformerExtension named performer 0..* MS and
     ConsentExtension named consent 0..* MS and
-    OrderExtension named order 0..* MS
+    OrderExtension named order 0..* MS and
+	CanceledExtension named canceled-status-indicator 0..1
 
 * extension[$composition-clinicaldocument-versionNumber] ^label = "clinical document version number"
 * extension[$composition-clinicaldocument-versionNumber] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
