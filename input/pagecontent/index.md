@@ -36,15 +36,21 @@ The Composition resource is special in that it can convey narrative in both Comp
   * **MAY** include Composition.text in a rendition of the document.
   * **MAY** render additional document information (such as patient name and date of birth) derived from structured Composition fields.
 
+These rules apply even for other narrative type fields (e.g. FHIR R5 Composition.note, FHIR 'note' extension). 
+
 Good practice recommends that the following be present whenever the document is viewed: Document title and document dates; Service and encounter types, and date ranges as appropriate; Names of all persons along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Names of selected organizations along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Date of birth for subject(s); Patient identifying information.
 
 Possible security concerns and mitigations related to malicious narrative, particularly narrative that contains active content, are discussed [here](https://hl7.org/fhir/R4/security.html#narrative).
 
   
 ### Relationship to other FHIR document specifications
-As noted above, a primary motivation for this IG is to present a canonical starting point for those creating their own FHIR clinical document specifications or for those CDA users who wish to migrate to a FHIR-based representation of clinical documents. That said, for the existing Bundle- and Composition-derive artifacts designed to support clinical documents, it is important to have a long-range reconciliation plan. 
+As noted above, a primary motivation for this IG is to present a canonical starting point for those creating their own FHIR clinical document specifications or for those CDA users who wish to migrate to a FHIR-based representation of clinical documents. That said, for the existing Bundle- and Composition-derived artifacts designed to support clinical documents, it is important to have a long-range reconciliation plan. 
 
 The reconciliation plan suggested by this IG is:
 * Detailed analysis of existing artifacts. For instance, we derive from FHIR Core and have borrowed from the [International Patient Summary IG](http://hl7.org/fhir/uv/ips/) and the [C-CDA on FHIR IG]( http://hl7.org/fhir/us/ccda/). This includes several extensions from the C-CDA on FHIR IG.
 * Let this IG mature and gain implementation experience.
-* Plan for artifacts to derive from this IG by FHIR R6. Preparation includes: (1) backport key FHIR R6 capabilities now so as to minimize impact on implementers; (2) propose deprecating the FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) profile in FHIR R6; (3) work with artifact developers that derive from FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) to ensure their requirements have been met.
+* Plan for artifacts to derive from this IG by FHIR R6. Preparation includes: (1) backport key FHIR R6 capabilities now so as to minimize impact on implementers; (2) propose deprecating the FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) profile in FHIR R6; (3) work with artifact developers that derive from FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) to ensure their requirements have been met; (4) Propose revisions to FHIR R6 Composition that subsume Composition extensions in this IG (such as adding Composition.participant, adding Composition.basedOn, adding Composition.partOf). 
+
+<blockquote class="stu-note">
+Structured Documents committee will more fully consider FHIR R6 Composition revisions based on the result of balloting this IG. 
+</blockquote>
