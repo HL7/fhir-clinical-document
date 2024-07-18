@@ -1,4 +1,4 @@
-ValueSet: clinicalDocParticipantTypes
+ValueSet: ClinicalDocParticipantTypesVs
 Id: clinical-doc-participant-types-vs 
 Title: "Clinical Document Participant Types Value set"
 Description: "Subset of codes from v3-ParticipationType for use as Clinical Document Type codes"

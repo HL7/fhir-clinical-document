@@ -4,13 +4,13 @@ Invariant: clindoc-first-degree
 Description: "All first degree targets of entry[0].Composition.references shall be included in the bundle"
 Expression: "TBD"
 //entry.first()
-Severity:       #error
+Severity: #error
 
 //bundle.timestamp >= composition.date
 Invariant: clindoc-timestamp-ge-compoDate
-Description: "bundle.timestamp >= composition.date"
-Expression: "TBD"
-Severity:       #error
+Description: "For a FHIR Clinical Document the Bundle timestamp must be the same or after the Composition date" 
+Expression: "timestamp >= entry.first().resource.date"
+Severity: #error
 
 
 Profile: ClinicalDocumentBundle
@@ -20,6 +20,7 @@ Title: "FHIR Clinical Document Bundle Profile"
 Description: "Universal starting point for specifying a FHIR Clinical Document."
 
 * obeys clindoc-first-degree
+* obeys clindoc-timestamp-ge-compoDate
 
 * type = #document
 * identifier 1..1
@@ -32,8 +33,6 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 //* identifier ^mapping[=].map = "This is the Document identifier"
 * identifier ^mapping[=].comment =  "This is the Document identifier"
 * total 0..0
-
-* timestamp obeys clindoc-timestamp-ge-compoDate
 
 * timestamp 1..1
 // Remove default mapping to ClinicalDocument.effectiveTime and state that this timestamp is >= ClinicalDocument.effectiveTime.
@@ -56,6 +55,9 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 
 * entry[clinical-document-composition] ^short = "First entry is a composition"
 * entry[clinical-document-composition].resource only ClinicalDocumentComposition
+* entry[clinical-document-composition].search 0..0
+* entry[clinical-document-composition].request 0..0
+* entry[clinical-document-composition].response 0..0
 //* entry[subject].resource only Patient
 //* entry[participant].resource only Device or Organization or Patient or Person or Practitioner or PractitionerRole or RelatedPerson
 // constraint: all first degree composition.references shall be included in the bundle.
