@@ -3,7 +3,14 @@
      A FHIR Clinical Document is a FHIR bundle of type=document where the first entry is a composition conforming to this profile. 
   </p>
 
-<p>As noted in the introduction: </p>
+<p>As noted in the <a href="index.html#human-readability-and-rendering-fhir-clinical-documents">introduction section on human readability</a>: </p>
+<p>To ensure the unambiguous communication of a clinical document's attested narrative, this IG requires that:</p>
+<ol >
+<li>There must be a deterministic method by which a recipient of an arbitrary FHIR Clinical Document can display the narrative content of the note on a standard Web browser.</li> 
+<li>Human readability shall not require a sender to transmit a special style sheet along with a FHIR Clinical Document. It must be possible to render all FHIR Clinical Documents with a single style sheet and general-market display tools.</li> 
+<li>Human readability applies to the authenticated content. There may be additional information conveyed in the document that is there primarily for machine processing that is not authenticated and need not be rendered.</li>
+</ol>
+
 <ul>
 <li>The FHIR Clinical Document creator</li>
 <ul>
