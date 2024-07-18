@@ -2,7 +2,8 @@
   <p>
      A FHIR Clinical Document is a FHIR bundle of type=document where the first entry is a composition conforming to this profile. 
   </p>
-
+	<blockquote class="stu-note">Be aware of the modifier extension R5-Composition-status it is a backport of the R5 Composition.status to allow for additional status codes. Be cautious when using with the R4 Composition.status, which is required. The values could unintentionally cause confusion if they contradict each-other. The value sets do overlap, as well. The intent is to preadopt values found in R5 for status. In R6, the FHIR Clinical Document Composition Profile will only have one status field.</blockquote>
+	<br></br>
 <p>As noted in the <a href="index.html#human-readability-and-rendering-fhir-clinical-documents">introduction section on human readability</a>: </p>
 <p>To ensure the unambiguous communication of a clinical document's attested narrative, this IG requires that:</p>
 <ol >

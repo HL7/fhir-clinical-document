@@ -87,8 +87,14 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * obeys clindoc-one-data-enterer
 * obeys clindoc-limit-participantType
 
+* modifierExtension contains	
+	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1 MS
+	
 * extension contains 
-	$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS and
+	//$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS 
+	
+	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version named R5-Composition-version 0..1 MS and
+	
 	// DocumentID named document-id 0..1 MS and
 	
     ParticipantExtension named data-enterer 0..1 MS and
@@ -98,13 +104,13 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
     //ParticipantExtension named performer 0..* MS and
 	
     ConsentExtension named consent 0..* MS and
-    OrderExtension named order 0..* MS and
-	CancelledExtension named cancelled-status-indicator 0..1
+    OrderExtension named order 0..* MS 
+	//CancelledExtension named cancelled-status-indicator 0..1
 
-* extension[$composition-clinicaldocument-versionNumber] ^label = "clinical document version number"
-* extension[$composition-clinicaldocument-versionNumber] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
-* extension[$composition-clinicaldocument-versionNumber] ^mapping[0].identity = "cda"
-* extension[$composition-clinicaldocument-versionNumber] ^mapping[=].map = "versionNumber"
+* extension[R5-Composition-version] ^label = "clinical document version number"
+//* extension[R5-Composition-version] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
+* extension[R5-Composition-version] ^mapping[0].identity = "cda"
+* extension[R5-Composition-version] ^mapping[=].map = "versionNumber"
 
 // * extension[document-id] ^label = "Specific document instance id"
 // * extension[document-id] ^short = "Specific document instance id. The use of two identifiers might become deprecated"
@@ -150,9 +156,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension[order] ^mapping[0].identity = "cda"
 * extension[order] ^mapping[=].map = "inFulfillmentOf.Order"
 
-//* modifierExtension[Status] ^short = "in-progress | completed | entered-in-error | unknown"
-//* modifierExtension[Status] ^definition = "The current state of the adverse event or potential adverse event."
-//* modifierExtension[Status] ^comment = "This is not the reporting of the event to any regulatory or quality 
+* modifierExtension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
+* modifierExtension[R5-Composition-status] ^isModifierReason = "This element is labelled as a modifier because it is a status element that contains status values such as cancelled (which means that the resource should not be treated as valid)."
 
 * language 0..1 MS 
 * language ^mapping[0].identity = "cda"
