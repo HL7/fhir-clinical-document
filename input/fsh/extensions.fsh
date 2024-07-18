@@ -67,10 +67,11 @@ Description: "Consent Extension refers to a FHIR Consent instance that indicates
 //Title: "Participant Extension"
 //Description: "Participant Extension identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
 
+
 Extension: ParticipantExtension
 Id: ParticipantExtension
 Title: "Participant Extension"
-Description: "The Participant Extension is used to show how other entities, besides those explicitly modeled as Composition participants (e.g. author, custodian), participate in the documentation act. Such participants, as defined by CDA, include the data enterer, the informant, and information recipients. 
+Description: "The Participant Extension is used to show how other entities, besides those explicitly modeled as Composition participants (e.g. author, custodian), participate in the documentation act. Such participants, as defined by CDA, include the data enterer, the informant, information recipients and other participants (i.e. supporting persons)."
 //
 //**Data Enterer**
 //A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system.
@@ -82,12 +83,11 @@ Description: "The Participant Extension is used to show how other entities, besi
 //An Information Recipient is the intended recipient of the information at the time the document was created.
 //
 //**Participant**
-//A Participant identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin).
-"
+//A Participant identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."
 * ^context.type = #element
 * ^context.expression = "Composition"
 * extension contains
-	type 0..* and
+	type 1..* and
 	function 0..* and
 	time 0..1 and
 	party 1..1 MS
@@ -103,7 +103,7 @@ Description: "The Participant Extension is used to show how other entities, besi
 //* extension[function] ^short = "A code specifying the granular, or exact, function in participation"
 * extension[function] ^short = "Exact function of the participant in the creation of the clinical document. This is more granular than type."
 * extension[function].value[x] only CodeableConcept
-* extension[function].valueCodeableConcept from http://terminology.hl7.org/ValueSet/v3-ParticipationFunction
+* extension[function].valueCodeableConcept from http://terminology.hl7.org/ValueSet/v3-ParticipationFunction (extensible)
 * extension[function].valueCodeableConcept 1..1
 
 * extension[time]

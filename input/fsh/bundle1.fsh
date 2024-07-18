@@ -63,38 +63,40 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 // constraint: all first degree composition.references shall be included in the bundle.
 
 
-//Extension: ClinicalDocumentRelatesTo
-//Id: ClinicalDocumentRelatesTo
-//Title: "Clinical Document Identifier"
-//Description: "Identifiers that "
-//* ^context.type = #element
-//* ^context.expression = "Bundle"
-//* value[x] only Annotation
+//can have only one extension with a url of http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension and type of ENT
+Invariant: clindoc-one-data-enterer
+Description: "There can only be one date enterer. That means only one participant extension with type of data enterer." 
+Expression: "extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.where(code='ENT').isDistinct()"
+Severity: #error
 
-
-//Invariant: clincomp-1
-//Description: "Must have at least one composition.section"
-//Expression: 
-//"TBD"
-//Severity:       #error
-
+//participantType cannot be AUT, AUTHEN, CST, LA, RCT, SBJ
+Invariant: clindoc-limit-participantType
+Description: "FHIR Clinical Document Composition Profile contains fields for AUT, AUTHEN, CST, LA, RCT, SBJ. These types are not allowed as types in the Participant Extension" 
+Expression: "extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUT').not() and extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUTHEN').not() and
+extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='CST').not() and
+extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='LA').not() and
+extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='RCT').not() and
+extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='SBJ').not()"
+Severity: #error
 
 Profile: ClinicalDocumentComposition
 Parent: Composition
 Id: clinical-document-composition
 Title: "FHIR Clinical Document Composition Profile"
 Description: "Starting point for a specification for a composition of a FHIR Clinical Document."
-
-//* obeys clincomp-1
+* obeys clindoc-one-data-enterer
+* obeys clindoc-limit-participantType
 
 * extension contains 
 	$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS and
 	// DocumentID named document-id 0..1 MS and
-    //DataEntererExtension named data-enterer 0..1 MS and
-    //InformantExtension named informant 0..* MS and
-    //InformationRecipientExtension named information-recipient 0..* MS and
+	
+    ParticipantExtension named data-enterer 0..1 MS and
+    ParticipantExtension named informant 0..* MS and
+    ParticipantExtension named information-recipient 0..* MS and
     ParticipantExtension named participant 0..* MS and
-    // PerformerExtension named performer 0..* MS and
+    //ParticipantExtension named performer 0..* MS and
+	
     ConsentExtension named consent 0..* MS and
     OrderExtension named order 0..* MS and
 	CancelledExtension named cancelled-status-indicator 0..1
@@ -109,37 +111,34 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 // * extension[document-id] ^mapping[0].identity = "cda"
 // * extension[document-id] ^mapping[=].map = "id - document id is experimental"
 
-//* extension[data-enterer] ^label = "date enterer"
-//* extension[data-enterer] ^short = "data enterer"
-//* extension[data-enterer] ^mapping[0].identity = "cda"
-//* extension[data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer "
 
-//* extension[informant] ^label = "informant"
-//* extension[informant] ^short = "informant"
-//* extension[informant] ^mapping[0].identity = "cda"
-//* extension[informant] ^mapping[=].map = "informantChoice.informant"
+* extension[data-enterer] ^label = "date enterer"
+* extension[data-enterer] ^short = "A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
+* extension[data-enterer] ^mapping[0].identity = "cda"
+* extension[data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
+* extension[data-enterer].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
 
-//* extension[information-recipient] ^label = "information recipient"
-//* extension[information-recipient] ^short = "information recipient"
-//* extension[information-recipient] ^mapping[0].identity = "cda"
-//* extension[information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
+* extension[informant] ^label = "informant"
+* extension[informant] ^short = "An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
+* extension[informant] ^mapping[0].identity = "cda"
+* extension[informant] ^mapping[=].map = "informantChoice.informant"
+* extension[informant].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
+
+* extension[information-recipient] ^label = "information recipient"
+* extension[information-recipient] ^short = "An Information Recipient is the intended recipient of the information at the time the document was created."
+* extension[information-recipient] ^mapping[0].identity = "cda"
+* extension[information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
+* extension[information-recipient].extension[type].valueCodeableConcept = $participantTypes#IRCP "information recipient"
 
 * extension[participant] ^label = "participant"
 * extension[participant] ^short = "participant"
 * extension[participant] ^mapping[0].identity = "cda"
 * extension[participant] ^mapping[=].map = "associatedEntity.participant"
-* extension[participant] ^mapping[=].map = "assignedEntity.dataEnterer"
-* extension[participant] ^mapping[=].map = "informantChoice.informant"
-* extension[participant] ^mapping[=].map = "intendedRecipient.informationRecipient"
 
-
-
-
-
-// * extension[performer] ^label = "performer"
-// * extension[performer] ^short = "performer"
-// * extension[performer] ^mapping[0].identity = "cda"
-// * extension[performer] ^mapping[=].map = "performer"
+//* extension[performer] ^label = "performer"
+//* extension[performer] ^short = "performer"
+//* extension[performer] ^mapping[0].identity = "cda"
+//* extension[performer] ^mapping[=].map = "performer"
 
 * extension[consent] ^label = "consent"
 * extension[consent] ^short = "consent"
