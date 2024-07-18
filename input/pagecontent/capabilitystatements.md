@@ -1,0 +1,2 @@
+### Brief note on CapabilityStatements
+You will not find requirement CapabilityStatements in this IG. The IG is a high level guidance for CORE FHIR Clinical Documents. It is expected that IGs deriving from the guidance in this IG will contain appropriate CapabilityStatements for servers and clients.

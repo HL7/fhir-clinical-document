@@ -94,6 +94,7 @@ menu:
     IP Statement: ip_statement.html
     Testing IGs: testing.html
     Dependencies, Globals and CrossVersionAnalysis: dependencies_globals_CrossVersionAnalysis.html
+    Note on CapabilityStatements: capabilitystatements.html
    
 pages:
   index.md:
@@ -109,6 +110,7 @@ pages:
   testing.md:
   dependencies_globals_CrossVersionAnalysis.md:
   operations.md:
+  capabilitystatements.md:
   
 parameters:
   apply-wg: true    
