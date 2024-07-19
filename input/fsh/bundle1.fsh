@@ -130,11 +130,13 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension[informant] ^mapping[=].map = "informantChoice.informant"
 * extension[informant].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
 
-* extension[information-recipient] ^label = "information recipient"
+* extension[information-recipient] ^label = "information recipient of type primary, secondary information recipient or a generic information recipient"
 * extension[information-recipient] ^short = "An Information Recipient is the intended recipient of the information at the time the document was created."
 * extension[information-recipient] ^mapping[0].identity = "cda"
 * extension[information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
-* extension[information-recipient].extension[type].valueCodeableConcept = $participantTypes#IRCP "information recipient"
+* extension[information-recipient].extension[type].valueCodeableConcept from ClinicalDocInformationRecipientVs (required)
+* extension[information-recipient].extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
+//= $participantTypes#IRCP "information recipient"
 
 * extension[participant] ^label = "participant"
 * extension[participant] ^short = "participant"
