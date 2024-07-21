@@ -31,7 +31,7 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 * identifier.value ^short = "Identifier system+value must be globally unique"
 * identifier ^mapping[0].identity = "cda"
 //* identifier ^mapping[=].map = "This is the Document identifier"
-* identifier ^mapping[=].comment =  "This is the Document identifier"
+* identifier ^mapping[0].comment =  "This is the Document identifier"
 * total 0..0
 
 * timestamp 1..1
@@ -255,6 +255,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 
 
 * section 1..* MS
+* section ^mapping[+].identity = "cda"
+* section ^mapping[+].map = "bodyChoice.component.NonXMLBody"
 * section.code MS
 * section.text MS
 * section.title 1..1 MS
@@ -270,5 +272,6 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 //* section[nonFHIR_body] ^short = "A non-FHIR clinical document being wrapped by the FHIR Clinical Document Composition. This can be used where it is necessary to wrap a non-FHIR document in a standard header so as to enable consistent document management."
 //* section[nonFHIR_body].entry only Reference(DocumentReference)
 //* section[nonFHIR_body] ^mapping[0].identity = "cda"
-//* section[nonFHIR_body] ^mapping[=].map = "bodyChoice.component.NonXMLBody"
+//* section[nonFHIR_body] ^mapping[+].map = "bodyChoice.component.NonXMLBody"
 //might want a specific code for this slice in the future
+
