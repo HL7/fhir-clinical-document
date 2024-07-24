@@ -17,7 +17,7 @@ Scope for this version of the IG is limited to FHIR artifacts reflecting the CDA
 ### CDA mapping
 Detailed mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) mappings.
 
-<p>A high level mapping from CDA to FHIR Clinical Document is shown here. Composition attributes in <b>bold</b> have a minimal cardinality of 1 in the core resource. Composition attributes in green represent extensions. </p>
+<p>A high level mapping from CDA to FHIR Clinical Document is shown here. Composition attributes in <b>bold</b> have a minimal cardinality of 1 in the core resource. Composition attributes in green represent extensions. <a href="https://confluence.hl7.org/display/SD/CDA+Extensions">CDA extensions</a> that map into the FHIR bundle and composition (prefixed with "sdtc:") are also shown.</p>
 
 <table><tr><td><img width="80%" height="80%" src="HL7 CDA-FHIR Alignment - Image-Mapping.svg" /></td></tr></table>
   
@@ -26,3 +26,5 @@ Detailed mappings of this IG can be found on the Profile Structure Definitions. 
  - **CDA recordTarget**: CDA recordTarget has cardinality 1..* whereas FHIR composition.subject has cardinality 0..1. To accommodate those cases where CDA has more than one recordTarget, this IG allows composition.subject to be a Group (which can then contain more than one patient).
  - **Composition required attributes not present in CDA**: Whereas CDA opted to not include a document status, Composition.status is a required field. In general, Composition.status will be "final", but see Special Topic [Clinical Document Succession Management](versioning.html) for a more detailed discussion.
  - **CDA NonXMLBody**: This IG maps CDA's NonXMLBody into Composition.section. To communicate, say, a PDF document using this approach, one would populate the Composition, where that Composition has a single Composition.section with a Composition.section.entry that references the PDF (e.g. as a FHIR [Binary](https://hl7.org/fhir/R4/binary.html) or FHIR [DocumentReference](https://hl7.org/fhir/R4/documentreference.html)). A use case for communicating a PDF in this way, as opposed to simply communicating a DocumentReference, is where a clinical document management system needs to have uniform document metadata for clinical documents in a range of formats.
+<blockquote class="stu-note">
+We are seeking feedback on the CDA NonXMLBody mapping. One can communicate an unstructured document such as a PDF as the target of a DocumentReference OR one can convert the unstructured document to a FHIR Clinical Document which then serves as the target of a DocumentReference. Current guidance allows either approach.</blockquote>

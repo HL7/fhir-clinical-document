@@ -1,0 +1,5 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../src-generated/schemas/fhir-single.xsd">
+  <p>
+     A FHIR Clinical Document is a FHIR bundle of type=document where the first entry is a composition. In addition, this implementation guide requires that when communicating a FHIR Clinical Document, the sender <b>SHALL</b> include the direct targets of all composition references in the bundle. </p>
+
+</div>

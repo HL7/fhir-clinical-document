@@ -19,7 +19,7 @@ Id: clinical-document-bundle
 Title: "FHIR Clinical Document Bundle Profile"
 Description: "Universal starting point for specifying a FHIR Clinical Document."
 
-* obeys clindoc-first-degree
+//* obeys clindoc-first-degree
 * obeys clindoc-timestamp-ge-compoDate
 
 * type = #document
