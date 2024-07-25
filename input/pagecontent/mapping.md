@@ -15,7 +15,7 @@ Scope for this version of the IG is limited to FHIR artifacts reflecting the CDA
 <img src="CDA_RMIM.png" height="471" width="715" border=1/>
   
 ### CDA mapping
-Detailed mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html#mappings-for-cda-r2-http-hl7-org-v3-cda) mappings.
+Detailed mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html) mappings.
 
 <p>A high level mapping from CDA to FHIR Clinical Document is shown here. Composition attributes in <b>bold</b> have a minimal cardinality of 1 in the core resource. Composition attributes in green represent extensions. <a href="https://confluence.hl7.org/display/SD/CDA+Extensions">CDA extensions</a> that map into the FHIR bundle and composition (prefixed with "sdtc:") are also shown.</p>
 
