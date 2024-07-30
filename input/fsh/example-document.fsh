@@ -10,8 +10,9 @@ Usage: #example
 * timestamp = "2024-05-07T13:28:17.000+00:00"
 * entry[0].fullUrl = "https://example.com/Composition/clinical-document-composition-example1"
 * entry[=].resource = clinical-document-composition-example1
-* entry[+].fullUrl = "https://example.com/Organization/2.16.840.1.113883.19.5"
-* entry[=].resource = 2.16.840.1.113883.19.5
+
+* entry[+].fullUrl = "https://example.com/Organization/custodianOrganization"
+* entry[=].resource = custodianOrganization
 * entry[+].fullUrl = "https://example.com/Practitioner/example"
 * entry[=].resource = example
 * entry[+].fullUrl = "https://example.com/Practitioner/example2"
@@ -37,7 +38,8 @@ Usage: #inline
 * text.status = #additional
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">          <p><b>Discharge Summary</b></p>          <p><b>CC</b>: Dr. BettaB Careful</p>                   <p><b>status</b>: final</p>          <p><b>patient</b>: Eve Everiewoman</p>          <p><b>author</b>: Doctor Dave / Good Health Clinic</p>          <p><b>encounter</b>: Inpatient encounter, 2024-05-03 - 2024-05-07</p>          <p><b>confidentiality</b>: N</p>          <p><b>Contained sections</b>: </p>          <ul>          <li>Reason for admission</li>          <li>Medications on Discharge</li>          <li>Known allergies</li>          </ul>          </div>"
 * extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version"
-* extension[=].valueInteger = 1715088497
+* extension[=].valueString = "1715088497"
+
 * extension[+].extension[0].url = "type"
 * extension[=].extension[=].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
 * extension[=].extension[+].url = "party"
@@ -53,33 +55,33 @@ Usage: #inline
 * date = "2024-05-07T13:28:17.000+00:00"
 * author = Reference(example) "Doctor Dave"
 * title = "Discharge Summary"
-* attester.mode = #legal
+* attester.mode = http://hl7.org/fhir/composition-attestation-mode#legal
 * attester.time = "2024-05-07"
 * attester.party = Reference(example) "Doctor Dave"
-* custodian = Reference(2.16.840.1.113883.19.5) "Good Health Clinic"
+* custodian = Reference(custodianOrganization) "Good Health Clinic"
 * confidentiality = #N
 * section[0].title = "Reason for admission"
 * section[=].code = $LNC#29299-5 "Reason for visit Narrative"
 * section[=].text.status = #additional
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Details</td>\n\n                    <td/>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Acute Asthmatic attack. Was wheezing for days prior to admission.</td>\n\n                    <td/>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
-* section[=].entry = Reference(urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81)
+* section[=].entry = Reference(541a72a8-df75-4484-ac89-ac4923f03b81)
 * section[+].title = "Medications on Discharge"
 * section[=].code = $LNC#10183-2 "Hospital discharge medications Narrative"
 * section[=].text.status = #additional
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Medication</td>\n\n                    <td>Last Change</td>\n\n                    <td>Last ChangeReason</td>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Theophylline 200mg BD after meals</td>\n\n                    <td>continued</td>\n\n                  </tr>\n\n                  <tr>\n\n                    <td>Ventolin Inhaler</td>\n\n                    <td>stopped</td>\n\n                    <td>Getting side effect of tremor</td>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
-* section[=].entry[0] = Reference(urn:uuid:124a6916-5d84-4b8c-b250-10cefb8e6e86)
-* section[=].entry[+] = Reference(urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1)
+* section[=].entry[0] = Reference(124a6916-5d84-4b8c-b250-10cefb8e6e86)
+* section[=].entry[+] = Reference(673f8db5-0ffd-4395-9657-6da00420bbc1)
 * section[+].title = "Known allergies"
 * section[=].code = $LNC#48765-2 "Allergies and adverse reactions Document"
 * section[=].text.status = #additional
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Allergen</td>\n\n                    <td>Reaction</td>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Doxycycline</td>\n\n                    <td>Hives</td>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
-* section[=].entry = Reference(urn:uuid:47600e0f-b6b5-4308-84b5-5dec157f7637)
+* section[=].entry = Reference(47600e0f-b6b5-4308-84b5-5dec157f7637)
 
-Instance: 2.16.840.1.113883.19.5
+Instance: custodianOrganization
 InstanceOf: Organization
 Usage: #inline
 * identifier.system = "urn:ietf:rfc:3986"
-* identifier.value = "2.16.840.1.113883.19.5"
+* identifier.value = "urn:uuid:2.16.840.1.113883.19.5"
 * name = "Good Health Clinic"
 
 Instance: example
@@ -139,8 +141,10 @@ Usage: #inline
 * status = #final
 * code = $LNC#46241-6
 * code.text = "Reason for admission"
+* effectiveDateTime = "2023-08-03"
+* performer = Reference(example2) "Dr Careful"
 * subject = Reference(d1) "Eve Everiewoman"
-* encounter = Reference(http://fhir.healthintersections.com.au/open/Encounter/doc-example)
+* encounter.display = "http://fhir.healthintersections.com.au/open/Encounter/doc-example"
 * valueString = "Acute Asthmatic attack. Was wheezing for days prior to admission."
 
 Instance: 124a6916-5d84-4b8c-b250-10cefb8e6e86
@@ -160,7 +164,7 @@ Usage: #inline
 * dosageInstruction.timing.repeat.periodUnit = #d
 * dosageInstruction.route = $SCT#394899003 "oral administration of treatment"
 * dosageInstruction.doseAndRate.type = $dose-rate-type#ordered "Ordered"
-* dosageInstruction.doseAndRate.doseQuantity = 1 'tbl' "tablet"
+* dosageInstruction.doseAndRate.doseQuantity = 1 '{tablet}' "tablet"
 
 Instance: 673f8db5-0ffd-4395-9657-6da00420bbc1
 InstanceOf: MedicationStatement
@@ -182,5 +186,5 @@ Usage: #inline
 * code.text = "Doxycycline"
 * patient = Reference(d1) "Eve Everiewoman"
 * recordedDate = "2012-09-17"
-* reaction.manifestation = $system#xxx "Hives"
+//* reaction.manifestation = $system#xxx "Hives"
 * reaction.manifestation.text = "Hives"

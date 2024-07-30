@@ -84,7 +84,7 @@ Parent: Composition
 Id: clinical-document-composition
 Title: "FHIR Clinical Document Composition Profile"
 Description: "Starting point for a specification for a composition of a FHIR Clinical Document."
-* obeys clindoc-one-data-enterer
+//* obeys clindoc-one-data-enterer
 * obeys clindoc-limit-participantType
 
 * modifierExtension contains	
@@ -97,9 +97,9 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 	
 	// DocumentID named document-id 0..1 MS and
 	
-    ParticipantExtension named data-enterer 0..1 MS and
-    ParticipantExtension named informant 0..* MS and
-    ParticipantExtension named information-recipient 0..* MS and
+    //ParticipantExtension named data-enterer 0..1 MS and
+    //ParticipantExtension named informant 0..* MS and
+    //ParticipantExtension named information-recipient 0..* MS and
     ParticipantExtension named participant 0..* MS and
     //ParticipantExtension named performer 0..* MS and
 	
@@ -118,30 +118,50 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 // * extension[document-id] ^mapping[=].map = "id - document id is experimental"
 
 
-* extension[data-enterer] ^label = "date enterer"
-* extension[data-enterer] ^short = "A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
-* extension[data-enterer] ^mapping[0].identity = "cda"
-* extension[data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
-* extension[data-enterer].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
-
-* extension[informant] ^label = "informant"
-* extension[informant] ^short = "An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
-* extension[informant] ^mapping[0].identity = "cda"
-* extension[informant] ^mapping[=].map = "informantChoice.informant"
-* extension[informant].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
-
-* extension[information-recipient] ^label = "information recipient of type primary, secondary information recipient or a generic information recipient"
-* extension[information-recipient] ^short = "An Information Recipient is the intended recipient of the information at the time the document was created."
-* extension[information-recipient] ^mapping[0].identity = "cda"
-* extension[information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
-* extension[information-recipient].extension[type].valueCodeableConcept from ClinicalDocInformationRecipientVs (required)
-* extension[information-recipient].extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
-//= $participantTypes#IRCP "information recipient"
+//* extension[data-enterer] ^label = "date enterer"
+//* extension[data-enterer] ^short = "A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
+//* extension[data-enterer] ^mapping[0].identity = "cda"
+//* extension[data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
+//* extension[data-enterer].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
 
 * extension[participant] ^label = "participant"
 * extension[participant] ^short = "participant"
 * extension[participant] ^mapping[0].identity = "cda"
 * extension[participant] ^mapping[=].map = "associatedEntity.participant"
+//* extension[information-recipient].extension[type].valueCodeableConcept from ClinicalDocParticipantVs (extensible)
+//* extension[information-recipient].extension[type].valueCodeableConcept ^binding.description = "Value set limits to values not used in other slices"
+* extension[participant] ^slicing.discriminator.type = #value
+* extension[participant] ^slicing.discriminator.path = extension[type].resolve().value[x]
+* extension[participant] ^slicing.rules = #open
+* extension[participant] ^slicing.description = "Slicing based on the resource type"
+//* extension[participant] contains 
+//    normal 0..1 MS
+//	and tweaked 0..* MS
+//* extension[participant][tweaked].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
+* extension[participant] contains 
+    data-enterer 0..1 MS and
+    informant 0..* MS and
+    information-recipient 0..* MS
+
+* extension[participant][data-enterer] ^label = "date enterer"
+* extension[participant][data-enterer] ^short = "A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
+* extension[participant][data-enterer] ^mapping[0].identity = "cda"
+* extension[participant][data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
+* extension[participant][data-enterer].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
+
+* extension[participant][informant] ^label = "informant"
+* extension[participant][informant] ^short = "An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
+* extension[participant][informant] ^mapping[0].identity = "cda"
+* extension[participant][informant] ^mapping[=].map = "informantChoice.informant"
+* extension[participant][informant].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
+
+* extension[participant][information-recipient] ^label = "information recipient of type primary, secondary information recipient or a generic information recipient"
+* extension[participant][information-recipient] ^short = "An Information Recipient is the intended recipient of the information at the time the document was created."
+* extension[participant][information-recipient] ^mapping[0].identity = "cda"
+* extension[participant][information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
+* extension[participant][information-recipient].extension[type].valueCodeableConcept from ClinicalDocInformationRecipientVs (required)
+* extension[participant][information-recipient].extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
+
 
 //* extension[performer] ^label = "performer"
 //* extension[performer] ^short = "performer"
@@ -201,19 +221,19 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * attester.mode MS
 * attester.time MS
 * attester.party MS
-* attester ^slicing.discriminator.type = #type
-* attester ^slicing.discriminator.path = attester.mode
+* attester ^slicing.discriminator.type = #pattern
+* attester ^slicing.discriminator.path = mode
 * attester ^slicing.rules = #open
 * attester ^slicing.description = "Slicing based on the resource type"
 * attester contains 
     legal_attester 0..1 MS
 	and professional_attester 0..* MS
 * attester[legal_attester] ^short = "aka legal authenticator"
-* attester[legal_attester].mode = #legal
+* attester[legal_attester].mode = http://hl7.org/fhir/composition-attestation-mode#legal
 * attester[legal_attester] ^mapping[0].identity = "cda"
 * attester[legal_attester] ^mapping[=].map = "assignedEntity.legalAuthenticator"
 * attester[professional_attester] ^short = "aka authenticator"
-* attester[professional_attester].mode = #professional
+* attester[professional_attester].mode = http://hl7.org/fhir/composition-attestation-mode#professional
 * attester[professional_attester] ^mapping[0].identity = "cda"
 * attester[professional_attester] ^mapping[=].map = "assignedEntity.authenticator"
 
