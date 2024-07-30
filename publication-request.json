@@ -1,7 +1,7 @@
 {
-  "package-id": "hl7.fhir.uv.clinical-document-ig",
+  "package-id": "hl7.fhir.uv.fhir-clinical-document",
 	"version": "1.0.0-ballot",
-	"path": "http://hl7.org/fhir/uv/clinical-document-ig/2024Sep",
+	"path": "http://hl7.org/fhir/uv/fhir-clinical-document/2024Sep",
 	"status": "ballot",
 	"sequence": "STU1",
 	"milestone":"false",

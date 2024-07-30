@@ -3,7 +3,7 @@ Instance: clinical-document-bundle-example1
 InstanceOf: Bundle
 Description: "Document Bundle example for FHIR Clinical Document"Usage: #example
 * meta.lastUpdated = "2024-05-07T13:28:17.000+00:00"
-* meta.profile = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/clinical-document-bundle"
+* meta.profile = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/clinical-document-bundle"
 * identifier.system = "https://example.com/bundleId"
 * identifier.value = "26d52355-b71b-4992-a34b-a2476983c166"
 * type = #document
@@ -40,21 +40,21 @@ Instance: clinical-document-composition-example1
 InstanceOf: Composition
 Description: "Composition example for FHIR Clinical Document"Usage: #example
 * meta.lastUpdated = "2024-05-07T13:28:17.000+00:00"
-* meta.profile = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/clinical-document-composition"
+* meta.profile = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/clinical-document-composition"
 * text.status = #additional
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">          <p><b>Discharge Summary</b></p>          <p><b>CC</b>: Dr. BettaB Careful</p>                   <p><b>status</b>: final</p>          <p><b>patient</b>: Eve Everiewoman</p>          <p><b>author</b>: Doctor Dave / Good Health Clinic</p>          <p><b>encounter</b>: Inpatient encounter, 2024-05-03 - 2024-05-07</p>          <p><b>confidentiality</b>: N</p>          <p><b>Contained sections</b>: </p>          <ul>          <li>Reason for admission</li>          <li>Medications on Discharge</li>          <li>Known allergies</li>          </ul>          </div>"
 * extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version"
 * extension[=].valueString = "1715088497"
 
-* extension[+].url = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension"
+* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension"
 * extension[=].extension[0].url = "type"
 * extension[=].extension[=].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
 * extension[=].extension[+].url = "party"
 * extension[=].extension[=].valueReference = Reference(Practitioner/example2)
 
-* extension[+].url = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/OrderExtension"
+* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
 * extension[=].valueReference = Reference(service1)
-* extension[+].url = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/consent-extension"
+* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/consent-extension"
 * extension[=].valueReference = Reference(consent1)
 
 * identifier.system = "https://example.com/compId"

@@ -63,20 +63,20 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 // constraint: all first degree composition.references shall be included in the bundle.
 
 
-//can have only one extension with a url of http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension and type of ENT
+//can have only one extension with a url of http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension and type of ENT
 Invariant: clindoc-one-data-enterer
 Description: "There can only be one date enterer. That means only one participant extension with type of data enterer." 
-Expression: "extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.where(code='ENT').isDistinct()"
+Expression: "extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.where(code='ENT').isDistinct()"
 Severity: #error
 
 //participantType cannot be AUT, AUTHEN, CST, LA, RCT, SBJ
 Invariant: clindoc-limit-participantType
 Description: "FHIR Clinical Document Composition Profile contains fields for AUT, AUTHEN, CST, LA, RCT, SBJ. These types are not allowed as types in the Participant Extension" 
-Expression: "extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUT').not() and extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUTHEN').not() and
-extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='CST').not() and
-extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='LA').not() and
-extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='RCT').not() and
-extension.where(url='http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='SBJ').not()"
+Expression: "extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUT').not() and extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUTHEN').not() and
+extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='CST').not() and
+extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='LA').not() and
+extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='RCT').not() and
+extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='SBJ').not()"
 Severity: #error
 
 Profile: ClinicalDocumentComposition
