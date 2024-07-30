@@ -1,3 +1,8 @@
+<blockquote class="note-to-balloters">
+Structured Documents committee will more fully consider FHIR R6 Composition revisions based on the result of balloting this IG. 
+Accordingly, it is the intent of the HL7 Structured Documents WG that this IG replace the current FHIR R4 and R5 Core Clinical Document guidance.
+</blockquote>
+
 ### Background
 Today there are more than 257 existing profiles on Bundle, and more than more than 180 existing profiles on Composition, many of which represent clinical documents, which take different approaches to representing the information and structures needed in a clinical document. The [HL7 Clinical Document Architecture (CDA) standard](https://hl7.org/cda/stds/online-navigation/2024May/index.html) has been widely implemented. CDA was created in 2005 with industry stakeholders to represent interoperable Clinical Documents. Universally, consistently represented, interoperable FHIR Clinical Documents are needed as the industry moves towards FHIR. FHIR stakeholders interested in exchanging Clinical Documents in FHIR intend to leverage the learnings and principles of CDA. 
 
@@ -51,6 +56,7 @@ The reconciliation plan suggested by this IG is:
 * Let this IG mature and gain implementation experience.
 * Plan for artifacts to derive from this IG by FHIR R6. Preparation includes: (1) backport key FHIR R6 capabilities now so as to minimize impact on implementers; (2) propose deprecating the FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) profile in FHIR R6; (3) work with artifact developers that derive from FHIR core [ClinicalDocument](https://hl7.org/fhir/R4/clinicaldocument.html) to ensure their requirements have been met; (4) Propose revisions to FHIR R6 Composition that subsume Composition extensions in this IG (such as adding Composition.participant, adding Composition.basedOn, adding Composition.partOf). 
 
-<blockquote class="stu-note">
-Structured Documents committee will more fully consider FHIR R6 Composition revisions based on the result of balloting this IG. 
-</blockquote>
+### Contact information
+Please contact the HL7 Structured Documents WG with any questions, or the following IG developers about the content in this IG:
+Bob Dolin - bdolin@elimu.org
+Bret Heale - bheale@humanizedhealthconsulting.com
