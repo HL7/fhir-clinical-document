@@ -1,0 +1,16 @@
+{
+  "package-id": "hl7.fhir.uv.clinical-document-ig",
+	"version": "1.0.0-ballot",
+	"path": "http://hl7.org/fhir/uv/clinical-document-ig/2024Sep",
+	"status": "ballot",
+	"sequence": "STU1",
+	"milestone":"false",
+	"mode": "working",
+	"desc": "Ballot version for STU 1 FHIR Clinical Documents",
+	"descmd": "Ballot version for STU 1 FHIR Clinical Documents",
+	"first" : true,
+	"title" : "FHIR Clinical Documents",
+	"ci-build" : "https://build.fhir.org/ig/HL7/fhir-clinical-document/index.html",
+	"introduction" : "This implementation guide defines a canonical representation of a clinical document in FHIR. It serves as a common universal starting point for those creating their own FHIR clinical document specifications, and supports CDA users who wish to migrate to a FHIR-based representation of clinical documents. The intent of the HL7 Structured Documents WG that this IG replace the current FHIR R4 and R5 Core Clinical Document guidance",
+	"category" : "Clinical Documents"
+}
