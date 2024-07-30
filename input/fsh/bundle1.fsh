@@ -126,18 +126,14 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 
 * extension[participant] ^label = "participant"
 * extension[participant] ^short = "participant"
-* extension[participant] ^mapping[0].identity = "cda"
-* extension[participant] ^mapping[=].map = "associatedEntity.participant"
+//* extension[participant] ^mapping[0].identity = "cda"
+//* extension[participant] ^mapping[=].map = "associatedEntity.participant"
 //* extension[information-recipient].extension[type].valueCodeableConcept from ClinicalDocParticipantVs (extensible)
 //* extension[information-recipient].extension[type].valueCodeableConcept ^binding.description = "Value set limits to values not used in other slices"
 * extension[participant] ^slicing.discriminator.type = #value
-* extension[participant] ^slicing.discriminator.path = "$this.extension[type].valueCodeableConcept" //[x]"
+* extension[participant] ^slicing.discriminator.path = "extension.where(url='extension.where(url='type').value"
 * extension[participant] ^slicing.rules = #open
-* extension[participant] ^slicing.description = "Slicing based on the resource type"
-//* extension[participant] contains 
-//    normal 0..1 MS
-//	and tweaked 0..* MS
-//* extension[participant][tweaked].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
+* extension[participant] ^slicing.description = "Slicing based on the coded type"
 * extension[participant] contains 
     data-enterer 0..1 MS and
     informant 0..* MS and
@@ -145,20 +141,20 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 
 * extension[participant][data-enterer] ^label = "date enterer"
 * extension[participant][data-enterer] ^short = "A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
-* extension[participant][data-enterer] ^mapping[0].identity = "cda"
-* extension[participant][data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
+//* extension[participant][data-enterer] ^mapping[0].identity = "cda"
+//* extension[participant][data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
 * extension[participant][data-enterer].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
 
 * extension[participant][informant] ^label = "informant"
 * extension[participant][informant] ^short = "An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
-* extension[participant][informant] ^mapping[0].identity = "cda"
-* extension[participant][informant] ^mapping[=].map = "informantChoice.informant"
+//* extension[participant][informant] ^mapping[0].identity = "cda"
+//* extension[participant][informant] ^mapping[=].map = "informantChoice.informant"
 * extension[participant][informant].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
 
 * extension[participant][information-recipient] ^label = "information recipient of type primary, secondary information recipient or a generic information recipient"
 * extension[participant][information-recipient] ^short = "An Information Recipient is the intended recipient of the information at the time the document was created."
-* extension[participant][information-recipient] ^mapping[0].identity = "cda"
-* extension[participant][information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
+//* extension[participant][information-recipient] ^mapping[0].identity = "cda"
+//* extension[participant][information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
 * extension[participant][information-recipient].extension[type].valueCodeableConcept from ClinicalDocInformationRecipientVs (required)
 * extension[participant][information-recipient].extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
 
