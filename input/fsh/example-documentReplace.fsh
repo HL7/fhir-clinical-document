@@ -1,102 +1,108 @@
 
-Instance: clinical-document-bundle-example1
+Instance: clinical-document-bundle-revision
 InstanceOf: Bundle
-Description: "Document Bundle example for FHIR Clinical Document"Usage: #example
-* meta.lastUpdated = "2024-05-07T13:28:17.000+00:00"
+Description: "Document Bundle revision example for FHIR Clinical Document"Usage: #example
+* meta.lastUpdated = "2024-05-08T12:28:34.000+00:00"
 * meta.profile = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/clinical-document-bundle"
 * identifier.system = "https://example.com/bundleId"
-* identifier.value = "26d52355-b71b-4992-a34b-a2476983c166"
+* identifier.value = "90380bb8-e545-4100-a929-de70b086d023"
 * type = #document
-* timestamp = "2024-05-07T13:28:17.000+00:00"
-* entry[0].fullUrl = "https://example.com/Composition/clinical-document-composition-example1"
-* entry[=].resource = clinical-document-composition-example1
+* timestamp = "2024-05-08T12:28:34.000+00:00"
+* entry[0].fullUrl = "https://example.com/Composition/clinical-document-composition-revision"
+* entry[=].resource = clinical-document-composition-revision
 
-* entry[+].fullUrl = "https://example.com/Organization/custodianOrganization"
-* entry[=].resource = custodianOrganization
-* entry[+].fullUrl = "https://example.com/Practitioner/example"
-* entry[=].resource = example
-* entry[+].fullUrl = "https://example.com/Practitioner/example2"
-* entry[=].resource = example2
-* entry[+].fullUrl = "https://example.com/Patient/d1"
-* entry[=].resource = d1
-* entry[+].fullUrl = "https://example.com/Encounter/doc-example"
-* entry[=].resource = doc-example
-* entry[+].fullUrl = "https://example.com/Observation/541a72a8-df75-4484-ac89-ac4923f03b81"
-* entry[=].resource = 541a72a8-df75-4484-ac89-ac4923f03b81
-* entry[+].fullUrl = "https://example.com/MedicationRequest/124a6916-5d84-4b8c-b250-10cefb8e6e86"
-* entry[=].resource = 124a6916-5d84-4b8c-b250-10cefb8e6e86
-* entry[+].fullUrl = "https://example.com/MedicationStatement/673f8db5-0ffd-4395-9657-6da00420bbc1"
-* entry[=].resource = 673f8db5-0ffd-4395-9657-6da00420bbc1
-* entry[+].fullUrl = "https://example.com/AllergyIntolerance/47600e0f-b6b5-4308-84b5-5dec157f7637"
-* entry[=].resource = 47600e0f-b6b5-4308-84b5-5dec157f7637
+* entry[+].fullUrl = "https://example.com/Organization/revised-custodianOrganization"
+* entry[=].resource = revised-custodianOrganization
+* entry[+].fullUrl = "https://example.com/Practitioner/revised-example"
+* entry[=].resource = revised-example
+* entry[+].fullUrl = "https://example.com/Practitioner/revised-example2"
+* entry[=].resource = revised-example2
+* entry[+].fullUrl = "https://example.com/Patient/revised-d1"
+* entry[=].resource = revised-d1
+* entry[+].fullUrl = "https://example.com/Encounter/revised-doc-example"
+* entry[=].resource = revised-doc-example
+* entry[+].fullUrl = "https://example.com/Observation/revised-541a72a8-df75-4484-ac89-ac4923f03b81"
+* entry[=].resource = revised-541a72a8-df75-4484-ac89-ac4923f03b81
+* entry[+].fullUrl = "https://example.com/MedicationRequest/revised-124a6916-5d84-4b8c-b250-10cefb8e6e86"
+* entry[=].resource = revised-124a6916-5d84-4b8c-b250-10cefb8e6e86
+* entry[+].fullUrl = "https://example.com/MedicationStatement/revised-673f8db5-0ffd-4395-9657-6da00420bbc1"
+* entry[=].resource = revised-673f8db5-0ffd-4395-9657-6da00420bbc1
+* entry[+].fullUrl = "https://example.com/AllergyIntolerance/revised-47600e0f-b6b5-4308-84b5-5dec157f7637"
+* entry[=].resource = revised-47600e0f-b6b5-4308-84b5-5dec157f7637
 
-* entry[+].fullUrl = "https://example.com/ServiceRequest/service1"
-* entry[=].resource = service1
-* entry[+].fullUrl = "https://example.com/Consent/consent1"
-* entry[=].resource = consent1
+* entry[+].fullUrl = "https://example.com/ServiceRequest/revised-service1"
+* entry[=].resource = revised-service1
+* entry[+].fullUrl = "https://example.com/Consent/revised-consent1"
+* entry[=].resource = revised-consent1
 
-
-Instance: clinical-document-composition-example1
+Instance: clinical-document-composition-revision
 InstanceOf: Composition
-Description: "Composition example for FHIR Clinical Document"Usage: #example
+Description: "Composition revision example for FHIR Clinical Document"Usage: #example
 * meta.lastUpdated = "2024-05-07T13:28:17.000+00:00"
 * meta.profile = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/clinical-document-composition"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">          <p><b>Discharge Summary</b></p>          <p><b>CC</b>: Dr. BettaB Careful</p>                   <p><b>status</b>: final</p>          <p><b>patient</b>: Eve Everiewoman</p>          <p><b>author</b>: Doctor Dave / Good Health Clinic</p>          <p><b>encounter</b>: Inpatient encounter, 2024-05-03 - 2024-05-07</p>          <p><b>confidentiality</b>: N</p>          <p><b>Contained sections</b>: </p>          <ul>          <li>Reason for admission</li>          <li>Medications on Discharge</li>          <li>Known allergies</li>          </ul>          </div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">          <p><b>Discharge Summary</b></p>          <p><b>CC</b>: Dr. BettaB Careful</p>                   <p><b>status</b>: final</p>          <p><b>patient</b>: Eve Everywoman</p>          <p><b>author</b>: Doctor Dave / Good Health Clinic</p>          <p><b>encounter</b>: Inpatient encounter, 2024-05-03 - 2024-05-07</p>          <p><b>confidentiality</b>: N</p>          <p><b>Contained sections</b>: </p>          <ul>          <li>Reason for admission</li>          <li>Medications on Discharge</li>          <li>Known allergies</li>          </ul>          </div>"
 * extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version"
-* extension[=].valueString = "1715088497"
+* extension[=].valueString = "1715171314"
 
 * extension[+].url = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/ParticipantExtension"
 * extension[=].extension[0].url = "type"
 * extension[=].extension[=].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
 * extension[=].extension[+].url = "party"
-* extension[=].extension[=].valueReference = Reference(Practitioner/example2)
+* extension[=].extension[=].valueReference = Reference(Practitioner/revised-example2)
+
 
 * extension[+].url = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/OrderExtension"
-* extension[=].valueReference = Reference(service1)
+* extension[=].valueReference = Reference(revised-service1)
 * extension[+].url = "http://hl7.org/fhir/uv/clinical-document-ig/StructureDefinition/consent-extension"
-* extension[=].valueReference = Reference(consent1)
+* extension[=].valueReference = Reference(revised-consent1)
+
 
 * identifier.system = "https://example.com/compId"
 * identifier.value = "1d6d6eb8-7d08-4ce1-94d4-19cdaa76ad6f"
 * status = #final
 * type = $LNC#28655-9
 * type.text = "Attending Discharge summary"
-* subject = Reference(d1) "Eve Everiewoman"
-* encounter = Reference(doc-example)
-* date = "2024-05-07T13:28:17.000+00:00"
-* author = Reference(example) "Doctor Dave"
+* subject = Reference(revised-d1) "Eve Everywoman"
+* encounter = Reference(revised-doc-example)
+* date = "2024-05-08T11:28:17.000+00:00"
+* author = Reference(revised-example) "Doctor Dave"
 * title = "Discharge Summary"
 * attester.mode = http://hl7.org/fhir/composition-attestation-mode#legal
 * attester.time = "2024-05-07"
-* attester.party = Reference(example) "Doctor Dave"
-* custodian = Reference(custodianOrganization) "Good Health Clinic"
+* attester.party = Reference(revised-example) "Doctor Dave"
+* custodian = Reference(revised-custodianOrganization) "Good Health Clinic"
 * confidentiality = #N
+
+* relatesTo[0].code = #replaces
+* relatesTo[=].targetIdentifier.system = "https://example.com/bundleId"
+* relatesTo[=].targetIdentifier.value = "26d52355-b71b-4992-a34b-a2476983c166"
+
 * section[0].title = "Reason for admission"
 * section[=].code = $LNC#29299-5 "Reason for visit Narrative"
 * section[=].text.status = #additional
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Details</td>\n\n                    <td/>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Acute Asthmatic attack. Was wheezing for days prior to admission.</td>\n\n                    <td/>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
-* section[=].entry = Reference(541a72a8-df75-4484-ac89-ac4923f03b81)
+* section[=].entry = Reference(revised-541a72a8-df75-4484-ac89-ac4923f03b81)
 * section[+].title = "Medications on Discharge"
 * section[=].code = $LNC#10183-2 "Hospital discharge medications Narrative"
 * section[=].text.status = #additional
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Medication</td>\n\n                    <td>Last Change</td>\n\n                    <td>Last ChangeReason</td>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Theophylline 200mg BD after meals</td>\n\n                    <td>continued</td>\n\n                  </tr>\n\n                  <tr>\n\n                    <td>Ventolin Inhaler</td>\n\n                    <td>stopped</td>\n\n                    <td>Getting side effect of tremor</td>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
-* section[=].entry[0] = Reference(124a6916-5d84-4b8c-b250-10cefb8e6e86)
-* section[=].entry[+] = Reference(673f8db5-0ffd-4395-9657-6da00420bbc1)
+* section[=].entry[0] = Reference(revised-124a6916-5d84-4b8c-b250-10cefb8e6e86)
+* section[=].entry[+] = Reference(revised-673f8db5-0ffd-4395-9657-6da00420bbc1)
 * section[+].title = "Known allergies"
 * section[=].code = $LNC#48765-2 "Allergies and adverse reactions Document"
 * section[=].text.status = #additional
 * section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Allergen</td>\n\n                    <td>Reaction</td>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Doxycycline</td>\n\n                    <td>Hives</td>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
-* section[=].entry = Reference(47600e0f-b6b5-4308-84b5-5dec157f7637)
+* section[=].entry = Reference(revised-47600e0f-b6b5-4308-84b5-5dec157f7637)
 
-Instance: custodianOrganization
+Instance: revised-custodianOrganization
 InstanceOf: Organization
 Description: "Example composition content"Usage: #example
 * identifier.system = "urn:ietf:rfc:3986"
 * identifier.value = "urn:uuid:2.16.840.1.113883.19.5"
 * name = "Good Health Clinic"
 
-Instance: example
+Instance: revised-example
 InstanceOf: Practitioner
 Description: "Example composition content"Usage: #example
 * meta.lastUpdated = "2013-05-05T16:13:03Z"
@@ -106,7 +112,7 @@ Description: "Example composition content"Usage: #example
 * name.given = "Adam"
 * name.prefix = "Dr"
 
-Instance: example2
+Instance: revised-example2
 InstanceOf: Practitioner
 Description: "Example composition content"Usage: #example
 * meta.lastUpdated = "2013-05-05T16:13:03Z"
@@ -116,13 +122,13 @@ Description: "Example composition content"Usage: #example
 * name.given = "BettaB"
 * name.prefix = "Dr"
 
-Instance: d1
+Instance: revised-d1
 InstanceOf: Patient
 Description: "Example composition content"
 Usage: #example
 * active = true
-* name.text = "Eve Everiewoman"
-* name.family = "Everiewoman1"
+* name.text = "Eve Everywoman"
+* name.family = "Everywoman1"
 * name.given = "Eve"
 * telecom.system = #phone
 * telecom.value = "555-555-2003"
@@ -132,7 +138,7 @@ Usage: #example
 * address.use = #home
 * address.line = "2222 Home Street"
 
-Instance: doc-example
+Instance: revised-doc-example
 InstanceOf: Encounter
 Description: "Example composition content"Usage: #example
 * meta.lastUpdated = "2024-05-07T11:28:17.000+00:00"
@@ -140,12 +146,12 @@ Description: "Example composition content"Usage: #example
 * status = #finished
 * class = $v3-ActCode#IMP "inpatient encounter"
 * type.text = "Orthopedic Admission"
-* subject = Reference(d1) "Eve Everiewoman"
+* subject = Reference(revised-d1) "Eve Everywoman"
 * period.start = "2024-05-03T13:28:17.000+00:00"
 * period.end = "2024-05-07T11:28:17.000+00:00"
 * hospitalization.dischargeDisposition.text = "Discharged to care of GP"
 
-Instance: 541a72a8-df75-4484-ac89-ac4923f03b81
+Instance: revised-541a72a8-df75-4484-ac89-ac4923f03b81
 InstanceOf: Observation
 Description: "Example composition content"Usage: #example
 * meta.lastUpdated = "2024-05-03T14:28:17.000+00:00"
@@ -155,12 +161,12 @@ Description: "Example composition content"Usage: #example
 * code = $LNC#46241-6
 * code.text = "Reason for admission"
 * effectiveDateTime = "2023-08-03"
-* performer = Reference(example2) "Dr Careful"
-* subject = Reference(d1) "Eve Everiewoman"
-* encounter.display = "http://fhir.healthintersections.com.au/open/Encounter/doc-example"
+* performer = Reference(revised-example2) "Dr Careful"
+* subject = Reference(revised-d1) "Eve Everywoman"
+* encounter.display = "http://fhir.healthintersections.com.au/open/Encounter/revised-doc-example"
 * valueString = "Acute Asthmatic attack. Was wheezing for days prior to admission."
 
-Instance: 124a6916-5d84-4b8c-b250-10cefb8e6e86
+Instance: revised-124a6916-5d84-4b8c-b250-10cefb8e6e86
 InstanceOf: MedicationRequest
 Description: "Example composition content"
 Usage: #example
@@ -169,8 +175,8 @@ Usage: #example
 * intent = #order
 * medicationCodeableConcept = $SCT#66493003
 * medicationCodeableConcept.text = "Theophylline 200mg"
-* subject = Reference(d1) "Eve Everiewoman"
-* requester = Reference(example) "Peter Practitioner"
+* subject = Reference(revised-d1) "Eve Everywoman"
+* requester = Reference(revised-example) "Peter Practitioner"
 * reasonCode.text = "Management of Asthma"
 * dosageInstruction.additionalInstruction.text = "Take with Food"
 * dosageInstruction.timing.repeat.frequency = 2
@@ -180,17 +186,17 @@ Usage: #example
 * dosageInstruction.doseAndRate.type = $dose-rate-type#ordered "Ordered"
 * dosageInstruction.doseAndRate.doseQuantity = 1 '{tablet}' "tablet"
 
-Instance: 673f8db5-0ffd-4395-9657-6da00420bbc1
+Instance: revised-673f8db5-0ffd-4395-9657-6da00420bbc1
 InstanceOf: MedicationStatement
 Description: "Example composition content"
 Usage: #example
 * status = #active
 * statusReason.text = "Management of Asthma"
 * medicationCodeableConcept.text = "Ventolin Inhaler"
-* subject = Reference(d1) "Eve Everiewoman"
+* subject = Reference(revised-d1) "Eve Everywoman"
 * dateAsserted = "2024-05-07T11:28:17.000+00:00"
 
-Instance: 47600e0f-b6b5-4308-84b5-5dec157f7637
+Instance: revised-47600e0f-b6b5-4308-84b5-5dec157f7637
 InstanceOf: AllergyIntolerance
 Description: "Example composition content"
 Usage: #example
@@ -200,28 +206,28 @@ Usage: #example
 * type = #allergy
 * criticality = #high
 * code.text = "Doxycycline"
-* patient = Reference(d1) "Eve Everiewoman"
+* patient = Reference(revised-d1) "Eve Everywoman"
 * recordedDate = "2012-09-17"
 //* reaction.manifestation = $system#xxx "Hives"
 * reaction.manifestation.text = "Hives"
 
-Instance: service1
+Instance: revised-service1
 InstanceOf: ServiceRequest
 Description: "Example composition content"
 Usage: #example
 * meta.lastUpdated = "2024-05-07T11:28:17.000+00:00"
 * status = #active "Active"
 * intent = #order
-* subject = Reference(d1) "Eve Everiewoman"
+* subject = Reference(revised-d1) "Eve Everywoman"
 * code.text = "Discharge to home"
 
-Instance: consent1
+Instance: revised-consent1
 InstanceOf: Consent
 Description: "Example composition content"
 Usage: #example
 * meta.lastUpdated = "2024-05-07T11:28:17.000+00:00"
 * status = #active "Active"
-* patient = Reference(d1) "Eve Everiewoman"
+* patient = Reference(revised-d1) "Eve Everywoman"
 * scope = $consentscope#patient-privacy
 * category = $LNC#59284-0
 //* sourceAttachment.title = "The terms of the consent in lawyer speak."

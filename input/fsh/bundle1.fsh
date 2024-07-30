@@ -131,7 +131,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 //* extension[information-recipient].extension[type].valueCodeableConcept from ClinicalDocParticipantVs (extensible)
 //* extension[information-recipient].extension[type].valueCodeableConcept ^binding.description = "Value set limits to values not used in other slices"
 * extension[participant] ^slicing.discriminator.type = #value
-* extension[participant] ^slicing.discriminator.path = extension[type].resolve().value[x]
+* extension[participant] ^slicing.discriminator.path = "$this.extension[type].valueCodeableConcept" //[x]"
 * extension[participant] ^slicing.rules = #open
 * extension[participant] ^slicing.description = "Slicing based on the resource type"
 //* extension[participant] contains 
@@ -189,24 +189,6 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * type MS
 * subject 1..1 MS
 * subject only Reference(Patient or Group)
-//* subject ^short = "Support Planner"
-//* subject ^definition = "The  person (e.g., Case Manager, Care Coordinator, Plan Coordinator) who helped develop the plan."
-//* subject ^comment = "Support Planner Name + Phone."
-//* subject ^type.targetProfile[0].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
-//* subject ^type.targetProfile[=].extension.valueBoolean = true
-//* subject ^type.targetProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
-//* subject ^type.targetProfile[=].extension.valueBoolean = false
-//* subject ^type.targetProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
-//* subject ^type.targetProfile[=].extension.valueBoolean = false
-//* subject ^type.targetProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
-//* subject ^type.targetProfile[=].extension.valueBoolean = false
-//* subject ^type.targetProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
-//* subject ^type.targetProfile[=].extension.valueBoolean = false
-//* subject ^type.targetProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
-//* subject ^type.targetProfile[=].extension.valueBoolean = false
-//* subject ^type.targetProfile[+].extension.url = "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support"
-//* subject ^type.targetProfile[=].extension.valueBoolean = false
-
 * date MS
 
 * author MS
@@ -244,21 +226,25 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 // can we remove the default mapping? 
 
 * relatesTo MS
-* relatesTo ^slicing.discriminator.type = #type
-* relatesTo ^slicing.discriminator.path = relatesTo.code
+* relatesTo.targetIdentifier.system 1..1
+* relatesTo.targetIdentifier.value 1..1
+* relatesTo.targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being appended, or to some other identifier of a non FHIR document"
+* relatesTo ^slicing.discriminator.type = #value
+* relatesTo ^slicing.discriminator.path = code
 * relatesTo ^slicing.rules = #open
-* relatesTo ^slicing.description = "Slicing based on the resource type"
+* relatesTo ^slicing.description = "Slicing based on code"
 * relatesTo contains 
     replaced_document 0..* MS
 	and appended_document 0..* MS
+	
 * relatesTo[replaced_document] ^short = "The document(s) being superceded"
 * relatesTo[replaced_document].code = #replaces
 * relatesTo[replaced_document].targetIdentifier 1..1
 //* relatesTo[replaced_document].targetIdentifier.use 1..1
 //* relatesTo[replaced_document].targetIdentifier.use = #official
-* relatesTo[replaced_document].targetIdentifier.system 1..1
-* relatesTo[replaced_document].targetIdentifier.value 1..1
-* relatesTo[replaced_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being replaced, or to some other identifier of a non FHIR document"
+//* relatesTo[replaced_document].targetIdentifier.system 1..1
+//* relatesTo[replaced_document].targetIdentifier.value 1..1
+//* relatesTo[replaced_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being replaced, or to some other identifier of a non FHIR document"
 * relatesTo[replaced_document] ^mapping[0].identity = "cda"
 * relatesTo[replaced_document] ^mapping[=].map = "parentDocument.relatedDocument"
 
@@ -267,9 +253,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * relatesTo[appended_document].targetIdentifier 1..1
 //* relatesTo[appended_document].targetIdentifier.use 1..1
 //* relatesTo[appended_document].targetIdentifier.use = #official
-* relatesTo[appended_document].targetIdentifier.system 1..1
-* relatesTo[appended_document].targetIdentifier.value 1..1
-* relatesTo[appended_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being appended, or to some other identifier of a non FHIR document"
+
 //* relatesTo[appended_document] ^mapping[0].identity = "cda"
 //* relatesTo[appended_document] ^mapping[=].map = "parentDocument.relatedDocument"
 

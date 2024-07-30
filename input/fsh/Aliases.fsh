@@ -18,4 +18,6 @@ Alias: $composition-clinicaldocument-versionNumber = http://hl7.org/fhir/Structu
 
 Alias: $participantTypes = http://terminology.hl7.org/CodeSystem/v3-ParticipationType
 
+Alias: $consentscope = http://terminology.hl7.org/CodeSystem/consentscope
+
 
