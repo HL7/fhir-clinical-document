@@ -12,6 +12,8 @@ status: draft # draft | active | retired | unknown
 version: 1.0.0-ballot
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2024+
+copyright: >-
+  Used by permission of HL7 International, all rights reserved Creative Commons License
 releaseLabel: ballot # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
@@ -19,11 +21,13 @@ jurisdiction: http://unstats.un.org/unsd/methods/m49/m49.htm#001 "World"
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
     valueCode: sd
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm  #<<<<< this to to inform the publisher of the default FMM level for the artifacts in this IG
+    valueInteger: 2
 
 publisher:
   name: HL7 International / Structured Documents
   url: http://www.hl7.org/Special/committees/structure
-  # email: test@example.org
+  email: strucdoc@lists.hl7.org
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
 # package id and the value is the version (or dev/current). For advanced
