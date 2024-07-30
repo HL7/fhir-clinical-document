@@ -67,7 +67,7 @@ Description: "Composition revision example for FHIR Clinical Document"Usage: #e
 * encounter = Reference(revised-doc-example)
 * date = "2024-05-08T11:28:17.000+00:00"
 * author = Reference(revised-example) "Doctor Dave"
-* title = "Discharge Summary"
+* title = "Discharge Summary Revision"
 * attester.mode = http://hl7.org/fhir/composition-attestation-mode#legal
 * attester.time = "2024-05-07"
 * attester.party = Reference(revised-example) "Doctor Dave"

@@ -10,12 +10,12 @@
 <artifact id="Observation/541a72a8-df75-4484-ac89-ac4923f03b81" key="Observation-541a72a8-df75-4484-ac89-ac4923f03b81" name="541a72a8-df75-4484-ac89-ac4923f03b81"/>
 <artifact id="MedicationStatement/673f8db5-0ffd-4395-9657-6da00420bbc1" key="MedicationStatement-673f8db5-0ffd-4395-9657-6da00420bbc1" name="673f8db5-0ffd-4395-9657-6da00420bbc1"/>
 <artifact id="ValueSet/clinical-doc-participant-types-vs" key="ValueSet-clinical-doc-participant-types-vs" name="Clinical Document Participant Types Value set"/>
-<artifact id="ValueSet/clinical-doc-participant-vs" key="ValueSet-clinical-doc-participant-vs" name="Clinical Document Participant Types Value set"/>
 <artifact id="ValueSet/clinical-doc-information-recipient-vs" key="ValueSet-clinical-doc-information-recipient-vs" name="Clinical Document Participant Types that are information recipients"/>
+<artifact id="ValueSet/clinical-doc-participant-vs" key="ValueSet-clinical-doc-participant-vs" name="Clinical Document Participant Value set"/>
 <artifact id="StructureDefinition/consent-extension" key="StructureDefinition-consent-extension" name="Consent Extension"/>
 <artifact id="OperationDefinition/convert-to-transaction-bundle" key="OperationDefinition-convert-to-transaction-bundle" name="Convert to transaction bundle"/>
 <artifact id="Composition/clinical-document-composition-example1" key="Composition-clinical-document-composition-example1" name="Discharge Summary"/>
-<artifact id="Composition/clinical-document-composition-revision" key="Composition-clinical-document-composition-revision" name="Discharge Summary"/>
+<artifact id="Composition/clinical-document-composition-revision" key="Composition-clinical-document-composition-revision" name="Discharge Summary Revision"/>
 <artifact id="StructureDefinition/clinical-document-bundle" key="StructureDefinition-clinical-document-bundle" name="FHIR Clinical Document Bundle Profile"/>
 <artifact id="StructureDefinition/clinical-document-composition" key="StructureDefinition-clinical-document-composition" name="FHIR Clinical Document Composition Profile"/>
 <artifact id="StructureDefinition/OrderExtension" key="StructureDefinition-OrderExtension" name="Order Extension"/>
