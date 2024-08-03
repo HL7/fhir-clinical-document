@@ -86,6 +86,7 @@ dependencies:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  Table of Contents: toc.html
   Artifacts: artifacts.html
   Special Topics:
     CDA Mapping: mapping.html
