@@ -45,11 +45,14 @@ Description: "Composition revision example for FHIR Clinical Document"Usage: #e
 * extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version"
 * extension[=].valueString = "1715171314"
 
-* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension"
-* extension[=].extension[0].url = "type"
-* extension[=].extension[=].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
-* extension[=].extension[+].url = "party"
-* extension[=].extension[=].valueReference = Reference(Practitioner/revised-example2)
+//* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension"
+//* extension[=].extension[0].url = "type"
+//* extension[data-enterer].extension[type].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
+
+
+//* extension[ParticipantExtension].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
+* extension[ParticipantExtension].extension[type].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
+* extension[ParticipantExtension].extension[party].valueReference = Reference(Practitioner/revised-example2)
 
 
 * extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
