@@ -88,13 +88,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * modifierExtension contains	
 	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1 MS
 
-//from Mint
-//* extension ^slicing.discriminator[1].type = #value
-//* extension ^slicing.discriminator[1].path = "extension('type').value"
 
-//extra?
-//* extension ^slicing.discriminator[1].type = #value
-//* extension ^slicing.discriminator[1].path = "extension.where(url='extension.where(url='type').value"
 * extension contains 
 	//$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS 
 	
@@ -102,9 +96,9 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 	
 	// DocumentID named document-id 0..1 MS and
 	
-    //ParticipantExtension named data-enterer 0..1 MS and
-    //ParticipantExtension named informant 0..* MS and
-    //ParticipantExtension named information-recipient 0..* MS and
+    DataEntererExtension named data-enterer 0..1 MS and
+    informant-extension named informant 0..* MS and
+    information-recipient-extension named information-recipient 0..* MS and
     ParticipantExtension named participant 0..* MS and
     //ParticipantExtension named performer 0..* MS and
 	
@@ -112,60 +106,38 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
     OrderExtension named order 0..* MS 
 	//CancelledExtension named cancelled-status-indicator 0..1
 
-
-
 * extension[R5-Composition-version] ^label = "clinical document version number"
 //* extension[R5-Composition-version] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
 * extension[R5-Composition-version] ^mapping[0].identity = "cda"
 * extension[R5-Composition-version] ^mapping[=].map = "versionNumber"
 
-* extension[participant] ^label = "participant extension"
-* extension[participant] ^short = "participant extension"
+* extension[data-enterer] ^label = "date enterer"
+* extension[data-enterer] ^short = "A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
+* extension[data-enterer] ^mapping[0].identity = "cda"
+* extension[data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
+//* extension[data-enterer].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
 
-//* extension ^slicing.discriminator[1].type = #value
-//* extension ^slicing.discriminator[1].path = "extension.where(url='extension.where(url='type').value"
-//* extension ^slicing.discriminator[1].path = "extension('type').value"
+* extension[informant] ^label = "informant"
+* extension[informant] ^short = "An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
+* extension[informant] ^mapping[0].identity = "cda"
+* extension[informant] ^mapping[=].map = "informantChoice.informant"
+//* extension[informant].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
 
-* extension[participant] ^slicing.discriminator.type = #value
-* extension[participant] ^slicing.discriminator.path = "extension.where(url='extension.where(url='type').value"
-//* extension[participant] ^slicing.discriminator[1].type = #value
-//* extension[participant] ^slicing.discriminator[1].path = "extension('type').value"
+* extension[information-recipient] ^label = "information recipient of type primary, secondary information recipient or a generic information recipient"
+* extension[information-recipient] ^short = "An Information Recipient is the intended recipient of the information at the time the document was created."
+* extension[information-recipient] ^mapping[0].identity = "cda"
+* extension[information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
+//* extension[information-recipient].extension[type].valueCodeableConcept from ClinicalDocInformationRecipientVs (required)
+//* extension[information-recipient].extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
 
-* extension[participant] ^slicing.rules = #open
-* extension[participant] ^slicing.description = "Slicing based on the coded type"
-* extension[participant] contains 
-    data-enterer 0..1 MS and
-    informant 0..* MS and
-    information-recipient 0..* MS and
-	participant 0..* MS 
-
-* extension[participant][data-enterer] ^label = "date enterer"
-* extension[participant][data-enterer] ^short = "A Data Enterer represents the person who transferred the content, written or dictated, into the clinical document. To clarify, an author provides the content, subject to their own interpretation; a dataEnterer adds an author's information to the electronic system."
-* extension[participant][data-enterer] ^mapping[0].identity = "cda"
-* extension[participant][data-enterer] ^mapping[=].map = "assignedEntity.dataEnterer"
-* extension[participant][data-enterer].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
-
-* extension[participant][informant] ^label = "informant"
-* extension[participant][informant] ^short = "An Informant is an information source for any content within the clinical document. This informant is constrained for use when the source of information is an assigned health care provider for the patient."
-* extension[participant][informant] ^mapping[0].identity = "cda"
-* extension[participant][informant] ^mapping[=].map = "informantChoice.informant"
-* extension[participant][informant].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
-
-* extension[participant][information-recipient] ^label = "information recipient of type primary, secondary information recipient or a generic information recipient"
-* extension[participant][information-recipient] ^short = "An Information Recipient is the intended recipient of the information at the time the document was created."
-* extension[participant][information-recipient] ^mapping[0].identity = "cda"
-* extension[participant][information-recipient] ^mapping[=].map = "intendedRecipient.informationRecipient"
-* extension[participant][information-recipient].extension[type].valueCodeableConcept from ClinicalDocInformationRecipientVs (required)
-* extension[participant][information-recipient].extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
-
-* extension[participant][participant] ^label = "A Participant that is not a data-enter, information-recipient nor an informant"
-* extension[participant][participant] ^short = "A Participant that is not a data-enter, information-recipient nor an informant"
-* extension[participant][participant] ^mapping[0].identity = "cda"
-* extension[participant][participant] ^mapping[=].map = "intendedRecipient.informationRecipient"
-* extension[participant][participant].extension[type].valueCodeableConcept from ClinicalDocParticipantVs (required)
-* extension[participant][participant].extension[type].valueCodeableConcept ^binding.description = "particpants that are not a data-enter, information-recipient nor an informant"
-* extension[participant][participant] ^mapping[0].identity = "cda"
-* extension[participant][participant] ^mapping[=].map = "associatedEntity.participant"
+* extension[participant] ^label = "A Participant that is not a data-enter, information-recipient nor an informant"
+* extension[participant] ^short = "A Participant that is not a data-enter, information-recipient nor an informant"
+* extension[participant] ^mapping[0].identity = "cda"
+* extension[participant] ^mapping[=].map = "intendedRecipient.informationRecipient"
+* extension[participant].extension[type].valueCodeableConcept from ClinicalDocParticipantVs (required)
+* extension[participant].extension[type].valueCodeableConcept ^binding.description = "particpants that are not a data-enter, information-recipient nor an informant"
+* extension[participant] ^mapping[0].identity = "cda"
+* extension[participant] ^mapping[=].map = "associatedEntity.participant"
 
 * extension[consent] ^label = "consent"
 * extension[consent] ^short = "consent"
