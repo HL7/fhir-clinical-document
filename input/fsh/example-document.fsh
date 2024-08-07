@@ -46,11 +46,21 @@ Description: "Composition example for FHIR Clinical Document"Usage: #example
 * extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version"
 * extension[=].valueString = "1715088497"
 
-* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension"
+* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/information-recipient-extension"
 * extension[=].extension[0].url = "type"
 * extension[=].extension[=].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
 * extension[=].extension[+].url = "party"
 * extension[=].extension[=].valueReference = Reference(Practitioner/example2)
+
+* extension[DataEntererExtension].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
+* extension[DataEntererExtension].extension[party].valueReference = Reference(Practitioner/example2)
+
+* extension[InformantExtension].extension[type].valueCodeableConcept = $participantTypes#INF "informant"
+* extension[InformantExtension].extension[party].valueReference = Reference(Practitioner/example2)
+
+* extension[ParticipantExtension].extension[type].valueCodeableConcept = $participantTypes#ESC "escort"
+* extension[ParticipantExtension].extension[party].valueReference = Reference(Practitioner/example2)
+
 
 * extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
 * extension[=].valueReference = Reference(service1)
