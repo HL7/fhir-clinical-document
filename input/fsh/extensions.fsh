@@ -117,7 +117,7 @@ Description: "The Information Recipient Extension records the intended recipient
 //* extension[type] ^short = "A code specifying the type of participation, such as data entry person, informant, primary information recipient, or tracker"
 * extension[type] ^short = "Meaning and purpose of participation, in creation of the clinical document. The list includes: data entry person, informant, primary information recipient, and tracker. Other types are allowed."
 * extension[type].value[x] only CodeableConcept
-* extension[type].valueCodeableConcept from clinical-doc-participant-types-vs (extensible)
+* extension[type].valueCodeableConcept from clinical-doc-participant-types-vs (required)
 * extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
 * extension[type].valueCodeableConcept 1..1
 * extension[function]
