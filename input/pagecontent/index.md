@@ -3,6 +3,39 @@ Structured Documents committee will more fully consider FHIR R6 Composition revi
 Accordingly, it is the intent of the HL7 Structured Documents WG that this IG replace the current FHIR R4 and R5 Core Clinical Document guidance.
 </blockquote>
 
+<div style="width: 100%;" >
+<h3 id="plain-language-summary-about-hl7-and-this-guide">Plain Language Summary about HL7 and this Guide<a class="anchorjs-link " href="#plain-language-summary-about-hl7-and-this-guide" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a>
+  <button class="btn btn-info btn-lg collapsed" type="button" title="Click to Open or Close the Plain Language Summary" data-toggle="collapse" data-target="#plain-lang-summary" aria-expanded="false" aria-controls="collapseExample">
+    Welcome! Thank-you for wanting to learn about this guide.  Click Here to see the Plain Language Summary
+  </button>
+</h3>
+</div>
+<div class="collapse" id="plain-lang-summary" aria-expanded="false" style="height: 0px;">
+  <div class="card card-body" style="border:1px solid;border-color:#cccccc;padding:10px">
+  
+<h4 id="about-hl7">About HL7<a class="anchorjs-link " href="#about-hl7" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<p><a href="http://hl7.org/">HL7</a>, which stands for Health Level Seven, creates standards to help different healthcare computer systems talk to each other. These HL7 standards are a special language or set of rules that lets information be shared between hospitals, doctors’ offices (e.g. Electronic Health Record Systems), labs, patients (e.g. via patient portals), pharmacies, and insurers, among others.</p>
+
+<p>One of the HL7 standards is HL7 FHIR (Fast Healthcare Interoperability Resources). It helps connect healthcare systems, making it easier for doctors, nurses, and other healthcare professionals to share important information about patients. For example, if you have a lab test at a hospital, HL7 FHIR helps send the results to your doctor’s office so they can provide the right care.</p>
+
+<p>A goal of HL7 is to make sure everyone involved in your healthcare has the right information at the right time. Our standards help machines and people, including you, work together to make better decisions for your health. HL7 sets rules that computer systems follow, so they can understand and share information in a consistent and reliable way.</p>
+
+<p>To learn more about HL7, you can visit the website <a href="http://hl7.org/">hl7.org</a></p>
+
+<p>The people at HL7 make guides that explain how to use the rules (standards) for different things. These guides bring the rules together and show how to use them for specific purposes.</p>
+
+<h4 id="about-this-guide">About this Guide<a class="anchorjs-link " href="#about-this-guide" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+
+<p>This implementation guide explains how FHIR Clinical Documents should be structured for consistent, interoperable exchange. A FHIR Clinical Document is a persistent, authenticated, human-readable record, containing clinical observations and metadata. It ensures key elements are included, like patient and provider details, and supports human-readable narratives without specialized formatting. </p>
+
+<p>It builds on principles from a previous HL7 standard, called Clinical Document Architecture (CDA), aiming to migrate users from CDA to FHIR-based documents. The guide also outlines steps for reconciling FHIR documents with existing standards like C-CDA and provides guidelines for future FHIR versions.</p>
+
+<p>Healthcare technology experts worked with a broad group of stakeholders to create this guide. This guide contains important information and guidelines for healthcare technology professionals to use when building FHIR Clinical Documents.</p>
+
+  </div>
+</div>
+
+
 ### Background
 Today there are more than 257 existing profiles on Bundle, and more than 180 existing profiles on Composition, many of which represent clinical documents, which take different approaches to representing the information and structures needed in a clinical document. The [HL7 Clinical Document Architecture (CDA) standard](https://hl7.org/cda/stds/online-navigation/2024May/index.html) has been widely implemented. CDA was created in 2005 with industry stakeholders to represent interoperable Clinical Documents. Universally, consistently represented, interoperable FHIR Clinical Documents are needed as the industry moves towards FHIR. FHIR stakeholders interested in exchanging Clinical Documents in FHIR intend to leverage the learnings and principles of CDA. 
 
@@ -45,7 +78,7 @@ These rules apply even for other narrative type fields (e.g. FHIR R5 Composition
 
 Good practice recommends that the following be present whenever the document is viewed: Document title and document dates; Service and encounter types, and date ranges as appropriate; Names of all persons along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Names of selected organizations along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Date of birth for subject(s); Patient identifying information.
 
-Possible security concerns and mitigations related to malicious narrative, particularly narrative that contains active content, are discussed [here](https://hl7.org/fhir/R4/security.html#narrative).
+Implementers of FHIR Clinical Documents should review important security concerns and mitigation related to malicious narrative, particularly narrative that contains active content, discussed [here](https://hl7.org/fhir/R4/security.html#narrative). 
 
   
 ### Relationship to other FHIR document specifications
