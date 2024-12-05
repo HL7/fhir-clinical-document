@@ -22,6 +22,6 @@
 	</table>
 <a name="Examples"/>
 	<h3>Examples</h3>
-<p>Posting <a href="Bundle-clinical-document-bundle-example1.html">this</a> clinical document to the convert-to-transaction-bundle endpoint will return <a href="Bundle-clinical-document-as-transaction-bundle.html">this</a> transaction bundle.</p>
+<p>Posting <a href="Bundle-clinical-document-bundle-example1.html">this</a> clinical document to the convert-to-transaction-bundle endpoint will return <a href="Bundle-clinical-document-to-transaction-bundle.html">this</a> transaction bundle.</p>
 
 </div>

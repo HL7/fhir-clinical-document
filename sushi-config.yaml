@@ -87,15 +87,22 @@ dependencies:
 menu:
   Home: index.html
   Table of Contents: toc.html
-  Artifacts: artifacts.html
-  Special Topics:
+  Artifacts:
+    Profiles: artifacts.html#structures-resource-profiles
+    FHIR Clinical Document Examples: artifacts.html#clinical-document-examples
+    Extensions: artifacts.html#structures-extension-definitions
+    Operations defined in this guide: artifacts.html#behavior-operation-definitions
+    Terminology: artifacts.html#terminology-value-sets
+    Artifacts Summary: artifacts.html
+  Further Guidance:
     CDA Mapping: mapping.html
     Immutable and Parseable Clinical Documents: immutableParseable.html
     Clinical Document Succession Management: versioning.html
-  Operations: operations.html
-  Appendix: 
+    Operations for FHIR Clinical Documents: operations.html
+  Examples: artifacts.html#clinical-document-examples
+  Downloads: downloads.html
+  Appendix:
     Security: security.html
-    Downloads: downloads.html
     IP Statement: ip_statement.html
     Testing IGs: testing.html
     Dependencies, Globals and CrossVersionAnalysis: dependencies_globals_CrossVersionAnalysis.html
@@ -108,7 +115,8 @@ pages:
     title: CDA Mapping
   immutableParseable.md:
     title: Immutable vs. parseable clinical documents
-  versioning.md:
+  versioning.md: 
+    title: Clinical Document Succession Management
   security.md:
   downloads.md:
   ip_statement.md:
@@ -199,6 +207,14 @@ parameters:
 #     resources:
 #     - StructureDefinition/bark-control
 #     - StructureDefinition/bee-sting
+groups:
+  clin-doc-examples:
+    name: Clinical Document Examples
+    description: Examples to show a Clinical Document, a revision replacing the Clinical Document, and a Transaction Bundle version of the original Clinical Document.
+    resources:
+    - clinical-document-bundle-example1
+    - clinical-document-bundle-revision
+    - clinical-document-to-transaction-bundle
 #
 #
 # The ImplementationGuide resource defines several other properties

@@ -1,6 +1,6 @@
-Instance: clinical-document-as-transaction-bundle
+Instance: clinical-document-to-transaction-bundle
 InstanceOf: Bundle
-Description: "Document Bundle example for FHIR Clinical Document"
+Description: "Transaction Bundle version of the FHIR Clinical Document example"
 Usage: #example
 * meta.lastUpdated = "2024-05-07T13:28:17.000+00:00"
 * identifier.system = "https://example.com/bundleId"
@@ -15,36 +15,36 @@ Usage: #example
 * entry[=].resource = custodianOrganization
 * entry[=].request.method = #POST
 * entry[=].request.url = "Organization"
-* entry[+].fullUrl = "https://example.com/Practitioner/example"
-* entry[=].resource = example
+* entry[+].fullUrl = "https://example.com/Practitioner/Doctor1"
+* entry[=].resource = Doctor1
 * entry[=].request.method = #POST
 * entry[=].request.url = "Practitioner"
-* entry[+].fullUrl = "https://example.com/Practitioner/example2"
-* entry[=].resource = example2
+* entry[+].fullUrl = "https://example.com/Practitioner/Doctor2"
+* entry[=].resource = Doctor2
 * entry[=].request.method = #POST
 * entry[=].request.url = "Practitioner"
-* entry[+].fullUrl = "https://example.com/Patient/d1"
-* entry[=].resource = d1
+* entry[+].fullUrl = "https://example.com/Patient/patient-example"
+* entry[=].resource = patient-example
 * entry[=].request.method = #POST
 * entry[=].request.url = "Patient"
-* entry[+].fullUrl = "https://example.com/Encounter/doc-example"
-* entry[=].resource = doc-example
+* entry[+].fullUrl = "https://example.com/Encounter/encounter-example"
+* entry[=].resource = encounter-example
 * entry[=].request.method = #POST
 * entry[=].request.url = "Encounter"
-* entry[+].fullUrl = "https://example.com/Observation/541a72a8-df75-4484-ac89-ac4923f03b81"
-* entry[=].resource = 541a72a8-df75-4484-ac89-ac4923f03b81
+* entry[+].fullUrl = "https://example.com/Observation/Observation-541a72a8-df75-4484-ac89-ac4923f03b81"
+* entry[=].resource = Observation-541a72a8-df75-4484-ac89-ac4923f03b81
 * entry[=].request.method = #POST
 * entry[=].request.url = "Observation"
-* entry[+].fullUrl = "https://example.com/MedicationRequest/124a6916-5d84-4b8c-b250-10cefb8e6e86"
-* entry[=].resource = 124a6916-5d84-4b8c-b250-10cefb8e6e86
+* entry[+].fullUrl = "https://example.com/MedicationRequest/MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86"
+* entry[=].resource = MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86
 * entry[=].request.method = #POST
 * entry[=].request.url = "MedicationRequest"
-* entry[+].fullUrl = "https://example.com/MedicationStatement/673f8db5-0ffd-4395-9657-6da00420bbc1"
-* entry[=].resource = 673f8db5-0ffd-4395-9657-6da00420bbc1
+* entry[+].fullUrl = "https://example.com/MedicationStatement/MedStatement-673f8db5-0ffd-4395-9657-6da00420bbc1"
+* entry[=].resource = MedStatement-673f8db5-0ffd-4395-9657-6da00420bbc1
 * entry[=].request.method = #POST
 * entry[=].request.url = "MedicationStatement"
-* entry[+].fullUrl = "https://example.com/AllergyIntolerance/47600e0f-b6b5-4308-84b5-5dec157f7637"
-* entry[=].resource = 47600e0f-b6b5-4308-84b5-5dec157f7637
+* entry[+].fullUrl = "https://example.com/AllergyIntolerance/AllergyIntolerance-47600e0f-b6b5-4308-84b5-5dec157f7637"
+* entry[=].resource = AllergyIntolerance-47600e0f-b6b5-4308-84b5-5dec157f7637
 * entry[=].request.method = #POST
 * entry[=].request.url = "AllergyIntolerance"
 * entry[+].fullUrl = "https://example.com/ServiceRequest/service1"
