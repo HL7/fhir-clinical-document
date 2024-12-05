@@ -174,7 +174,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * attester.mode MS
 * attester.time MS
 * attester.party MS
-* attester ^slicing.discriminator.type = #pattern
+* attester ^slicing.discriminator.type = #value
 * attester ^slicing.discriminator.path = mode
 * attester ^slicing.rules = #open
 * attester ^slicing.description = "Slicing based on the resource type"
