@@ -12,9 +12,8 @@ Scope for this version of the IG is limited to FHIR artifacts reflecting the CDA
 5. CDA section attributes; 
 6. CDA section participants, excluding profiles corresponding to RIM entities; 
 7. CDA section relationships, excluding profiles corresponding to RIM Acts.
-#### CDA RIM Diagram
-<table><tr><td><img src="CDA_RMIM.png" height="471" width="715" border=1/></td></tr></table>
-
+#### CDA RIM Diagram (click to goto full size image)
+<table><tr><td><a href="https://build.fhir.org/ig/HL7/CDA-core-sd/cda-rmim.html#graphical-map-of-cda"><img src="CDA_RMIM.png" height="471" width="715" border=1/></a></td></tr></table>
 
 ### CDA mapping
 Detailed mappings of this IG can be found on the Profile Structure Definitions. See [Composition](StructureDefinition-clinical-document-composition-mappings.html) and [Bundle](StructureDefinition-clinical-document-bundle-mappings.html) mappings.
