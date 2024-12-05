@@ -12,6 +12,7 @@ Additional notes:
 * Resource.id and resource.meta fields enable resource succession management within a single server. Values may be auto-assigned by a server, and values for a given instance are not guaranteed to be the same across servers, making these fields not suitable for succession exchange semantics. It is important to remember that the Composition.identifier and Bundle.identifier are not equivalent to the Resource.id. The identifiers are business identifiers and include the system where the business identifier was created. 
 
 <p>The FHIR Clinical Document <b>replaces</b> scenario is illustrated in the following figure.</p>
+##### Replacement Diagram
 <table><tr><td><img width="75%" height="75%" src="HL7 CDA-FHIR Alignment - ImagesReplace.svg" /></td></tr></table>  
 
 
@@ -29,5 +30,6 @@ We are seeking input on the 'issued-in-error' use case. Our understanding is tha
 </blockquote>
 
 <p>The FHIR Clinical Document <b>appends</b> and <b>entered-in-error</b> scenarios are illustrated in the following figure.</p>
+##### Appends or Entered-in-error Diagram
 <p><img width="75%" height="75%" src="HL7 CDA-FHIR Alignment - ImagesAppend.svg" /></p>
 
