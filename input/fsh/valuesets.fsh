@@ -11,7 +11,7 @@ Description: "Subset of codes from v3-ParticipationType for use as Clinical Docu
 ValueSet: ClinicalDocParticipantVs
 Id: clinical-doc-participant-vs 
 Title: "FHIR Clinical Document Participant Types Value set"
-Description: "Author, Authenticator, Custodian, Legal Authenticator, Record Target and Subject are found in distinct, named fields in FHIR. Thus, these types are excluded."
+Description: "FHIR Clinical Document Participant Types. Author, Authenticator, Custodian, Legal Authenticator, Record Target and Subject are found in distinct, named fields in FHIR. Thus, these types are excluded."
 * ^experimental = false
 * include codes from system http://terminology.hl7.org/CodeSystem/v3-ParticipationType
 * exclude http://terminology.hl7.org/CodeSystem/v3-ParticipationType#AUT "author (originator)"
