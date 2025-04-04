@@ -46,11 +46,9 @@ Description: "Composition example for FHIR Clinical Document"Usage: #example
 * extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version"
 * extension[=].valueString = "1715088497"
 
-* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/information-recipient-extension"
-* extension[=].extension[0].url = "type"
-* extension[=].extension[=].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
-* extension[=].extension[+].url = "party"
-* extension[=].extension[=].valueReference = Reference(Practitioner/Doctor2)
+
+* extension[InformationRecipientExtension].extension[type].valueCodeableConcept = $participantTypes#PRCP "primary information recipient"
+* extension[InformationRecipientExtension].extension[party].valueReference = Reference(Practitioner/Doctor2)
 
 * extension[DataEntererExtension].extension[type].valueCodeableConcept = $participantTypes#ENT "data entry person"
 * extension[DataEntererExtension].extension[party].valueReference = Reference(Practitioner/Doctor2)

@@ -69,12 +69,11 @@ Severity: #error
 
 //participantType cannot be AUT, AUTHEN, CST, LA, RCT, SBJ
 Invariant: clindoc-limit-participantType
-Description: "FHIR Clinical Document Composition Profile contains fields for AUT, AUTHEN, CST, LA, RCT, SBJ. These types are not allowed as types in the Participant Extension" 
-Expression: "extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUT').not() and extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='AUTHEN').not() and
-extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='CST').not() and
-extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='LA').not() and
-extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='RCT').not() and
-extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='SBJ').not()"
+Description: "The R4 FHIR Clinical Document Composition Profile contains specific extensions for data entry person, informant, information recipient, primary information recipient and tracker. So, they are not allowed in the participant extension in the R4 profile. In R6, the intention is to have dedicated-named slices of a backbone element." 
+Expression: "extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='ENT').not() and extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='INF').not() and
+extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='IRCP').not() and
+extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='PRCP').not() and
+extension.where(url='http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/ParticipantExtension').extension.where(url='type').value.coding.exists(system='http://terminology.hl7.org/CodeSystem/v3-ParticipationType' and code='TRC').not()"
 Severity: #error
 
 Profile: ClinicalDocumentComposition
@@ -134,8 +133,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension[participant] ^short = "A Participant that is not a data-enter, information-recipient nor an informant"
 * extension[participant] ^mapping[0].identity = "cda"
 * extension[participant] ^mapping[=].map = "intendedRecipient.informationRecipient"
-* extension[participant].extension[type].valueCodeableConcept from ClinicalDocParticipantVs (required)
-* extension[participant].extension[type].valueCodeableConcept ^binding.description = "particpants that are not a data-enter, information-recipient nor an informant"
+//* extension[participant].extension[type].valueCodeableConcept from ClinicalDocParticipantVs (required)
+//* extension[participant].extension[type].valueCodeableConcept ^binding.description = "particpants that are not a data-enter, information-recipient nor an informant"
 * extension[participant] ^mapping[0].identity = "cda"
 * extension[participant] ^mapping[=].map = "associatedEntity.participant"
 
@@ -197,36 +196,40 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 // can we remove the default mapping? 
 
 * relatesTo MS
-* relatesTo.targetIdentifier.system 1..1
-* relatesTo.targetIdentifier.value 1..1
+//* relatesTo.targetIdentifier.system 1..1
+//* relatesTo.targetIdentifier.value 1..1
 * relatesTo.targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being appended, or to some other identifier of a non FHIR document"
-* relatesTo ^slicing.discriminator.type = #value
-* relatesTo ^slicing.discriminator.path = code
+
+* relatesTo ^slicing.discriminator[0].type = #value
+* relatesTo ^slicing.discriminator[=].path = "code"
+* relatesTo ^slicing.discriminator[+].type = #type
+* relatesTo ^slicing.discriminator[=].path = "target"
+* relatesTo ^slicing.ordered = false
 * relatesTo ^slicing.rules = #open
 * relatesTo ^slicing.description = "Slicing based on code"
+
 * relatesTo contains 
     replaced_document 0..* MS
 	and appended_document 0..* MS
 	
 * relatesTo[replaced_document] ^short = "The document(s) being superceded"
 * relatesTo[replaced_document].code = #replaces
+* relatesTo[replaced_document].target[x] only Identifier
 * relatesTo[replaced_document].targetIdentifier 1..1
-//* relatesTo[replaced_document].targetIdentifier.use 1..1
-//* relatesTo[replaced_document].targetIdentifier.use = #official
-//* relatesTo[replaced_document].targetIdentifier.system 1..1
-//* relatesTo[replaced_document].targetIdentifier.value 1..1
-//* relatesTo[replaced_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being replaced, or to some other identifier of a non FHIR document"
+* relatesTo[replaced_document].targetIdentifier.system 1..1
+* relatesTo[replaced_document].targetIdentifier.value 1..1
+* relatesTo[replaced_document].targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being replaced, or to some other identifier of a non FHIR document"
 * relatesTo[replaced_document] ^mapping[0].identity = "cda"
 * relatesTo[replaced_document] ^mapping[=].map = "parentDocument.relatedDocument"
 
 * relatesTo[appended_document] ^short = "The document(s) being appended too"
 * relatesTo[appended_document].code = #appends
+* relatesTo[appended_document].target[x] only Identifier
 * relatesTo[appended_document].targetIdentifier 1..1
-//* relatesTo[appended_document].targetIdentifier.use 1..1
+* relatesTo[appended_document].targetIdentifier.use 1..1
 //* relatesTo[appended_document].targetIdentifier.use = #official
-
-//* relatesTo[appended_document] ^mapping[0].identity = "cda"
-//* relatesTo[appended_document] ^mapping[=].map = "parentDocument.relatedDocument"
+* relatesTo[appended_document] ^mapping[0].identity = "cda"
+* relatesTo[appended_document] ^mapping[=].map = "parentDocument.relatedDocument"
 
 
 * section 1..* MS
@@ -249,4 +252,3 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 //* section[nonFHIR_body] ^mapping[0].identity = "cda"
 //* section[nonFHIR_body] ^mapping[+].map = "bodyChoice.component.NonXMLBody"
 //might want a specific code for this slice in the future
-
