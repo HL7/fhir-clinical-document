@@ -7,6 +7,7 @@ Description: "Convert a FHIR Clinical Document into a FHIR transaction bundle."
 * title = "Convert to Transaction Bundle"
 * status = #active
 * kind = #operation
+* experimental = true
 * publisher = "HL7 International Structure Documents Work Group"
 * system = false
 * type = true
