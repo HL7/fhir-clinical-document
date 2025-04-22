@@ -1,9 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../src-generated/schemas/fhir-single.xsd">
+
+	<a name="Introduction"/>
+	<h3>Introduction</h3>
   <p>
      A FHIR Clinical Document is a FHIR bundle of type=document where the first entry is a composition conforming to this profile. 
   </p>
-	<blockquote class="stu-note">Be aware of the modifier extension R5-Composition-status it is a backport of the R5 Composition.status to allow for additional status codes. Be cautious when using with the R4 Composition.status, which is required. The values could unintentionally cause confusion if they contradict each-other. The value sets do overlap, as well. The intent is to preadopt values found in R5 for status. In R6, the FHIR Clinical Document Composition Profile will only have one status field.</blockquote>
-	<br></br>
+
 <p>As noted in the <a href="index.html#human-readability-and-rendering-fhir-clinical-documents">introduction section on human readability</a>: </p>
 <p>To ensure the unambiguous communication of a clinical document's attested narrative, this IG requires that:</p>
 <ol >
@@ -29,5 +31,30 @@
 <li><b>MAY</b> render additional document information (such as patient name and date of birth) derived from structured Composition fields.</li>
 </ul>
 </ul>
+
+	<a name="Elements"/>
+	<h3>Guidance on Composition Elements</h3>
+<ul>
+<li><b>Composition.category</b>: Document creators <b>SHALL</b> include a category value of 'clinical-note'. This serves to differentiate a FHIR Clinical Document from an arbitrary FHIR Document. </li>
+<li><b>Composition.custodian</b>: A basic tenet of a clinical document is stewardship, where, by definition, a clinical document is maintained by an organization entrusted with its care. Stewardship is reflected by Composition.custodian. While FHIR R4 restricts a custodian to be an Organization, FHIR R6 will expand on this to accommodate patient authored notes. In anticipation, this IG sets the cardinality of Composition.custodian to 0..1, but stipulates that the custodian <b>SHOULD</b> be populated where it is a known organization.</li>
+</ul>
+
+	<a name="Extensions"/>
+	<h3>Guidance on Composition Extensions</h3>
+<ul>
+<li><b>Overall approach to extensions</b>: Non-experimental extensions in this IG will be proposed as new FHIR R6 Composition elements.</li>
+<li><b>participant</b>: The participant extensions (data-enterer, informant, information-recipient, participant) derive from the <a href="https://hl7.org/cda/stds/online-navigation/2024May/index.html">HL7 Clinical Document Architecture</a> standard. Several CDA participant types (e.g. author, custodian) already exist as Composition elements, whereas those not present on the base Composition resource have been added here as extensions (and will be proposed as new elements on the Composition R6 resource). Composition participants reflect activity at the document level (e.g. related to the act of documenting), and are not inherited by referenced resources such as Observations. FHIR Clinical Document creators <b>SHALL NOT</b> use the generic extension:participant where a more specific participant (such as 'informant') exists.</li>
+<li><b>event-basedOn</b>: This extension can reference a ServiceRequest that represents those orders that are satisfied by this document (as opposed to new orders generated during the documented encounter).</li>
+<li><b>R5-Composition-status (modifier extension)</b>: This extension is a backport of the R5 Composition.status to allow for additional status codes. Be cautious when using with the R4 Composition.status, which is required. The values could unintentionally cause confusion if they contradict each-other. The value sets do overlap, as well. The intent is to preadopt values found in R5 for status. In R6, we anticipate that the FHIR Clinical Document Composition Profile will only have one status field.</li>
+</ul>
+
+	<a name="Flags"/>
+	<h3>Guidance on Composition Flags</h3>
+<ul>
+<li><b>Meaning of MustSupport</b>: The MustSupport flag as used on this Composition profile <b>SHALL</b> be interpreted to mean that conformant recipients <b>SHALL</b> consider the value of this element when processing the resource as specified by the IG. Recipients are not obligated to parse and store the exact value received.
+</li>
+
+</ul>
+
 
 </div>

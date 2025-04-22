@@ -190,7 +190,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * attester[professional_attester] ^mapping[=].map = "assignedEntity.authenticator"
 
 
-* custodian 1..1 MS
+* custodian 0..1 MS
 * custodian ^mapping[0].identity = "cda"
 * custodian ^mapping[=].map = "assignedCustodian.custodian"
 // can we remove the default mapping? 
