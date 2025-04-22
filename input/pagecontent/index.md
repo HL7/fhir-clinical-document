@@ -1,7 +1,4 @@
-<blockquote class="note-to-balloters">
-Structured Documents committee will more fully consider FHIR R6 Composition revisions based on the result of balloting this IG. 
-Accordingly, it is the intent of the HL7 Structured Documents WG that this IG replace the current FHIR R4 and R5 Core Clinical Document guidance.
-</blockquote>
+
 
 <div style="width: 100%;" >
 <h3 id="plain-language-summary-about-hl7-and-this-guide">Plain Language Summary about HL7 and this Guide<a class="anchorjs-link " href="#plain-language-summary-about-hl7-and-this-guide" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a>
