@@ -55,7 +55,8 @@ Description: "Composition revision example for FHIR Clinical Document"Usage: #e
 * extension[InformationRecipientExtension].extension[party].valueReference = Reference(Practitioner/Doctor2)
 
 
-* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
+* extension[+].url = "http://hl7.org/fhir/StructureDefinition/event-basedOn"
+//"http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
 * extension[=].valueReference = Reference(revised-service1)
 * extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/consent-extension"
 * extension[=].valueReference = Reference(revised-consent1)

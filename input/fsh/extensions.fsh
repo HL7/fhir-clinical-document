@@ -202,15 +202,15 @@ Description: "Participant Extension identifies supporting entities, including pa
 
 
 
-Extension: OrderExtension
-Id: OrderExtension
-Title: "Order Extension"
-Description: "The Order Extension represents orders that are fulfilled by this document such as a radiologists report of an x-ray."
-* ^context.type = #element
-* ^context.expression = "Composition"
-* valueReference 1.. MS
-* valueReference only Reference(ServiceRequest)
-* valueReference ^sliceName = "valueReference"
+//Extension: OrderExtension
+//Id: OrderExtension
+//Title: "Order Extension"
+//Description: "The Order Extension represents orders that are fulfilled by this document such as a radiologists report of an x-ray."
+//* ^context.type = #element
+//* ^context.expression = "Composition"
+//* valueReference 1.. MS
+//* valueReference only Reference(ServiceRequest)
+//* valueReference ^sliceName = "valueReference"
 
 // Extension: PerformerExtension
 // Id: PerformerExtension

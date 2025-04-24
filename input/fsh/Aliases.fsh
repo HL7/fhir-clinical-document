@@ -9,15 +9,12 @@ Alias: $allergyintolerance-verification = http://terminology.hl7.org/CodeSystem/
 Alias: $system = http://example.org/system
 Alias: $v3-ActCode = http://terminology.hl7.org/CodeSystem/v3-ActCode
 
+//Value Sets
+Alias: $participantTypes = http://terminology.hl7.org/CodeSystem/v3-ParticipationType
+Alias: $consentscope = http://terminology.hl7.org/CodeSystem/consentscope
+
 //Extensions
 Alias: $composition-clinicaldocument-versionNumber = http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber
 
-
-//Alias: $loinc = http://loinc.org
-//Alias: $sct = http://snomed.info/sct
-
-Alias: $participantTypes = http://terminology.hl7.org/CodeSystem/v3-ParticipationType
-
-Alias: $consentscope = http://terminology.hl7.org/CodeSystem/consentscope
 
 

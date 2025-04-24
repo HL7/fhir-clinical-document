@@ -102,7 +102,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
     //ParticipantExtension named performer 0..* MS and
 	
     ConsentExtension named consent 0..* MS and
-    OrderExtension named order 0..* MS 
+	http://hl7.org/fhir/StructureDefinition/event-basedOn|5.2.0 named basedOn 0..* MS
+	//OrderExtension named order 0..* MS 
 	//CancelledExtension named cancelled-status-indicator 0..1
 
 * extension[R5-Composition-version] ^label = "clinical document version number"
@@ -143,10 +144,16 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension[consent] ^mapping[0].identity = "cda"
 * extension[consent] ^mapping[=].map = "authorization.Consent"
 
-* extension[order] ^label = "order"
-* extension[order] ^short = "order" 
-* extension[order] ^mapping[0].identity = "cda"
-* extension[order] ^mapping[=].map = "inFulfillmentOf.Order"
+//* extension[order] ^label = "order"
+//* extension[order] ^short = "order" 
+//* extension[order] ^mapping[0].identity = "cda"
+//* extension[order] ^mapping[=].map = "inFulfillmentOf.Order"
+
+* extension[basedOn] ^label = "basedOn, e.g. order fullfilled"
+* extension[basedOn] ^short = "The clinical action, such as a plan, proposal or order that is fulfilled by or precipitated this FHIR Clinical Document, such as a radiologists report of an x-ray." 
+* extension[basedOn] ^mapping[0].identity = "cda"
+* extension[basedOn] ^mapping[=].map = "inFulfillmentOf.basedOn"
+
 
 * modifierExtension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
 * modifierExtension[R5-Composition-status] ^isModifierReason = "This element is labelled as a modifier because it is a status element that contains status values such as cancelled (which means that the resource should not be treated as valid)."

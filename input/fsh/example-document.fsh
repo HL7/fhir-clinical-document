@@ -60,7 +60,8 @@ Description: "Composition example for FHIR Clinical Document"Usage: #example
 * extension[ParticipantExtension].extension[party].valueReference = Reference(Practitioner/Doctor2)
 
 
-* extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
+* extension[+].url = "http://hl7.org/fhir/StructureDefinition/event-basedOn"
+//"http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
 * extension[=].valueReference = Reference(service1)
 * extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/consent-extension"
 * extension[=].valueReference = Reference(consent1)
