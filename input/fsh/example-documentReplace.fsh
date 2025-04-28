@@ -58,15 +58,25 @@ Description: "Composition revision example for FHIR Clinical Document"Usage: #e
 * extension[+].url = "http://hl7.org/fhir/StructureDefinition/event-basedOn"
 //"http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/OrderExtension"
 * extension[=].valueReference = Reference(revised-service1)
+
 * extension[+].url = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/consent-extension"
 * extension[=].valueReference = Reference(revised-consent1)
 
+* extension[ChangeMade].extension[change].valueAnnotation.authorReference = Reference(Doctor1) "Doctor Dave"
+* extension[ChangeMade].extension[change].valueAnnotation.time = "2024-05-07T13:28:17.000+00:00"
+* extension[ChangeMade].extension[change].valueAnnotation.text = "Subject's name was corrected becuase of a misspelling."
+
+* extension[ChangeMade].extension[version-changed].valueReference.identifier.system = "https://example.com/bundleId"
+* extension[ChangeMade].extension[version-changed].valueReference.identifier.value = "26d52355-b71b-4992-a34b-a2476983c166"
 
 * identifier.system = "https://example.com/compId"
 * identifier.value = "1d6d6eb8-7d08-4ce1-94d4-19cdaa76ad6f"
 * status = #final
 * type = $LNC#28655-9
 * type.text = "Attending Discharge summary"
+
+* category[0].text = "Temp Code: Clinical Note. Requested from LOINC"
+
 * subject = Reference(revised-Patient) "Eve Everywoman"
 * encounter = Reference(revised-encounter-example)
 * date = "2024-05-08T11:28:17.000+00:00"

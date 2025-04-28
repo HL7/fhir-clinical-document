@@ -140,7 +140,6 @@ Description: "The Information Recipient Extension records the intended recipient
 
 
 
-
 //Extension: ParticipantExtension
 //Id: ParticipantExtension
 //Title: "Participant Extension"
@@ -199,19 +198,6 @@ Description: "Participant Extension identifies supporting entities, including pa
 * extension[party].valueReference only Reference(Practitioner or PractitionerRole or Patient or RelatedPerson or Device or Organization)
 * extension[party].valueReference 1..1
 
-
-
-
-//Extension: OrderExtension
-//Id: OrderExtension
-//Title: "Order Extension"
-//Description: "The Order Extension represents orders that are fulfilled by this document such as a radiologists report of an x-ray."
-//* ^context.type = #element
-//* ^context.expression = "Composition"
-//* valueReference 1.. MS
-//* valueReference only Reference(ServiceRequest)
-//* valueReference ^sliceName = "valueReference"
-
 // Extension: PerformerExtension
 // Id: PerformerExtension
 // Title: "Performer Extension"
@@ -221,3 +207,26 @@ Description: "Participant Extension identifies supporting entities, including pa
 // * valueReference 1.. MS
 // * valueReference only Reference(Practitioner or PractitionerRole)
 // * valueReference ^sliceName = "valueReference"
+
+
+Extension: ChangeMade
+Id: ChangeMade
+Title: "Change Made"
+Description: "Change Made provides an annotation of a change that has been made to the Composition or Composition section. The extension is experimental and may overlap with other extensions, such as use of note in R6. The extension contains two parts: change - the description of the change, version-changed - the FHIR Clinical Document version that was changed. Note: Calculating a differential between versions is suggested for safely finding all changes as this annotation may not contain all changes between versions."
+* ^context.type = #element
+* ^context.expression = "Composition"
+* extension contains
+	change 1..1 and
+	version-changed 1..1
+
+* extension[change]
+* extension[change] ^short = "Annotation of a change."
+* extension[change].value[x] only Annotation
+* extension[change].valueAnnotation 1..1
+
+* extension[version-changed]
+* extension[version-changed] ^short = "Version of Document Bundle produced by preceeding version of Compsition. This points to the Document Bundle and not the Composition, as the Document Bundle represents a static document. Intermediate versioning changes to Composition are expected to be handled in a different manner."
+* extension[version-changed].value[x] only Reference
+* extension[version-changed].valueReference only Reference(Bundle)
+* extension[version-changed].valueReference 1..1
+

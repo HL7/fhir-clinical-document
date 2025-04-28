@@ -1,4 +1,3 @@
-
 //all first degree composition.references shall be included in the bundle.
 Invariant: clindoc-first-degree
 Description: "All first degree targets of entry[0].Composition.references shall be included in the bundle"
@@ -102,9 +101,11 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
     //ParticipantExtension named performer 0..* MS and
 	
     ConsentExtension named consent 0..* MS and
-	http://hl7.org/fhir/StructureDefinition/event-basedOn|5.2.0 named basedOn 0..* MS
+	http://hl7.org/fhir/StructureDefinition/event-basedOn|5.2.0 named basedOn 0..* MS and
 	//OrderExtension named order 0..* MS 
 	//CancelledExtension named cancelled-status-indicator 0..1
+	
+	ChangeMade named change-made 0..1 MS
 
 * extension[R5-Composition-version] ^label = "clinical document version number"
 //* extension[R5-Composition-version] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
@@ -154,6 +155,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension[basedOn] ^mapping[0].identity = "cda"
 * extension[basedOn] ^mapping[=].map = "inFulfillmentOf.basedOn"
 
+* extension[change-made] ^label = "Note of changes made, calculating changes maybe required for safety as this extension may not contain all changes. Experimental, may overlap with other elements such as FHIR R6 note."
+* extension[change-made] ^short = "Note of changes made, calculating changes maybe required for safety as this extension may not contain all changes. Experimental, may overlap with other elements such as FHIR R6 note."
 
 * modifierExtension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
 * modifierExtension[R5-Composition-status] ^isModifierReason = "This element is labelled as a modifier because it is a status element that contains status values such as cancelled (which means that the resource should not be treated as valid)."
@@ -164,6 +167,15 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * text MS
 * identifier 0..1 MS
 * type MS
+
+* category 1.. MS
+* category ^slicing.discriminator.type = #value
+* category ^slicing.discriminator.path = "text"
+* category ^slicing.rules = #open
+* category contains clinicalnotecategory 1..1 MS
+* category[clinicalnotecategory] ^short = "Category for Clinical Note, has been requested from LOINC"
+* category[clinicalnotecategory].text = "Temp Code: Clinical Note. Requested from LOINC"
+
 * subject 1..1 MS
 * subject only Reference(Patient or Group)
 * date MS
@@ -246,6 +258,9 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * section.text MS
 * section.title 1..1 MS
 //seems consistent that where there is a slice in a profile that the Title is required and MS
+
+* section.extension contains
+	ChangeMade named change-made 0..1 MS
 
 //* section ^slicing.discriminator.type = #type
 //* section ^slicing.discriminator.path = section.entry

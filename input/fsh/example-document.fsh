@@ -71,11 +71,15 @@ Description: "Composition example for FHIR Clinical Document"Usage: #example
 * status = #final
 * type = $LNC#28655-9
 * type.text = "Attending Discharge summary"
+
+* category[0].text = "Temp Code: Clinical Note. Requested from LOINC"
+
 * subject = Reference(patient-example) "Eve Everiewoman"
 * encounter = Reference(encounter-example)
 * date = "2024-05-07T13:28:17.000+00:00"
 * author = Reference(Doctor1) "Doctor Dave"
 * title = "Discharge Summary"
+
 * attester.mode = http://hl7.org/fhir/composition-attestation-mode#legal
 * attester.time = "2024-05-07"
 * attester.party = Reference(Doctor1) "Doctor Dave"
