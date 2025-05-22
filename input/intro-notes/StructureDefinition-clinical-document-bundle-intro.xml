@@ -2,4 +2,12 @@
   <p>
      A FHIR Clinical Document is a FHIR bundle of type=document where the first entry is a composition. In addition, this implementation guide requires that when communicating a FHIR Clinical Document, the sender <b>SHALL</b> include the direct targets of all composition references in the bundle. </p>
 
+	<a name="Flags"/>
+	<h3>Guidance on Bundle Flags</h3>
+<ul>
+<li><b>Meaning of MustSupport</b>: The MustSupport flag as used on this Bundle profile <b>SHALL</b> be interpreted to mean that conformant recipients <b>SHALL</b> consider the value of this element when processing the resource as specified by the IG. Recipients are not obligated to parse and store the exact value received.
+</li>
+
+</ul>
+
 </div>

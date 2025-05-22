@@ -71,7 +71,7 @@ The Composition resource is special in that it can convey narrative in both Comp
   * **MAY** include Composition.text in a rendition of the document.
   * **MAY** render additional document information (such as patient name and date of birth) derived from structured Composition fields.
 
-These rules apply even for other narrative type fields (e.g. FHIR R5 Composition.note, FHIR 'note' extension). 
+These rules apply even where there are other narrative type fields (e.g. FHIR R5 Composition.note, FHIR 'note' extension). 
 
 Good practice recommends that the following be present whenever the document is viewed: Document title and document dates; Service and encounter types, and date ranges as appropriate; Names of all persons along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Names of selected organizations along with their roles, participations, participation date ranges, identifiers, address, and telecommunications information; Date of birth for subject(s); Patient identifying information.
 
