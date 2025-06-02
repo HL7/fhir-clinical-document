@@ -10,7 +10,7 @@
 <div class="collapse" id="plain-lang-summary" aria-expanded="false" style="height: 0px;">
   <div class="card card-body" style="border:1px solid;border-color:#cccccc;padding:10px">
   
-<h4 id="about-hl7">About HL7<a class="anchorjs-link " href="#about-hl7" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
+<!--h4 id="about-hl7">About HL7<a class="anchorjs-link " href="#about-hl7" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h4>
 <p><a href="http://hl7.org/">HL7</a>, which stands for Health Level Seven, creates standards to help different healthcare computer systems talk to each other. These HL7 standards are a special language or set of rules that lets information be shared between hospitals, doctors’ offices (e.g. Electronic Health Record Systems), labs, patients (e.g. via patient portals), pharmacies, and insurers, among others.</p>
 
 <p>One of the HL7 standards is HL7 FHIR (Fast Healthcare Interoperability Resources). It helps connect healthcare systems, making it easier for doctors, nurses, and other healthcare professionals to share important information about patients. For example, if you have a lab test at a hospital, HL7 FHIR helps send the results to your doctor’s office so they can provide the right care.</p>
@@ -27,7 +27,14 @@
 
 <p>It builds on principles from a previous HL7 standard, called Clinical Document Architecture (CDA), aiming to migrate users from CDA to FHIR-based documents. The guide also outlines steps for reconciling FHIR documents with existing standards like C-CDA and provides guidelines for future FHIR versions.</p>
 
-<p>Healthcare technology experts worked with a broad group of stakeholders to create this guide. This guide contains important information and guidelines for healthcare technology professionals to use when building FHIR Clinical Documents.</p>
+<p>Healthcare technology experts worked with a broad group of stakeholders to create this guide. This guide contains important information and guidelines for healthcare technology professionals to use when building FHIR Clinical Documents.</p-->
+
+
+<p>This standard aims to create a consistent format for clinical documents using FHIR. It provides a unified approach for representing and exchanging documents like discharge summaries and progress notes across different healthcare systems worldwide. The standard defines a clinical document as a FHIR Bundle containing a Composition resource and other related resources. It emphasizes human readability and provides detailed mappings from older CDA standards to FHIR.</p>
+
+<p>Key features include specific profiles for Bundle and Composition resources, extensions for representing additional elements, and methods for document versioning and succession management. The standard also specifies an operation to convert FHIR clinical documents into transaction bundles for processing by FHIR servers.</p>
+
+<p>Healthcare providers, organizations, and health IT developers can benefit from this standard by creating, exchanging, and viewing clinical documents in a standardized format. It supports interoperability and aligns with healthcare regulations that promote the exchange of health information. The standard also facilitates migration from older CDA systems to FHIR-based implementations.</p>
 
   </div>
 </div>

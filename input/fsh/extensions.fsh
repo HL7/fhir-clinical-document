@@ -1,5 +1,4 @@
 
-
 Extension: ConsentExtension
 Id: consent-extension
 Title: "Consent Extension"
@@ -117,7 +116,7 @@ Description: "The Information Recipient Extension records the intended recipient
 //* extension[type] ^short = "A code specifying the type of participation, such as data entry person, informant, primary information recipient, or tracker"
 * extension[type] ^short = "Meaning and purpose of participation, in creation of the clinical document. The list includes: data entry person, informant, primary information recipient, and tracker. Other types are allowed."
 * extension[type].value[x] only CodeableConcept
-* extension[type].valueCodeableConcept from ClinicalDocInformationRecipientVs (required)
+* extension[type].valueCodeableConcept from http://terminology.hl7.org/ValueSet/fhir-clinical-doc-information-recipient (required) //ClinicalDocInformationRecipientVs (required)
 * extension[type].valueCodeableConcept ^binding.description = "primary information recipient (PRCP), secondary information recipient (TRC) or generic information recipient (IRCP)"
 * extension[type].valueCodeableConcept 1..1
 * extension[function]
@@ -174,7 +173,7 @@ Description: "Participant Extension identifies supporting entities, including pa
 //* extension[type] ^short = "A code specifying the type of participation, such as data entry person, informant, primary information recipient, or tracker"
 * extension[type] ^short = "Meaning and purpose of participation, in creation of the clinical document. The list includes: data entry person, informant, primary information recipient, and tracker. Other types are allowed."
 * extension[type].value[x] only CodeableConcept
-* extension[type].valueCodeableConcept from ClinicalDocParticipantVs (required)
+* extension[type].valueCodeableConcept from http://terminology.hl7.org/ValueSet/fhir-clinical-doc-participant (required) //ClinicalDocParticipantVs (required)
 * extension[type].valueCodeableConcept ^binding.description = "Contains particpants that are not a data-enter, information-recipient nor an informant. Additionally, the FHIR Clinical Document Composition Profile contains fields for AUT, AUTHEN, CST, LA, RCT, SBJ. Thus, these types are also not allowed as types in the Participant Extension."
 * extension[type].valueCodeableConcept 1..1
 
@@ -215,6 +214,7 @@ Title: "Change Made"
 Description: "Change Made provides an annotation of a change that has been made to the Composition or Composition section. The extension is experimental and may overlap with other extensions, such as use of note in R6. The extension contains two parts: change - the description of the change, version-changed - the FHIR Clinical Document version that was changed. Note: Calculating a differential between versions is suggested for safely finding all changes as this annotation may not contain all changes between versions."
 * ^context.type = #element
 * ^context.expression = "Composition"
+* ^experimental = true
 * extension contains
 	change 1..1 and
 	version-changed 1..1

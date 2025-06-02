@@ -173,8 +173,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * category ^slicing.discriminator.path = "text"
 * category ^slicing.rules = #open
 * category contains clinicalnotecategory 1..1 MS
-* category[clinicalnotecategory] ^short = "Category for Clinical Note, has been requested from LOINC"
-* category[clinicalnotecategory].text = "Temp Code: Clinical Note. Requested from LOINC"
+* category[clinicalnotecategory] ^short = "Category for Clinical Note"
+* category[clinicalnotecategory] =  $LNC#107903-7 "Clinical note"
 
 * subject 1..1 MS
 * subject only Reference(Patient or Group)

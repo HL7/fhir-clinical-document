@@ -33,3 +33,6 @@ INFORMATION: Bundle/clinical-document-bundle-revision: Bundle.entry[11]: This el
 
 # https://loinc.org/28655-9 is of scale Doc and a LOINC code and appropriate for the value set
 None of the codings provided are in the value set 'FHIR Document Type Codes' (http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1), and a coding is recommended to come from this value set (codes = http://loinc.org#28655-9)
+
+# The extension is defined in the base resource. Our profile inherits this
+INFORMATION: StructureDefinition/clinical-document-bundle: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated

@@ -94,7 +94,7 @@ menu:
     FHIR Clinical Document Examples: artifacts.html#clinical-document-examples
     Extensions: artifacts.html#structures-extension-definitions
     Operations defined in this guide: artifacts.html#behavior-operation-definitions
-    Terminology: artifacts.html#terminology-value-sets
+# Terminology: artifacts.html#terminology-value-sets
     Artifacts Summary: artifacts.html
   Further Guidance:
     CDA Mapping: mapping.html
