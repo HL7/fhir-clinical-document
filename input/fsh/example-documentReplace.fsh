@@ -138,7 +138,7 @@ Description: "Example composition content"Usage: #example
 
 Instance: revised-Patient
 InstanceOf: Patient
-Description: "Example composition content."
+Description: "Example composition content"
 Usage: #example
 * active = true
 * name.text = "Eve Everywoman"
