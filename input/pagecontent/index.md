@@ -1,12 +1,12 @@
 
 
-<div style="width: 100%;" >
+<!--div style="width: 100%;" >
 <h3 id="plain-language-summary">Plain Language Summary<a class="anchorjs-link " href="#plain-language-summary" aria-label="Anchor" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a>
   <button class="btn btn-info btn-lg collapsed" type="button" title="Click to Open or Close the Plain Language Summary" data-toggle="collapse" data-target="#plain-lang-summary" aria-expanded="false" aria-controls="collapseExample">
     Welcome! Thank-you for wanting to learn about this guide.  Click Here to see the Plain Language Summary
   </button>
 </h3>
-</div>
+</div-->
 <!--div class="collapse" id="plain-lang-summary" aria-expanded="false" style="height: 0px;">
   <div class="card card-body" style="border:1px solid;border-color:#cccccc;padding:10px">
   
