@@ -42,7 +42,7 @@ Description: "Composition example for FHIR Clinical Document"Usage: #example
 * meta.lastUpdated = "2024-05-07T13:28:17.000+00:00"
 * meta.profile = "http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/clinical-document-composition"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">          <p><b>Discharge Summary</b></p>          <p><b>CC</b>: Dr. BettaB Careful</p>                   <p><b>status</b>: final</p>          <p><b>patient</b>: Eve Everiewoman</p>          <p><b>author</b>: Doctor Dave / Good Health Clinic</p>          <p><b>encounter</b>: Inpatient encounter, 2024-05-03 - 2024-05-07</p>          <p><b>confidentiality</b>: N</p>          <p><b>Contained sections</b>: </p>          <ul>          <li>Reason for admission</li>          <li>Medications on Discharge</li>          <li>Known allergies</li>          </ul>          </div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">          <p><b>Discharge Summary</b></p>          <p><b>CC</b>: Dr. BettaB Careful</p>                   <p><b>status</b>: final</p>          <p><b>patient</b>: Eve Everiewoman</p>          <p><b>author</b>: Doctor Dave / Good Health Clinic</p>          <p><b>encounter</b>: Inpatient encounter, 2024-05-03 - 2024-05-07</p>          <p><b>confidentiality</b>: N</p>          <p><b>Contained sections</b>: </p>          <ul>          <li>Reason for admission</li>          <li>Medications on Discharge</li>          <li>Known allergies</li>          </ul>          </div>"
 * extension[0].url = "http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version"
 * extension[=].valueString = "1715088497"
 
@@ -93,7 +93,7 @@ Description: "Composition example for FHIR Clinical Document"Usage: #example
 * section[+].title = "Medications on Discharge"
 * section[=].code = $LNC#10183-2 "Hospital discharge medications Narrative"
 * section[=].text.status = #additional
-* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Medication</td>\n\n                    <td>Last Change</td>\n\n                    <td>Last ChangeReason</td>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Theophylline 200mg BD after meals</td>\n\n                    <td>continued</td>\n\n                  </tr>\n\n                  <tr>\n\n                    <td>Ventolin Inhaler</td>\n\n                    <td>stopped</td>\n\n                    <td>Getting side effect of tremor</td>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
+* section[=].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n\n              <table>\n\n                <thead>\n\n                  <tr>\n\n                    <td>Medication</td>\n\n                    <td>Last Change</td>\n\n                    <td>Last ChangeReason</td>\n\n                  </tr>\n\n                </thead>\n\n                <tbody>\n\n                  <tr>\n\n                    <td>Theophylline 200mg BD after meals</td>\n\n                    <td>continued</td>\n\n                  </tr>\n\n                  <tr>\n\n                    <td>Ventolin Inhaler</td>\n\n                    <td>stopped</td>\n\n                    <td>Getting side effect of tremor</td>\n\n                  </tr>\n\n                </tbody>\n\n              </table>\n\n            </div>"
 * section[=].entry[0] = Reference(MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86)
 * section[=].entry[+] = Reference(MedStatement-673f8db5-0ffd-4395-9657-6da00420bbc1)
 * section[+].title = "Known allergies"
@@ -163,7 +163,7 @@ InstanceOf: Observation
 Description: "Example composition content"Usage: #example
 * meta.lastUpdated = "2024-05-03T14:28:17.000+00:00"
 * text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"> Acute Asthmatic attack. Was wheezing\n                        for days prior to admission. </div>"
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\"> Acute Asthmatic attack. Was wheezing\n                        for days prior to admission. </div>"
 * status = #final
 * code = $LNC#46241-6
 * code.text = "Reason for admission"

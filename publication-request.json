@@ -1,11 +1,11 @@
 {
   "package-id": "hl7.fhir.uv.fhir-clinical-document",
-	"version": "1.0.0",
-	"path": "http://hl7.org/fhir/uv/fhir-clinical-document/STU1",
+	"version": "1.0.1",
+	"path": "http://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1",
 	"status": "trial-use",
 	"sequence": "STU1",
 	"milestone":"true",
-	"mode": "milestone",
+	"mode": "technical-correction",
 	"desc": "Version for STU 1 FHIR Clinical Documents",
 	"descmd": "Version for STU 1 FHIR Clinical Documents",
 	"first" : false
