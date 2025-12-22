@@ -1,3 +1,3 @@
 **IP Statements**
 
-{% include ip-statements.xhtml %}
+{% lang-fragment ip-statements.xhtml %}

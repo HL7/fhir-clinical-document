@@ -1,11 +1,11 @@
 **Dependency Table**
 
-{% include dependency-table.xhtml %}
+{% lang-fragment dependency-table.xhtml %}
 
 **Globals Table**
 
-{% include globals-table.xhtml %}
+{% lang-fragment globals-table.xhtml %}
 
 **Cross FHIR Version Analysis**
 
-{% include cross-version-analysis.xhtml %}
+{% lang-fragment cross-version-analysis.xhtml %}
