@@ -75,7 +75,7 @@ Description: "Composition revision example for FHIR Clinical Document"Usage: #e
 * type = $LNC#28655-9
 * type.text = "Attending Discharge summary"
 
-* category[0].text = "Temp Code: Clinical Note. Requested from LOINC"
+* category[0] =  $LNC#107903-7 "Clinical note"
 
 * subject = Reference(revised-Patient) "Eve Everywoman"
 * encounter = Reference(revised-encounter-example)

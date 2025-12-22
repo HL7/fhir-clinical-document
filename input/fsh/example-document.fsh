@@ -72,7 +72,7 @@ Description: "Composition example for FHIR Clinical Document"Usage: #example
 * type = $LNC#28655-9
 * type.text = "Attending Discharge summary"
 
-* category[0].text = "Temp Code: Clinical Note. Requested from LOINC"
+* category[0] =  $LNC#107903-7 "Clinical note"
 
 * subject = Reference(patient-example) "Eve Everiewoman"
 * encounter = Reference(encounter-example)

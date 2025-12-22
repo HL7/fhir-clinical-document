@@ -171,9 +171,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * category 1.. MS
 
 * category ^slicing.discriminator[0].type = #value
-* category ^slicing.discriminator[=].path = "coding.code"
-* category ^slicing.discriminator[+].type = #value
-* category ^slicing.discriminator[=].path = "coding.system"
+* category ^slicing.discriminator[=].path = "$this"
+
 
 * category ^slicing.rules = #open
 * category contains clinicalnotecategory 1..1 MS
