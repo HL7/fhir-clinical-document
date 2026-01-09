@@ -1,4 +1,9 @@
 == Suppressed Messages ==
+# Conformance clauses will be added in the next full release of this specification
+INFORMATION: en/StructureDefinition-clinical-document-bundle.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
+INFORMATION: en/StructureDefinition-clinical-document-composition.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
+INFORMATION: en/index.html: The html source contains the word 'SHALL' but it is not in a text phrase marked as a conformance clause
+INFORMATION: en/versioning.html: The html source contains the word 'SHOULD' but it is not in a text phrase marked as a conformance clause
 
 # intended reference to draft codesystem
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0
