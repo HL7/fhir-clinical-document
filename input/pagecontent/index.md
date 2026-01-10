@@ -36,6 +36,7 @@
 
 <p>Healthcare providers, organizations, and health IT developers can benefit from this standard by creating, exchanging, and viewing clinical documents in a standardized format. It supports interoperability and aligns with healthcare regulations that promote the exchange of health information. The standard also facilitates migration from older CDA systems to FHIR-based implementations.</p>
 
+
   </div>
 </div-->
 
