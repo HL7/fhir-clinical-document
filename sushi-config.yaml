@@ -109,6 +109,7 @@ menu:
     Testing IGs: testing.html
     Dependencies, Globals and CrossVersionAnalysis: dependencies_globals_CrossVersionAnalysis.html
     Note on CapabilityStatements: capabilitystatements.html
+  Change Log: change-log.html
    
 pages:
   index.md:
@@ -126,6 +127,8 @@ pages:
   dependencies_globals_CrossVersionAnalysis.md:
   operations.md:
   capabilitystatements.md:
+  change-log.md:
+    title: Change Log
   
 parameters:
   apply-wg: true
