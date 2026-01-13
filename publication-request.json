@@ -6,7 +6,7 @@
 	"sequence": "STU1",
 	"milestone":"true",
 	"mode": "technical-correction",
-	"desc": "Version for STU 1 FHIR Clinical Documents",
-	"descmd": "Version for STU 1 FHIR Clinical Documents",
+	"desc": "Technical correction release for FHIR Clinical Documents STU 1. For a detailed list of the changes for this version, see the Change Log: http://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/change-log.html",
+	"descmd": "Technical correction release for FHIR Clinical Documents STU 1. For a detailed list of the changes for this version, see the Change Log: http://hl7.org/fhir/uv/fhir-clinical-document/STU1.0.1/change-log.html",
 	"first" : false
 }
