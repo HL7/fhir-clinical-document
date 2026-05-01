@@ -84,28 +84,28 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * obeys clindoc-limit-participantType
 
 * modifierExtension contains	
-	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1 MS
+	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
 
 
 * extension contains 
 	//$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS 
 	
-	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version named R5-Composition-version 0..1 MS and
+	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.version named R5-Composition-version 0..1 and
 	
 	// DocumentID named document-id 0..1 MS and
 	
-    DataEntererExtension named data-enterer 0..1 MS and
-    informant-extension named informant 0..* MS and
-    information-recipient-extension named information-recipient 0..* MS and
+    DataEntererExtension named data-enterer 0..1 and
+    informant-extension named informant 0..* and
+    information-recipient-extension named information-recipient 0..* and
     ParticipantExtension named participant 0..* MS and
     //ParticipantExtension named performer 0..* MS and
 	
-    ConsentExtension named consent 0..* MS and
-	http://hl7.org/fhir/StructureDefinition/event-basedOn|5.2.0 named basedOn 0..* MS and
+    ConsentExtension named consent 0..* and
+	http://hl7.org/fhir/StructureDefinition/event-basedOn|5.2.0 named basedOn 0..* and
 	//OrderExtension named order 0..* MS 
 	//CancelledExtension named cancelled-status-indicator 0..1
 	
-	ChangeMade named change-made 0..1 MS
+	ChangeMade named change-made 0..1
 
 * extension[R5-Composition-version] ^label = "clinical document version number"
 //* extension[R5-Composition-version] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
@@ -161,21 +161,20 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * modifierExtension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
 * modifierExtension[R5-Composition-status] ^isModifierReason = "This element is labelled as a modifier because it is a status element that contains status values such as cancelled (which means that the resource should not be treated as valid)."
 
-* language 0..1 MS 
+* language 0..1 
 * language ^mapping[0].identity = "cda"
 * language ^mapping[=].map = "languageCode"
 * text MS
-* identifier 0..1 MS
+* identifier 0..1
+* status 1..1 MS
 * type MS
-
-* category 1.. MS
 
 * category ^slicing.discriminator[0].type = #value
 * category ^slicing.discriminator[=].path = "$this"
 
 
 * category ^slicing.rules = #open
-* category contains clinicalnotecategory 1..1 MS
+* category contains clinicalnotecategory 0..1
 * category[clinicalnotecategory] ^short = "Category for Clinical Note"
 * category[clinicalnotecategory] =  $LNC#107903-7 "Clinical note"
 
