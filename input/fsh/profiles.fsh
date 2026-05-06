@@ -83,8 +83,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 //* obeys clindoc-one-data-enterer
 * obeys clindoc-limit-participantType
 
-* modifierExtension contains	
-	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
+//* modifierExtension contains	
+//	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
 
 
 * extension contains 
@@ -105,7 +105,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 	//OrderExtension named order 0..* MS 
 	//CancelledExtension named cancelled-status-indicator 0..1
 	
-	ChangeMade named change-made 0..1
+    ChangeMade named change-made 0..1 and
+    http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
 
 * extension[R5-Composition-version] ^label = "clinical document version number"
 //* extension[R5-Composition-version] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
@@ -158,8 +159,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension[change-made] ^label = "Note of changes made, calculating changes maybe required for safety as this extension may not contain all changes. Experimental, may overlap with other elements such as FHIR R6 note."
 * extension[change-made] ^short = "Note of changes made, calculating changes maybe required for safety as this extension may not contain all changes. Experimental, may overlap with other elements such as FHIR R6 note."
 
-* modifierExtension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
-* modifierExtension[R5-Composition-status] ^isModifierReason = "This element is labelled as a modifier because it is a status element that contains status values such as cancelled (which means that the resource should not be treated as valid)."
+* extension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
+//* modifierExtension[R5-Composition-status] ^isModifierReason = "This element is labelled as a modifier because it is a status element that contains status values such as cancelled (which means that the resource should not be treated as valid)."
 
 * language 0..1 
 * language ^mapping[0].identity = "cda"
