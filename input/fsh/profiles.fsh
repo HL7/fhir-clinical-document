@@ -83,9 +83,6 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 //* obeys clindoc-one-data-enterer
 * obeys clindoc-limit-participantType
 
-//* modifierExtension contains	
-//	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
-
 
 * extension contains 
 	//$composition-clinicaldocument-versionNumber named composition-clinicaldocument-versionNumber 0..1 MS 
@@ -105,8 +102,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 	//OrderExtension named order 0..* MS 
 	//CancelledExtension named cancelled-status-indicator 0..1
 	
-    ChangeMade named change-made 0..1 and
-    http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
+    ChangeMade named change-made 0..1
+    // http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
 
 * extension[R5-Composition-version] ^label = "clinical document version number"
 //* extension[R5-Composition-version] ^short = "Consider if this should be must support, or if should explicitly backport R5 Composition.version" 
@@ -159,8 +156,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * extension[change-made] ^label = "Note of changes made, calculating changes maybe required for safety as this extension may not contain all changes. Experimental, may overlap with other elements such as FHIR R6 note."
 * extension[change-made] ^short = "Note of changes made, calculating changes maybe required for safety as this extension may not contain all changes. Experimental, may overlap with other elements such as FHIR R6 note."
 
-* extension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
-//* modifierExtension[R5-Composition-status] ^isModifierReason = "This element is labelled as a modifier because it is a status element that contains status values such as cancelled (which means that the resource should not be treated as valid)."
+
 
 * language 0..1 
 * language ^mapping[0].identity = "cda"
@@ -168,6 +164,12 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * text MS
 * identifier 0..1
 * status 1..1 MS
+
+* status.extension contains
+	http://hl7.org/fhir/5.0/StructureDefinition/extension-Composition.status named R5-Composition-status 0..1
+
+* status.extension[R5-Composition-status] ^short = "This allows for additional status values found in R5. However, exercise caution as the R4 Composition.status is required."
+
 * type MS
 
 * category ^slicing.discriminator[0].type = #value
@@ -191,7 +193,6 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 
 * title MS
 
-* attester MS
 * attester.mode MS
 * attester.time MS
 * attester.party MS
@@ -217,7 +218,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * custodian ^mapping[=].map = "assignedCustodian.custodian"
 // can we remove the default mapping? 
 
-* relatesTo MS
+
 //* relatesTo.targetIdentifier.system 1..1
 //* relatesTo.targetIdentifier.value 1..1
 * relatesTo.targetIdentifier ^short = "Reference to the Bundle.identifier of the FHIR Clinical Document being appended, or to some other identifier of a non FHIR document"
@@ -231,8 +232,8 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 * relatesTo ^slicing.description = "Slicing based on code"
 
 * relatesTo contains 
-    replaced_document 0..* MS
-	and appended_document 0..* MS
+    replaced_document 0..*
+	and appended_document 0..*
 	
 * relatesTo[replaced_document] ^short = "The document(s) being superceded"
 * relatesTo[replaced_document].code = #replaces
@@ -263,7 +264,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 //seems consistent that where there is a slice in a profile that the Title is required and MS
 
 * section.extension contains
-	ChangeMade named change-made 0..1 MS
+	ChangeMade named change-made 0..1
 
 //* section ^slicing.discriminator.type = #type
 //* section ^slicing.discriminator.path = section.entry

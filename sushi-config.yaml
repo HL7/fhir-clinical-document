@@ -36,7 +36,8 @@ publisher:
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
-    hl7.fhir.extensions.r5: 4.0.1
+#   hl7.fhir.extensions.r5: 4.0.1
+    hl7.fhir.uv.xver-r5.r4: 0.1.0
 #   hl7.fhir.us.core: 3.1.0
 #   hl7.fhir.us.mcode:
 #     id: mcode
