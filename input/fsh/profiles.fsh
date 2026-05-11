@@ -193,16 +193,13 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
 
 * title MS
 
-* attester.mode MS
-* attester.time MS
-* attester.party MS
 * attester ^slicing.discriminator.type = #value
 * attester ^slicing.discriminator.path = mode
 * attester ^slicing.rules = #open
 * attester ^slicing.description = "Slicing based on the resource type"
 * attester contains 
-    legal_attester 0..1 MS
-	and professional_attester 0..* MS
+    legal_attester 0..1
+	and professional_attester 0..*
 * attester[legal_attester] ^short = "aka legal authenticator"
 * attester[legal_attester].mode = http://hl7.org/fhir/composition-attestation-mode#legal
 * attester[legal_attester] ^mapping[0].identity = "cda"
