@@ -6,8 +6,13 @@ Specific changes to the profile are listed below:
 
 
 <style>
-table {
-  border: 1;
+table, td{
+  border: 1px solid black;
+}
+th{
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
 }
 tr {
   background-color: #DCDCDC;
