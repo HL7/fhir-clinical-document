@@ -52,12 +52,12 @@
 </ul>
 
 	<a name="Flags"/>
-	<h3>Guidance on Composition Flags</h3>
-<ul>
-<li><b>Meaning of MustSupport</b>: The MustSupport flag as used on this Composition profile <b>SHALL</b> be interpreted to mean that conformant recipients <b>SHALL</b> consider the value of this element when processing the resource as specified by the IG. Recipients are not obligated to parse and store the exact value received.
-</li>
+	<h3>Composition Must Support</h3>
+	 <p class="stu-note">The updated definition will allow for additional MS guidance in future IGs, or the use of obligations:</p>
 
-</ul>
-
+  <ul>
+    <li>Document creators supporting the FHIR Clinical Document <b>SHALL</b> be capable of populating elements flagged with MS.</li>
+    <li>Document consumers <b>SHALL</b> be capable of processing elements flagged as MS.</li>
+  </ul>
 
 </div>
