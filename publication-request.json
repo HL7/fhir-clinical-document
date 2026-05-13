@@ -1,9 +1,9 @@
 {
   "package-id": "hl7.fhir.uv.fhir-clinical-document",
-	"version": "1.1.0-stu-update",
-	"path": "http://hl7.org/fhir/uv/fhir-clinical-document/STU1.1.0-stu-update",
-	"status": "release",
-	"sequence": "releases",
+	"version": "1.1.0",
+	"path": "http://hl7.org/fhir/uv/fhir-clinical-document/STU1.1.0",
+	"status": "draft",
+	"sequence": "trial-use",
 	"mode": "working",
 	"desc": "STU update publication for review of changes to FHIR Clinical Documents STU 1.0.1. For a detailed list of the changes for this version, see the Change Log: http://hl7.org/fhir/uv/fhir-clinical-document/STU1.1.0-stu-update/change-log.html",
 	"descmd": "STU update publication for review of changes to FHIR Clinical Documents STU 1.0.1. For a detailed list of the changes for this version, see the Change Log: http://hl7.org/fhir/uv/fhir-clinical-document/STU1.1.0-stu-update/change-log.html",

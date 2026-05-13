@@ -50,14 +50,4 @@
 <li><b>textLink</b>: The textLink extension is used to reference from Composition narrative (i.e. Composition.text, Composition.section.text) to a corresponding resource or sub-resource within the FHIR Clinical Document bundle. Implementations may use this link information when rendering or for other use cases that require an explicit association between text and corresponding structured content. (<b>NOTE</b>: The direction of the relationship, from narrative to structured entries, reverses the direction used in CDA, where an originalText/reference within an entry points to an ID within the narrative).  
 <p class="stu-note">The final specification of textLink is pending at the time of FHIR Clinical Documents IG publication. Implementations can proactively adhere to the resolution of Jira ticket <a href="https://jira.hl7.org/browse/FHIR-43316">FHIR-43316</a>, which will be formally incorporated into the next version of this IG.</p></li>
 </ul>
-
-	<a name="Flags"/>
-	<h3>Composition Must Support</h3>
-	 <p class="stu-note">The updated definition will allow for additional MS guidance in future IGs, or the use of obligations:</p>
-
-  <ul>
-    <li>Document creators supporting the FHIR Clinical Document <b>SHALL</b> be capable of populating elements flagged with MS.</li>
-    <li>Document consumers <b>SHALL</b> be capable of processing elements flagged as MS.</li>
-  </ul>
-
 </div>
