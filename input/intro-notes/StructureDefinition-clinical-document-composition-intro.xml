@@ -17,33 +17,33 @@
 <ul>
 <li>The FHIR Clinical Document creator</li>
 <ul>
-<li><b>SHALL</b> place attested narrative into Composition.section.text.</li>
-<li><b>SHOULD NOT</b> redundantly place attested narrative in both Composition.text and Composition.section.text.</li>
-<li><b>MAY</b> include narrative that is not derived from any structured data.</li>
-<li><b>SHOULD</b> include document metadata (e.g. patient) in Composition.text.</li>
-<li><b>MAY</b> include a list of document sections in Composition.text</li>
+<li>§guidance-composition-1:<b>SHALL</b> place attested narrative into Composition.section.text.§</li>
+<li>§guidance-composition-2:<b>SHOULD NOT</b> redundantly place attested narrative in both Composition.text and Composition.section.text.§</li>
+<li>§guidance-composition-3:<b>MAY</b> include narrative that is not derived from any structured data.§</li>
+<li>§guidance-composition-4:<b>SHOULD</b> include document metadata (e.g. patient) in Composition.text.§</li>
+<li>§guidance-composition-5:<b>MAY</b> include a list of document sections in Composition.text.§</li>
 </ul>
 
 <li>The FHIR Clinical Document recipient</li>
 <ul>
-<li><b>SHALL</b> include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document.</li>
-<li><b>MAY</b> include Composition.text in a rendition of the document.</li>
-<li><b>MAY</b> render additional document information (such as patient name and date of birth) derived from structured Composition fields.</li>
+<li>§guidance-composition-6:<b>SHALL</b> include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document.§</li>
+<li>§guidance-composition-7:<b>MAY</b> include Composition.text in a rendition of the document.§</li>
+<li>§guidance-composition-8:<b>MAY</b> render additional document information (such as patient name and date of birth) derived from structured Composition fields.§</li>
 </ul>
 </ul>
 
 	<a name="Elements"/>
 	<h3>Guidance on Composition Elements</h3>
 <ul>
-<li><b>Composition.category</b>: Document creators <b>SHALL</b> include a category value of 'clinical-note'. This serves to differentiate a FHIR Clinical Document from an arbitrary FHIR Document. </li>
-<li><b>Composition.custodian</b>: A basic tenet of a clinical document is stewardship, where, by definition, a clinical document is maintained by an organization entrusted with its care. Stewardship is reflected by Composition.custodian. While FHIR R4 restricts a custodian to be an Organization, FHIR R6 will expand on this to accommodate patient authored notes. In anticipation, this IG sets the cardinality of Composition.custodian to 0..1, but stipulates that the custodian <b>SHOULD</b> be populated where it is a known organization.</li>
+<li>§guidance-composition-9:<b>Composition.category</b>: Document creators <b>SHALL</b> include a category value of 'clinical-note'. This serves to differentiate a FHIR Clinical Document from an arbitrary FHIR Document.§ </li>
+<li>§guidance-composition-10:<b>Composition.custodian</b>: A basic tenet of a clinical document is stewardship, where, by definition, a clinical document is maintained by an organization entrusted with its care. Stewardship is reflected by Composition.custodian. While FHIR R4 restricts a custodian to be an Organization, FHIR R6 will expand on this to accommodate patient authored notes. In anticipation, this IG sets the cardinality of Composition.custodian to 0..1, but stipulates that the custodian <b>SHOULD</b> be populated where it is a known organization.§ </li>
 </ul>
 
 	<a name="Extensions"/>
 	<h3>Guidance on Composition Extensions</h3>
 <ul>
 <li><b>Overall approach to extensions</b>: Non-experimental extensions in this IG will be proposed as new FHIR R6 Composition elements.</li>
-<li><b>participant</b>: The participant extensions (data-enterer, informant, information-recipient, participant) derive from the <a href="https://hl7.org/cda/stds/online-navigation/2024May/index.html">HL7 Clinical Document Architecture</a> standard. Several CDA participant types (e.g. author, custodian) already exist as Composition elements, whereas those not present on the base Composition resource have been added here as extensions (and will be proposed as new elements on the Composition R6 resource). Composition participants reflect activity at the document level (e.g. related to the act of documenting), and are not inherited by referenced resources such as Observations. FHIR Clinical Document creators <b>SHALL NOT</b> use the generic extension:participant where a more specific participant (such as 'informant') exists.</li>
+<li>§guidance-composition-11:<b>participant</b>: The participant extensions (data-enterer, informant, information-recipient, participant) derive from the <a href="https://hl7.org/cda/stds/online-navigation/2024May/index.html">HL7 Clinical Document Architecture</a> standard. Several CDA participant types (e.g. author, custodian) already exist as Composition elements, whereas those not present on the base Composition resource have been added here as extensions (and will be proposed as new elements on the Composition R6 resource). Composition participants reflect activity at the document level (e.g. related to the act of documenting), and are not inherited by referenced resources such as Observations. FHIR Clinical Document creators <b>SHALL NOT</b> use the generic extension:participant where a more specific participant (such as 'informant') exists.§</li>
 <li><b>event-basedOn</b>: This extension can reference a ServiceRequest that represents those orders that are satisfied by this document (as opposed to new orders generated during the documented encounter).</li>
 <li><b>R5-Composition-status</b>: This extension is a backport of the R5 Composition.status to allow for additional status codes. Be cautious when using with the R4 Composition.status, which is required. The values could unintentionally cause confusion if they contradict each-other. The value sets do overlap, as well. The intent is to preadopt values found in R5 for status. In R6, we anticipate that the FHIR Clinical Document Composition Profile will only have one status field.</li>
 <li><b>Change made</b>: Change Made provides an annotation of a change that has been made to the Composition or Composition section. The extension is experimental and may overlap with other extensions, such as use of note in R6. The extension contains two parts: change - the description of the change, version-changed - the FHIR Clinical Document version that was changed. <p class="stu-note">Calculating a differential between versions is suggested for safely finding all changes as there is no guarantee that the Change made extensions contain all changes between versions.</p></li>
