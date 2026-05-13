@@ -1,5 +1,13 @@
-For querying and reading FHIR Clinical Document Profiles, Must Support on any profile data element SHALL be interpreted as follows:
+### Must Support Definition
+
+<div>
+<span class="fhir-conformance" id="mustSupport-1">The MustSupport flag as used in this implementation guide <b>SHALL</b> be interpreted to mean:</span>
 <ul>
-    <li>Document creators supporting the FHIR Clinical Document <b>SHALL</b> be capable of populating elements flagged with MS.</li>
-    <li>Document consumers <b>SHALL</b> be capable of processing elements flagged as MS.</li>
+    <li>§mustSupport-2:Document creators supporting the FHIR Clinical Document <b>SHALL</b> be capable of populating elements flagged with MS.§</li>
+    <li>§mustSupport-3:Document consumers <b>SHALL</b> be capable of processing elements flagged as MS.§</li>
 </ul>
+
+</div>
+### Conformance
+
+§§§
