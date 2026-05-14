@@ -45,6 +45,12 @@ tr {
 | Composition.relatesTo:appended_document | Removed MS Flag |
 | Composition.section.extension:change-made | Removed MS Flag |
 
+The specific tickets addressed in the 1.1.0 release include: 
+
+- Revise and Move the Must Support Definition [FHIR 57232](https://jira.hl7.org/browse/FHIR-57232)
+- Update MS Selections [FHIR 57233](https://jira.hl7.org/browse/FHIR-57233)
+- Move Status Extension to Proper location [FHIR 57234](https://jira.hl7.org/browse/FHIR-57234)
+
 ### STU 1.0.1 - Technical Correction
 
 #### Jira Tickets
