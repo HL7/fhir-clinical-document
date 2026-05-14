@@ -7,8 +7,7 @@ Revision semantics are those structured fields that enable a recipient to determ
 
 This IG recommends (and in some cases requires) the use of persistent resource identifiers (.identifier) as a means of enabling revision semantics. Resource IDs (.id) and resource meta (.meta) information is generally local to a specific server, whereas resource identifiers can serve as stable business identifiers that persist across servers. Recipient systems can only be confident about matching records and preventing downstream duplication if record identifiers are persistent across different documents for the same records.
 
-While out of scope for this IG, good practice suggests that where revision scenarios are possible, those resources subject to revision SHOULD carry a persistent resource identifier (.identifier). 
-
+<span class="fhir-conformance" id="versioning-1">While out of scope for this IG, good practice suggests that where revision scenarios are possible, those resources subject to revision SHOULD carry a persistent resource identifier (.identifier).</span> 
 
 #### Clinical document replacement
 A replacement document is a new version of a document. The replaced document is considered superseded, but a system may retain it for historical or auditing purposes. The replacement document references the replaced document via the replacement document's Composition.relatesTo, where relatesTo.code is 'replaces' and the target of relatesTo.targetIdentifier is the replaced document's Bundle.identifier. Both The replacement and original document statuses are 'final'. 

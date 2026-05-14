@@ -6,5 +6,120 @@
   "title" : "Narrative Conformance Statements",
   "status" : "active",
   "experimental" : false,
-  "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes"
+  "description" : "Conformance statements found throughout the narrative of the IG consolidated into this computable resource for traceability purposes",
+  "statement" : [{
+    "key" : "1",
+    "conformance" : ["SHALL"],
+    "requirement" : "mustSupport-1: For querying and reading FHIR Clinical Document Profiles, Must Support on any profile data element SHALL be interpreted as follows:"
+  },
+  {
+    "key" : "2",
+    "conformance" : ["SHOULD"],
+    "requirement" : "guidance-10:While out of scope for this IG, good practice suggests that where revision scenarios are possible, those resources subject to revision SHOULD carry a persistent resource identifier (.identifier)."
+  },
+  {
+    "key" : "creator-guidance-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "**SHALL** place attested narrative into Composition.section.text."
+  },
+  {
+    "key" : "creator-guidance-2",
+    "conformance" : ["SHOULD-NOT"],
+    "requirement" : "**SHOULD NOT** redundantly place attested narrative in both Composition.text and Composition.section.text."
+  },
+  {
+    "key" : "creator-guidance-3",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** include narrative that is not derived from any structured data."
+  },
+  {
+    "key" : "creator-guidance-4",
+    "conformance" : ["SHOULD"],
+    "requirement" : "**SHOULD** include document metadata (e.g. patient) in Composition.text."
+  },
+  {
+    "key" : "creator-guidance-5",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** include a list of document sections in Composition.text"
+  },
+  {
+    "key" : "guidance-9",
+    "conformance" : ["MAY"],
+    "requirement" : "**CDA NonXMLBody**: A CDA document with a nonXMLBody MAY be represented in FHIR using a DocumentReference that points to the information contained in the CDA's nonXMLBody. If the unstructured CDA document needs to be persisted as a “whole, authenticated document” (for example a previously digitally signed unstructured CDA document), it MAY be represented in FHIR using a DocumentReference that points to the complete CDA document."
+  },
+  {
+    "key" : "guidance-19",
+    "conformance" : ["SHALL"],
+    "requirement" : "the sender **SHALL** include the direct targets of all composition references in the bundle."
+  },
+  {
+    "key" : "guidance-composition-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "**SHALL** place attested narrative into Composition.section.text."
+  },
+  {
+    "key" : "guidance-composition-2",
+    "conformance" : ["SHOULD-NOT"],
+    "requirement" : "**SHOULD NOT** redundantly place attested narrative in both Composition.text and Composition.section.text."
+  },
+  {
+    "key" : "guidance-composition-3",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** include narrative that is not derived from any structured data."
+  },
+  {
+    "key" : "guidance-composition-4",
+    "conformance" : ["SHOULD"],
+    "requirement" : "**SHOULD** include document metadata (e.g. patient) in Composition.text."
+  },
+  {
+    "key" : "guidance-composition-5",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** include a list of document sections in Composition.text."
+  },
+  {
+    "key" : "guidance-composition-6",
+    "conformance" : ["SHALL"],
+    "requirement" : "**SHALL** include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document."
+  },
+  {
+    "key" : "guidance-composition-7",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** include Composition.text in a rendition of the document."
+  },
+  {
+    "key" : "guidance-composition-8",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** render additional document information (such as patient name and date of birth) derived from structured Composition fields."
+  },
+  {
+    "key" : "guidance-composition-9",
+    "conformance" : ["SHALL"],
+    "requirement" : "**Composition.category**: Document creators **SHALL** include a category value of 'clinical-note'. This serves to differentiate a FHIR Clinical Document from an arbitrary FHIR Document."
+  },
+  {
+    "key" : "guidance-composition-10",
+    "conformance" : ["SHOULD"],
+    "requirement" : "**Composition.custodian**: A basic tenet of a clinical document is stewardship, where, by definition, a clinical document is maintained by an organization entrusted with its care. Stewardship is reflected by Composition.custodian. While FHIR R4 restricts a custodian to be an Organization, FHIR R6 will expand on this to accommodate patient authored notes. In anticipation, this IG sets the cardinality of Composition.custodian to 0..1, but stipulates that the custodian **SHOULD** be populated where it is a known organization."
+  },
+  {
+    "key" : "mustSupport-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "Document creators supporting the FHIR Clinical Document **SHALL** be capable of populating elements flagged with MS."
+  },
+  {
+    "key" : "recipient-guidance-1",
+    "conformance" : ["SHALL"],
+    "requirement" : "**SHALL** include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document."
+  },
+  {
+    "key" : "recipient-guidance-2",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** include Composition.text in a rendition of the document."
+  },
+  {
+    "key" : "recipient-guidance-3",
+    "conformance" : ["MAY"],
+    "requirement" : "**MAY** render additional document information (such as patient name and date of birth) derived from structured Composition fields."
+  }]
 }

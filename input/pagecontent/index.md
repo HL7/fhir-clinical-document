@@ -58,9 +58,9 @@ A FHIR Clinical Document is a clinical document that conforms to this implementa
 From a technical perspective, a FHIR Clinical Document is a document Bundle containing a Composition and artifacts referred to by the Composition sections. The Composition is similar to an index, but also contains key header information. The FHIR Clinical Document IG derives from [core FHIR Documents guidance](https://hl7.org/fhir/R4/documents.html), adding further guidance and constraints. It is important to remember that the entire document Bundle is the FHIR Clinical Document, not just the Composition. 
   
 ### Human readability and rendering FHIR Clinical Documents
-[FHIR core narrative guidance](https://hl7.org/fhir/R4/narrative.html) stipulates that a resource's narrative "SHALL reflect all content needed for a human to understand the essential clinical and business information for the resource". In addition, to ensure the unambiguous communication of a clinical document's attested narrative, this IG requires that:
+§guidance-readability:[FHIR core narrative guidance](https://hl7.org/fhir/R4/narrative.html) stipulates that a resource's narrative "SHALL reflect all content needed for a human to understand the essential clinical and business information for the resource".§ In addition, to ensure the unambiguous communication of a clinical document's attested narrative, this IG requires that:
 
-1. There must be a deterministic method by which a recipient of an arbitrary FHIR Clinical Document can display the narrative content of the note on a standard Web browser. 
+1. There must be a deterministic method by which a recipient of an arbitrary FHIR Clinical Document can display the narrative content of the note on a standard Web browser.
 2. Human readability shall not require a sender to transmit a special style sheet along with a FHIR Clinical Document. It must be possible to render all FHIR Clinical Documents with a single style sheet and general-market display tools.
 3. Human readability applies to the authenticated content. There may be additional information conveyed in the document that is there primarily for machine processing that is not authenticated and need not be rendered.
 
@@ -69,15 +69,15 @@ Clinical document metadata (e.g. patient name and date of birth, participating p
 The Composition resource is special in that it can convey narrative in both Composition.text and Composition.section.text. This IG recommends that document metadata be conveyed in Composition.text whereas attested narrative be conveyed in Composition.section.text. Furthermore, while the document recipient must be able to render the contents of Composition.section.text, they can optionally render Composition.text or choose to ignore Composition.text particularly where they are capable of parsing the structured Composition fields. To summarize: 
 
 * The FHIR Clinical Document creator
-  * **SHALL** place attested narrative into Composition.section.text.
-  * **SHOULD NOT** redundantly place attested narrative in both Composition.text and Composition.section.text. 
-  * **MAY** include narrative that is not derived from any structured data.
-  * **SHOULD** include document metadata (e.g. patient) in Composition.text.
-  * **MAY** include a list of document sections in Composition.text
+  * §creator-guidance-1:**SHALL** place attested narrative into Composition.section.text.§
+  * §creator-guidance-2:**SHOULD NOT** redundantly place attested narrative in both Composition.text and Composition.section.text.§ 
+  * §creator-guidance-3:**MAY** include narrative that is not derived from any structured data.§
+  * §creator-guidance-4:**SHOULD** include document metadata (e.g. patient) in Composition.text.§
+  * §creator-guidance-5:**MAY** include a list of document sections in Composition.text§
 * The FHIR Clinical Document recipient
-  * **SHALL** include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document. 
-  * **MAY** include Composition.text in a rendition of the document.
-  * **MAY** render additional document information (such as patient name and date of birth) derived from structured Composition fields.
+  * §recipient-guidance-1:**SHALL** include, at a minimum, Composition.title, Composition.section.title and Composition.section.text in any rendition of the document.§
+  * §recipient-guidance-2:**MAY** include Composition.text in a rendition of the document.§
+  * §recipient-guidance-3:**MAY** render additional document information (such as patient name and date of birth) derived from structured Composition fields.§
 
 These rules apply even where there are other narrative type fields (e.g. FHIR R5 Composition.note, FHIR 'note' extension). 
 
