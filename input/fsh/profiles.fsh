@@ -98,7 +98,7 @@ Description: "Starting point for a specification for a composition of a FHIR Cli
     //ParticipantExtension named performer 0..* MS and
 	
     ConsentExtension named consent 0..* and
-	http://hl7.org/fhir/StructureDefinition/event-basedOn|5.2.0 named basedOn 0..* and
+	http://hl7.org/fhir/StructureDefinition/event-basedOn|5.3.0 named basedOn 0..* and
 	//OrderExtension named order 0..* MS 
 	//CancelledExtension named cancelled-status-indicator 0..1
 	
