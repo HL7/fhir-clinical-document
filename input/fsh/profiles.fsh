@@ -21,17 +21,18 @@ Description: "Universal starting point for specifying a FHIR Clinical Document."
 //* obeys clindoc-first-degree
 * obeys clindoc-timestamp-ge-compoDate
 
+* type 1..1 MS
 * type = #document
-* identifier 1..1
-* identifier.system 1..1
-* identifier.value 1..1
+* identifier 1..1 MS
+* identifier.system 1..1 MS
+* identifier.value 1..1 MS
 * identifier.value ^short = "Identifier system+value must be globally unique"
 * identifier ^mapping[0].identity = "cda"
 //* identifier ^mapping[=].map = "This is the Document identifier"
 * identifier ^mapping[0].comment =  "This is the Document identifier"
 * total 0..0
 
-* timestamp 1..1
+* timestamp 1..1 MS
 // Remove default mapping to ClinicalDocument.effectiveTime and state that this timestamp is >= ClinicalDocument.effectiveTime.
 // constraint: bundle.timestamp >= composition.date
 
