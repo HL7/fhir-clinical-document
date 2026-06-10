@@ -28,4 +28,20 @@ INFORMATION: Bundle/clinical-document-bundle-revision: Bundle.entry[9]: This ele
 INFORMATION: Bundle/clinical-document-bundle-revision: Bundle.entry[10]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/clinical-document-bundle|1.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Bundle/clinical-document-bundle-revision: Bundle.entry[11]: This element does not match any known slice defined in the profile http://hl7.org/fhir/uv/fhir-clinical-document/StructureDefinition/clinical-document-bundle|1.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 
+# 3. References to draft code system not addressed in 1.1 STU Update
 
+INFORMATION: Bundle/clinical-document-bundle-example1: Bundle.entry[5].resource/*Encounter/encounter-example*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: Bundle/clinical-document-bundle-example1: Bundle.entry[7].resource/*MedicationRequest/MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86*/.dosageInstruction[0].doseAndRate[0].type: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|4.0.1
+INFORMATION: Bundle/clinical-document-bundle-revision: Bundle.entry[5].resource/*Encounter/revised-encounter-example*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: Bundle/clinical-document-bundle-revision: Bundle.entry[7].resource/*MedicationRequest/revised-MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86*/.dosageInstruction[0].doseAndRate[0].type: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|4.0.1
+INFORMATION: Bundle/clinical-document-to-transaction-bundle: Bundle.entry[5].resource/*Encounter/encounter-example*/.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: Bundle/clinical-document-to-transaction-bundle: Bundle.entry[7].resource/*MedicationRequest/MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86*/.dosageInstruction[0].doseAndRate[0].type: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|4.0.1
+INFORMATION: Encounter/encounter-example: Encounter.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: Encounter/revised-encounter-example: Encounter.class: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v3-ActCode|2018-08-12
+INFORMATION: MedicationRequest/MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86: MedicationRequest.dosageInstruction[0].doseAndRate[0].type: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|4.0.1
+INFORMATION: MedicationRequest/revised-MedRequest-124a6916-5d84-4b8c-b250-10cefb8e6e86: MedicationRequest.dosageInstruction[0].doseAndRate[0].type: Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|4.0.1
+
+# 4. Depreciation messages related to extension packages not directly reference in IG
+
+INFORMATION: StructureDefinition/clinical-document-bundle: StructureDefinition.snapshot.element[4].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.3.0 is deprecated with the note: 'Use additionalBinding extension or element instead'
+INFORMATION: StructureDefinition/clinical-document-composition: StructureDefinition.snapshot.element[22].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.3.0 is deprecated with the note: 'This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex'
