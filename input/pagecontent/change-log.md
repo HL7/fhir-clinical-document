@@ -47,9 +47,14 @@ tr {
 
 The specific tickets addressed in the 1.1.0 release include: 
 
-- Revise and Move the Must Support Definition [FHIR 57232](https://jira.hl7.org/browse/FHIR-57232)
-- Update MS Selections [FHIR 57233](https://jira.hl7.org/browse/FHIR-57233)
-- Move Status Extension to Proper location [FHIR 57234](https://jira.hl7.org/browse/FHIR-57234)
+- R5 status extension is not a modifier extension [FHIR-56919](https://jira.hl7.org/browse/FHIR-56919)
+- Revise and Move the Must Support Definition [FHIR-57232](https://jira.hl7.org/browse/FHIR-57232)
+- Update MS Selections [FHIR-57233](https://jira.hl7.org/browse/FHIR-57233)
+- Move Status Extension to Proper location [FHIR-57234](https://jira.hl7.org/browse/FHIR-57234)
+- Conformance table and bolding of conformance [FHIR-57343](https://jira.hl7.org/browse/FHIR-57343)
+- Add MustSupport flags to mandatory Bundle elements[FHIR-57344](https://jira.hl7.org/browse/FHIR-57344)
+- Clarify and consistently apply MustSupport [FHIR-57371](https://jira.hl7.org/browse/FHIR-57371)
+- Add guidance on R5-Composition-status [FHIR-57468](https://jira.hl7.org/browse/FHIR-57468)
 
 ### STU 1.0.1 - Technical Correction
 
